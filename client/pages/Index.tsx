@@ -2,17 +2,22 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { 
-  GraduationCap, 
-  Briefcase, 
-  Languages, 
-  Heart, 
-  MapPin, 
-  Phone, 
+import {
+  GraduationCap,
+  Briefcase,
+  Languages,
+  Heart,
+  MapPin,
+  Phone,
   Mail,
   Calendar,
   Award,
-  Lightbulb
+  Lightbulb,
+  Atom,
+  FlaskConical,
+  Microscope,
+  Beaker,
+  Zap
 } from "lucide-react";
 
 export default function Index() {
