@@ -561,14 +561,11 @@ export default function Index() {
             <button className="group px-8 py-4 bg-gradient-to-r from-pink-600 to-red-600 rounded-full font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/25">
               <span className="flex items-center gap-2">
                 <ExternalLink className="w-5 h-5" />
-                Voir mon travail
+                Voir mes projets
               </span>
             </button>
-            
-            <button className="flex items-center gap-2 px-6 py-3 border border-white/20 rounded-full text-gray-300 hover:text-white hover:border-white/40 transition-all duration-300">
-              <Download className="w-4 h-4" />
-              <span className="font-light tracking-wide">CV complet</span>
-            </button>
+
+            <CVDownloadButton />
           </div>
         </div>
       </section>
