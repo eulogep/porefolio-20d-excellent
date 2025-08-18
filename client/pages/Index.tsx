@@ -167,10 +167,7 @@ export default function Index() {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
             
-            <button className="group flex items-center gap-2 px-6 py-3 border border-white/20 rounded-full text-gray-300 hover:text-white hover:border-white/40 transition-all duration-300">
-              <Download className="w-4 h-4" />
-              <span className="font-light tracking-wide">Télécharger CV</span>
-            </button>
+            <CVDownloadButton />
           </div>
 
           {/* Scroll Indicator */}
@@ -358,7 +355,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-extralight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
-              Exp��rience
+              Expérience
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full mx-auto mb-8" />
           </div>
