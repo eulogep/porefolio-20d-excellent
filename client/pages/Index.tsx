@@ -52,6 +52,8 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      <ChemistryBackground />
+      <MolecularStructure />
       {/* Animated Background */}
       <div className="fixed inset-0 opacity-20">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-pink-900/30" />
@@ -356,7 +358,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-extralight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
-              Expérience
+              Exp��rience
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full mx-auto mb-8" />
           </div>
