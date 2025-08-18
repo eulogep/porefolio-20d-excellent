@@ -161,15 +161,20 @@ export default function Index() {
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 Mon parcours académique et mes expériences de stage m'ont permis de développer une approche analytique rigoureuse face aux défis scientifiques. Je suis particulièrement attiré par la recherche fondamentale et appliquée en chimie.
               </p>
-              <div className="flex items-center justify-center gap-4 mt-6">
-                <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full">
+              <div className="flex items-center justify-center gap-4 mt-6 flex-wrap">
+                <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full glass-advanced animate-glow-pulse">
                   <Atom className="w-5 h-5 text-blue-600 animate-spin-slow" />
                   <span className="text-blue-700 font-medium">Recherche Fondamentale</span>
                 </div>
-                <div className="flex items-center gap-2 bg-purple-50 px-4 py-2 rounded-full">
-                  <FlaskConical className="w-5 h-5 text-purple-600 animate-pulse" />
+                <div className="flex items-center gap-2 bg-purple-50 px-4 py-2 rounded-full glass-advanced animate-pulse">
+                  <FlaskConical className="w-5 h-5 text-purple-600 animate-shake-reaction" />
                   <span className="text-purple-700 font-medium">Innovation Chimique</span>
                 </div>
+              </div>
+
+              {/* Molecule Animation */}
+              <div className="flex justify-center mt-8">
+                <MoleculeAnimation />
               </div>
             </div>
             <ChemistryCard icon={<Beaker className="w-4 h-4" />}>
