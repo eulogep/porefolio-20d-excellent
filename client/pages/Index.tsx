@@ -65,9 +65,35 @@ export default function Index() {
               <br />
               <span className="text-blue-600">Chadrak Gédéon</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Étudiant en Licence Chimie-Physique | Passionné de sciences et de créativité
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto flex items-center justify-center gap-2">
+              <Microscope className="w-5 h-5 text-blue-600 animate-pulse" />
+              Étudiant en Licence Chimie-Physique | Futur Chercheur en Chimie
+              <Beaker className="w-5 h-5 text-purple-600 animate-bounce" />
             </p>
+
+            {/* Floating Chemistry Elements */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="absolute top-20 left-10 animate-float-slow">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center opacity-70">
+                  <Atom className="w-6 h-6 text-blue-600" />
+                </div>
+              </div>
+              <div className="absolute top-40 right-16 animate-float-medium">
+                <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center opacity-60">
+                  <FlaskConical className="w-5 h-5 text-purple-600" />
+                </div>
+              </div>
+              <div className="absolute bottom-40 left-20 animate-float-fast">
+                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center opacity-50">
+                  <Zap className="w-4 h-4 text-green-600" />
+                </div>
+              </div>
+              <div className="absolute bottom-60 right-10 animate-float-slow">
+                <div className="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center opacity-40">
+                  <Microscope className="w-7 h-7 text-indigo-600" />
+                </div>
+              </div>
+            </div>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
               <div className="flex items-center gap-2 text-gray-600">
                 <MapPin size={16} />
