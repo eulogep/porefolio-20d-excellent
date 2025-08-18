@@ -172,7 +172,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 flex items-center justify-center gap-3">
             <GraduationCap className="text-blue-600" />
-            Formation académique
+            Formation acad��mique
           </h2>
           <div className="space-y-8">
             <Card className="p-6 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
@@ -236,7 +236,7 @@ export default function Index() {
       <section id="skills" className="py-16 px-6 bg-white/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 flex items-center justify-center gap-3">
-            <Lightbulb className="text-yellow-600" />
+            <Lightbulb className="text-yellow-600 animate-pulse" />
             Compétences & Langues
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
