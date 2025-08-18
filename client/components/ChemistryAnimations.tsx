@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Atom, FlaskConical, Microscope, Dna, Zap } from 'lucide-react';
+import React, { useEffect, useRef, useState } from "react";
+import { Atom, FlaskConical, Microscope, Dna, Zap } from "lucide-react";
 
 export const MolecularStructure: React.FC = () => {
   return (
@@ -7,10 +7,10 @@ export const MolecularStructure: React.FC = () => {
       {/* Benzene Ring Animation */}
       <div className="absolute top-20 left-10 w-32 h-32 animate-spin-slow">
         <svg viewBox="0 0 100 100" className="w-full h-full">
-          <polygon 
-            points="50,15 85,35 85,65 50,85 15,65 15,35" 
-            fill="none" 
-            stroke="rgba(59, 130, 246, 0.3)" 
+          <polygon
+            points="50,15 85,35 85,65 50,85 15,65 15,35"
+            fill="none"
+            stroke="rgba(59, 130, 246, 0.3)"
             strokeWidth="2"
           />
           {[0, 1, 2, 3, 4, 5].map((i) => (
@@ -35,9 +35,9 @@ export const MolecularStructure: React.FC = () => {
             className="absolute w-3 h-3 rounded-full animate-pulse"
             style={{
               left: `${50 + 40 * Math.sin((i * Math.PI) / 6)}%`,
-              top: `${(i * 8)}%`,
-              backgroundColor: i % 2 === 0 ? '#3B82F6' : '#8B5CF6',
-              animationDelay: `${i * 0.1}s`
+              top: `${i * 8}%`,
+              backgroundColor: i % 2 === 0 ? "#3B82F6" : "#8B5CF6",
+              animationDelay: `${i * 0.1}s`,
             }}
           />
         ))}
@@ -47,9 +47,9 @@ export const MolecularStructure: React.FC = () => {
             className="absolute w-3 h-3 rounded-full animate-pulse"
             style={{
               left: `${50 - 40 * Math.sin((i * Math.PI) / 6)}%`,
-              top: `${(i * 8)}%`,
-              backgroundColor: i % 2 === 0 ? '#10B981' : '#F59E0B',
-              animationDelay: `${i * 0.1 + 0.5}s`
+              top: `${i * 8}%`,
+              backgroundColor: i % 2 === 0 ? "#10B981" : "#F59E0B",
+              animationDelay: `${i * 0.1 + 0.5}s`,
             }}
           />
         ))}
@@ -71,13 +71,13 @@ export const MolecularStructure: React.FC = () => {
             stroke="rgba(16, 185, 129, 0.4)"
             strokeWidth="2"
             className="animate-pulse"
-            style={{ animationDelay: '1s' }}
+            style={{ animationDelay: "1s" }}
           />
         </svg>
       </div>
 
       {/* Floating Chemical Elements */}
-      {['C', 'H', 'O', 'N', 'S', 'P'].map((element, index) => (
+      {["C", "H", "O", "N", "S", "P"].map((element, index) => (
         <div
           key={element}
           className="absolute animate-float text-2xl font-bold opacity-20 text-blue-400"
@@ -85,7 +85,7 @@ export const MolecularStructure: React.FC = () => {
             left: `${10 + index * 15}%`,
             top: `${20 + (index % 3) * 25}%`,
             animationDelay: `${index * 0.8}s`,
-            animationDuration: `${4 + index}s`
+            animationDuration: `${4 + index}s`,
           }}
         >
           {element}
@@ -100,35 +100,41 @@ export const ChemicalReactionEffect: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setReaction(prev => (prev + 1) % 3);
+      setReaction((prev) => (prev + 1) % 3);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
 
   const getReactionColor = () => {
     switch (reaction) {
-      case 0: return 'from-blue-500 to-cyan-400';
-      case 1: return 'from-purple-500 to-pink-400';
-      case 2: return 'from-green-500 to-teal-400';
-      default: return 'from-blue-500 to-cyan-400';
+      case 0:
+        return "from-blue-500 to-cyan-400";
+      case 1:
+        return "from-purple-500 to-pink-400";
+      case 2:
+        return "from-green-500 to-teal-400";
+      default:
+        return "from-blue-500 to-cyan-400";
     }
   };
 
   return (
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-      <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${getReactionColor()} animate-ping`} />
+      <div
+        className={`w-4 h-4 rounded-full bg-gradient-to-r ${getReactionColor()} animate-ping`}
+      />
     </div>
   );
 };
 
 export const PeriodicTableElements: React.FC = () => {
   const elements = [
-    { symbol: 'C', name: 'Carbone', number: 6, color: 'blue' },
-    { symbol: 'H', name: 'Hydrogène', number: 1, color: 'purple' },
-    { symbol: 'O', name: 'Oxygène', number: 8, color: 'green' },
-    { symbol: 'N', name: 'Azote', number: 7, color: 'pink' },
-    { symbol: 'Ca', name: 'Calcium', number: 20, color: 'orange' },
-    { symbol: 'Fe', name: 'Fer', number: 26, color: 'red' }
+    { symbol: "C", name: "Carbone", number: 6, color: "blue" },
+    { symbol: "H", name: "Hydrogène", number: 1, color: "purple" },
+    { symbol: "O", name: "Oxygène", number: 8, color: "green" },
+    { symbol: "N", name: "Azote", number: 7, color: "pink" },
+    { symbol: "Ca", name: "Calcium", number: 20, color: "orange" },
+    { symbol: "Fe", name: "Fer", number: 26, color: "red" },
   ];
 
   return (
@@ -151,11 +157,17 @@ export const PeriodicTableElements: React.FC = () => {
             <div className="text-lg font-bold">{element.symbol}</div>
             <div className="text-xs truncate opacity-80">{element.name}</div>
           </div>
-          
+
           {/* Electron orbits */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute inset-1 border border-white/30 rounded-full animate-spin" style={{ animationDuration: '4s' }} />
-            <div className="absolute inset-2 border border-white/20 rounded-full animate-spin" style={{ animationDuration: '3s', animationDirection: 'reverse' }} />
+            <div
+              className="absolute inset-1 border border-white/30 rounded-full animate-spin"
+              style={{ animationDuration: "4s" }}
+            />
+            <div
+              className="absolute inset-2 border border-white/20 rounded-full animate-spin"
+              style={{ animationDuration: "3s", animationDirection: "reverse" }}
+            />
           </div>
         </div>
       ))}
@@ -177,7 +189,7 @@ export const LabEquipmentAnimation: React.FC = () => {
               style={{
                 left: `${-2 + i * 2}px`,
                 animationDelay: `${i * 0.3}s`,
-                animationDuration: '1s'
+                animationDuration: "1s",
               }}
             />
           ))}
@@ -192,8 +204,14 @@ export const LabEquipmentAnimation: React.FC = () => {
 
       {/* Atom with electron orbits */}
       <div className="relative w-12 h-12">
-        <Atom className="w-12 h-12 text-green-400 animate-spin" style={{ animationDuration: '3s' }} />
-        <div className="absolute top-1/2 left-1/2 w-8 h-8 border border-green-400/50 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-spin" style={{ animationDuration: '2s', animationDirection: 'reverse' }} />
+        <Atom
+          className="w-12 h-12 text-green-400 animate-spin"
+          style={{ animationDuration: "3s" }}
+        />
+        <div
+          className="absolute top-1/2 left-1/2 w-8 h-8 border border-green-400/50 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-spin"
+          style={{ animationDuration: "2s", animationDirection: "reverse" }}
+        />
       </div>
 
       {/* DNA with helix animation */}
@@ -207,7 +225,7 @@ export const LabEquipmentAnimation: React.FC = () => {
               style={{
                 top: `${25 + i * 25}%`,
                 left: `${25 + i * 25}%`,
-                animationDelay: `${i * 0.5}s`
+                animationDelay: `${i * 0.5}s`,
               }}
             />
           ))}
@@ -225,28 +243,39 @@ export const LabEquipmentAnimation: React.FC = () => {
 
 export const CVDownloadButton: React.FC = () => {
   const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = 'https://cdn.builder.io/o/assets%2Fb763a074828b443491d7e3e64f46617d%2F47287234873f49ab847d2226b07f61bd?alt=media&token=f27fa724-81cb-4afc-ae12-b3b076812654&apiKey=b763a074828b443491d7e3e64f46617d';
-    link.download = 'CV_Excellent_Chadrak_Gedeon.pdf';
-    link.target = '_blank';
+    const link = document.createElement("a");
+    link.href =
+      "https://cdn.builder.io/o/assets%2Fb763a074828b443491d7e3e64f46617d%2F47287234873f49ab847d2226b07f61bd?alt=media&token=f27fa724-81cb-4afc-ae12-b3b076812654&apiKey=b763a074828b443491d7e3e64f46617d";
+    link.download = "CV_Excellent_Chadrak_Gedeon.pdf";
+    link.target = "_blank";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <button 
+    <button
       onClick={handleDownload}
       className="group relative px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full font-medium tracking-wide overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/25"
     >
       <span className="relative z-10 flex items-center gap-2">
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          />
         </svg>
         Télécharger CV
       </span>
       <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      
+
       {/* Animated particles */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(6)].map((_, i) => (
@@ -256,7 +285,7 @@ export const CVDownloadButton: React.FC = () => {
             style={{
               left: `${20 + i * 10}%`,
               top: `${30 + (i % 2) * 40}%`,
-              animationDelay: `${i * 0.1}s`
+              animationDelay: `${i * 0.1}s`,
             }}
           />
         ))}
@@ -269,13 +298,40 @@ export const ChemistryBackground: React.FC = () => {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-10">
       {/* Chemical formulas */}
-      <div className="absolute top-10 left-10 text-6xl font-thin text-blue-400 animate-pulse">H₂O</div>
-      <div className="absolute top-20 right-20 text-5xl font-thin text-purple-400 animate-pulse" style={{ animationDelay: '1s' }}>CO₂</div>
-      <div className="absolute bottom-32 left-16 text-4xl font-thin text-green-400 animate-pulse" style={{ animationDelay: '2s' }}>CH₄</div>
-      <div className="absolute bottom-20 right-32 text-5xl font-thin text-pink-400 animate-pulse" style={{ animationDelay: '3s' }}>NaCl</div>
-      <div className="absolute top-1/2 left-20 text-3xl font-thin text-yellow-400 animate-pulse" style={{ animationDelay: '4s' }}>C₆H₁₂O₆</div>
-      <div className="absolute top-1/3 right-1/4 text-4xl font-thin text-cyan-400 animate-pulse" style={{ animationDelay: '5s' }}>NH₃</div>
-      
+      <div className="absolute top-10 left-10 text-6xl font-thin text-blue-400 animate-pulse">
+        H₂O
+      </div>
+      <div
+        className="absolute top-20 right-20 text-5xl font-thin text-purple-400 animate-pulse"
+        style={{ animationDelay: "1s" }}
+      >
+        CO₂
+      </div>
+      <div
+        className="absolute bottom-32 left-16 text-4xl font-thin text-green-400 animate-pulse"
+        style={{ animationDelay: "2s" }}
+      >
+        CH₄
+      </div>
+      <div
+        className="absolute bottom-20 right-32 text-5xl font-thin text-pink-400 animate-pulse"
+        style={{ animationDelay: "3s" }}
+      >
+        NaCl
+      </div>
+      <div
+        className="absolute top-1/2 left-20 text-3xl font-thin text-yellow-400 animate-pulse"
+        style={{ animationDelay: "4s" }}
+      >
+        C₆H₁₂O₆
+      </div>
+      <div
+        className="absolute top-1/3 right-1/4 text-4xl font-thin text-cyan-400 animate-pulse"
+        style={{ animationDelay: "5s" }}
+      >
+        NH₃
+      </div>
+
       {/* Molecular bonds */}
       <svg className="absolute inset-0 w-full h-full">
         <defs>
@@ -284,7 +340,7 @@ export const ChemistryBackground: React.FC = () => {
             <stop offset="100%" stopColor="rgba(139, 92, 246, 0.3)" />
           </linearGradient>
         </defs>
-        
+
         {[...Array(8)].map((_, i) => (
           <line
             key={i}
