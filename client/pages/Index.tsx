@@ -408,16 +408,24 @@ export default function Index() {
             <LabEquipmentAnimation />
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Scientific Skills */}
+          <div className="grid lg:grid-cols-4 gap-8">
+            {/* Scientific & Technical Skills */}
             <div className="space-y-6">
               <h3 className="text-2xl font-light text-green-200 mb-8 flex items-center gap-3">
                 <Atom className="w-6 h-6 text-green-400" />
-                Sciences
+                Sciences & Technique
               </h3>
-              {['Chimie Organique', 'Chimie Analytique', 'Physique-Chimie', 'Mathématiques', 'Méthodes de Recherche'].map((skill, index) => (
+              {[
+                'Chimie Organique',
+                'Chimie Analytique',
+                'Physique-Chimie',
+                'Mathématiques',
+                'Logiciels scientifiques',
+                'Pack Office',
+                'Analyse scientifique'
+              ].map((skill, index) => (
                 <div key={skill} className="group flex items-center gap-4">
-                  <div className="w-2 h-2 bg-green-400 rounded-full group-hover:scale-150 transition-transform duration-300" />
+                  <div className="w-2 h-2 bg-green-400 rounded-full group-hover:scale-150 transition-transform duration-300 animate-pulse" style={{ animationDelay: `${index * 0.1}s` }} />
                   <span className="text-gray-300 font-light group-hover:text-green-200 transition-colors duration-300">{skill}</span>
                 </div>
               ))}
@@ -431,14 +439,36 @@ export default function Index() {
               </h3>
               {[
                 { lang: 'Français', level: 'Courant', color: 'blue' },
-                { lang: 'Anglais', level: 'Scolaire', color: 'purple' },
-                { lang: 'Espagnol', level: 'Scolaire', color: 'pink' }
+                { lang: 'Anglais', level: 'Intermédiaire', color: 'purple' },
+                { lang: 'Espagnol', level: 'Notions', color: 'pink' }
               ].map(({ lang, level, color }) => (
-                <div key={lang} className="group flex items-center justify-between">
+                <div key={lang} className="group flex items-center justify-between p-3 rounded-lg bg-gray-800/30 hover:bg-gray-700/40 transition-all duration-300">
                   <span className="text-gray-300 font-light">{lang}</span>
-                  <Badge className={`bg-${color}-500/20 text-${color}-300 border-${color}-500/30 text-xs`}>
+                  <Badge className={`bg-${color}-500/20 text-${color}-300 border-${color}-500/30 text-xs hover:scale-110 transition-transform`}>
                     {level}
                   </Badge>
+                </div>
+              ))}
+            </div>
+
+            {/* Soft Skills */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-light text-yellow-200 mb-8 flex items-center gap-3">
+                <Brain className="w-6 h-6 text-yellow-400" />
+                Soft Skills
+              </h3>
+              {[
+                'Communication',
+                'Expression orale',
+                'Adaptabilité',
+                'Apprentissage rapide',
+                'Travail en équipe',
+                'Résolution de problèmes',
+                'Raisonnement logique'
+              ].map((skill, index) => (
+                <div key={skill} className="group flex items-center gap-4">
+                  <div className="w-2 h-2 bg-yellow-400 rounded-full group-hover:scale-150 transition-transform duration-300 animate-pulse" style={{ animationDelay: `${index * 0.15}s` }} />
+                  <span className="text-gray-300 font-light group-hover:text-yellow-200 transition-colors duration-300">{skill}</span>
                 </div>
               ))}
             </div>
@@ -449,10 +479,15 @@ export default function Index() {
                 <Heart className="w-6 h-6 text-purple-400" />
                 Centres d'intérêt
               </h3>
-              {['Musique', 'Théâtre', 'Jeux vidéo', 'Volleyball'].map((interest, index) => (
-                <div key={interest} className="group flex items-center gap-4">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full group-hover:scale-150 transition-transform duration-300" />
-                  <span className="text-gray-300 font-light group-hover:text-purple-200 transition-colors duration-300">{interest}</span>
+              {[
+                { name: 'Musique', icon: '🎵' },
+                { name: 'Théâtre', icon: '🎭' },
+                { name: 'Jeux vidéo', icon: '🎮' },
+                { name: 'Volleyball', icon: '🏐' }
+              ].map(({ name, icon }, index) => (
+                <div key={name} className="group flex items-center gap-4 p-3 rounded-lg bg-purple-900/20 hover:bg-purple-800/30 transition-all duration-300 hover:scale-105">
+                  <span className="text-2xl animate-bounce" style={{ animationDelay: `${index * 0.2}s` }}>{icon}</span>
+                  <span className="text-gray-300 font-light group-hover:text-purple-200 transition-colors duration-300">{name}</span>
                 </div>
               ))}
             </div>
