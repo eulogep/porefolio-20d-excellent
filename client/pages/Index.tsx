@@ -272,6 +272,14 @@ export default function Index() {
             <Lightbulb className="text-yellow-600 animate-pulse" />
             Compétences & Langues
           </h2>
+
+          {/* Periodic Elements Display */}
+          <div className="flex justify-center mb-8 gap-4 flex-wrap">
+            <PeriodicElement symbol="C" name="Carbone" number={6} />
+            <PeriodicElement symbol="H" name="Hydrogène" number={1} />
+            <PeriodicElement symbol="O" name="Oxygène" number={8} />
+            <PeriodicElement symbol="N" name="Azote" number={7} />
+          </div>
           <div className="grid md:grid-cols-2 gap-12">
             <Card className="p-6 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
               <CardContent className="p-0">
