@@ -57,17 +57,44 @@ export default function Index() {
       <section className="pt-20 pb-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center py-20 relative">
-            <div className="relative w-32 h-32 mx-auto mb-8">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2Fb763a074828b443491d7e3e64f46617d%2F128de65beba046ed97de67b7f1b32662?format=webp&width=800"
-                alt="Excellent Chadrak Gédéon"
-                className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
-              />
-              <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center animate-pulse">
-                <Atom className="w-4 h-4 text-white" />
+            <div className="relative w-40 h-40 mx-auto mb-8 group">
+              {/* Main profile image with enhanced effects */}
+              <div className="relative w-32 h-32 mx-auto">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fb763a074828b443491d7e3e64f46617d%2F128de65beba046ed97de67b7f1b32662?format=webp&width=800"
+                  alt="Excellent Chadrak Gédéon"
+                  className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-2xl group-hover:scale-110 transition-all duration-500 animate-glow-pulse"
+                />
+
+                {/* Orbiting chemistry elements */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="animate-molecule-orbit">
+                    <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                      <Atom className="w-4 h-4 text-white" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="animate-molecule-orbit" style={{ animationDelay: '1s', animationDirection: 'reverse' }}>
+                    <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                      <FlaskConical className="w-3 h-3 text-white" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="animate-molecule-orbit" style={{ animationDelay: '2s' }}>
+                    <div className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+                      <Microscope className="w-3.5 h-3.5 text-white" />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="absolute -bottom-2 -left-2 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center animate-bounce">
-                <FlaskConical className="w-4 h-4 text-white" />
+
+              {/* DNA Helix decoration */}
+              <div className="absolute -right-8 top-1/2 transform -translate-y-1/2">
+                <DNAHelix />
               </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
