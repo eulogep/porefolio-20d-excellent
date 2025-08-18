@@ -17,7 +17,7 @@ import {
   FlaskConical,
   Microscope,
   Beaker,
-  Zap
+  Zap,
 } from "lucide-react";
 import {
   FloatingParticles,
@@ -26,12 +26,12 @@ import {
   ChemistryCard,
   DNAHelix,
   PeriodicElement,
-  LoadingMolecule
+  LoadingMolecule,
 } from "@/components/ChemistryEffects";
 
 export default function Index() {
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -41,13 +41,40 @@ export default function Index() {
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200/50">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="font-bold text-xl text-gray-900">Excellent Chadrak</h1>
+            <h1 className="font-bold text-xl text-gray-900">
+              Excellent Chadrak
+            </h1>
             <div className="hidden md:flex space-x-6">
-              <button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-blue-600 transition-colors">À propos</button>
-              <button onClick={() => scrollToSection('education')} className="text-gray-600 hover:text-blue-600 transition-colors">Formation</button>
-              <button onClick={() => scrollToSection('experience')} className="text-gray-600 hover:text-blue-600 transition-colors">Expérience</button>
-              <button onClick={() => scrollToSection('skills')} className="text-gray-600 hover:text-blue-600 transition-colors">Compétences</button>
-              <button onClick={() => scrollToSection('contact')} className="text-gray-600 hover:text-blue-600 transition-colors">Contact</button>
+              <button
+                onClick={() => scrollToSection("about")}
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                À propos
+              </button>
+              <button
+                onClick={() => scrollToSection("education")}
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                Formation
+              </button>
+              <button
+                onClick={() => scrollToSection("experience")}
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                Expérience
+              </button>
+              <button
+                onClick={() => scrollToSection("skills")}
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                Compétences
+              </button>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                Contact
+              </button>
             </div>
           </div>
         </div>
@@ -76,7 +103,13 @@ export default function Index() {
                 </div>
 
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <div className="animate-molecule-orbit" style={{ animationDelay: '1s', animationDirection: 'reverse' }}>
+                  <div
+                    className="animate-molecule-orbit"
+                    style={{
+                      animationDelay: "1s",
+                      animationDirection: "reverse",
+                    }}
+                  >
                     <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
                       <FlaskConical className="w-3 h-3 text-white" />
                     </div>
@@ -84,7 +117,10 @@ export default function Index() {
                 </div>
 
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <div className="animate-molecule-orbit" style={{ animationDelay: '2s' }}>
+                  <div
+                    className="animate-molecule-orbit"
+                    style={{ animationDelay: "2s" }}
+                  >
                     <div className="w-7 h-7 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
                       <Microscope className="w-3.5 h-3.5 text-white" />
                     </div>
@@ -141,7 +177,7 @@ export default function Index() {
                 <span>Né le 07/11/2007</span>
               </div>
             </div>
-            <GlowingButton onClick={() => scrollToSection('contact')}>
+            <GlowingButton onClick={() => scrollToSection("contact")}>
               <Mail className="w-5 h-5" />
               Me contacter
             </GlowingButton>
@@ -152,23 +188,39 @@ export default function Index() {
       {/* About Section */}
       <section id="about" className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">À propos de moi</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
+            À propos de moi
+          </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Jeune étudiant passionné par les sciences, je poursuis actuellement mes études en Licence Chimie-Physique à l'Université Versailles Saint-Quentin-en-Yvelines. <strong className="text-blue-600">Mon objectif : devenir chercheur en chimie</strong> pour contribuer aux avancées scientifiques et aux innovations qui am��lioreront notre monde.
+                Jeune étudiant passionné par les sciences, je poursuis
+                actuellement mes études en Licence Chimie-Physique à
+                l'Université Versailles Saint-Quentin-en-Yvelines.{" "}
+                <strong className="text-blue-600">
+                  Mon objectif : devenir chercheur en chimie
+                </strong>{" "}
+                pour contribuer aux avancées scientifiques et aux innovations
+                qui am��lioreront notre monde.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Mon parcours académique et mes expériences de stage m'ont permis de développer une approche analytique rigoureuse face aux défis scientifiques. Je suis particulièrement attiré par la recherche fondamentale et appliquée en chimie.
+                Mon parcours académique et mes expériences de stage m'ont permis
+                de développer une approche analytique rigoureuse face aux défis
+                scientifiques. Je suis particulièrement attiré par la recherche
+                fondamentale et appliquée en chimie.
               </p>
               <div className="flex items-center justify-center gap-4 mt-6 flex-wrap">
                 <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full glass-advanced animate-glow-pulse">
                   <Atom className="w-5 h-5 text-blue-600 animate-spin-slow" />
-                  <span className="text-blue-700 font-medium">Recherche Fondamentale</span>
+                  <span className="text-blue-700 font-medium">
+                    Recherche Fondamentale
+                  </span>
                 </div>
                 <div className="flex items-center gap-2 bg-purple-50 px-4 py-2 rounded-full glass-advanced animate-pulse">
                   <FlaskConical className="w-5 h-5 text-purple-600 animate-shake-reaction" />
-                  <span className="text-purple-700 font-medium">Innovation Chimique</span>
+                  <span className="text-purple-700 font-medium">
+                    Innovation Chimique
+                  </span>
                 </div>
               </div>
 
@@ -185,7 +237,9 @@ export default function Index() {
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <MapPin size={16} className="text-blue-600" />
-                  <span className="text-gray-700">70 boulevard Barbès, 75018 Paris</span>
+                  <span className="text-gray-700">
+                    70 boulevard Barbès, 75018 Paris
+                  </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone size={16} className="text-blue-600" />
@@ -216,22 +270,46 @@ export default function Index() {
             <Card className="p-6 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
               <CardContent className="p-0">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-gray-900">Licence 2, mention Chimie – Physique</h3>
-                  <Badge variant="secondary" className="bg-blue-100 text-blue-800 w-fit">2025–2026</Badge>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Licence 2, mention Chimie – Physique
+                  </h3>
+                  <Badge
+                    variant="secondary"
+                    className="bg-blue-100 text-blue-800 w-fit"
+                  >
+                    2025–2026
+                  </Badge>
                 </div>
-                <p className="text-gray-700 mb-2">UFR Sciences, Université Versailles Saint-Quentin-en-Yvelines</p>
-                <p className="text-gray-600">Spécialisation approfondie en chimie et physique, avec focus sur la recherche expérimentale et théorique.</p>
+                <p className="text-gray-700 mb-2">
+                  UFR Sciences, Université Versailles Saint-Quentin-en-Yvelines
+                </p>
+                <p className="text-gray-600">
+                  Spécialisation approfondie en chimie et physique, avec focus
+                  sur la recherche expérimentale et théorique.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="p-6 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
               <CardContent className="p-0">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-gray-900">Baccalauréat général</h3>
-                  <Badge variant="secondary" className="bg-green-100 text-green-800 w-fit">2024 - Mention</Badge>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Baccalauréat général
+                  </h3>
+                  <Badge
+                    variant="secondary"
+                    className="bg-green-100 text-green-800 w-fit"
+                  >
+                    2024 - Mention
+                  </Badge>
                 </div>
-                <p className="text-gray-700 mb-2">Lycée Jacques Decour, Paris</p>
-                <p className="text-gray-600">Terminale générale avec spécialités Mathématiques et Physique-Chimie, option Théâtre</p>
+                <p className="text-gray-700 mb-2">
+                  Lycée Jacques Decour, Paris
+                </p>
+                <p className="text-gray-600">
+                  Terminale générale avec spécialités Mathématiques et
+                  Physique-Chimie, option Théâtre
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -249,21 +327,41 @@ export default function Index() {
             <Card className="p-6 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
               <CardContent className="p-0">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-gray-900">Stage en entreprise d'architecture acoustique</h3>
-                  <Badge variant="secondary" className="bg-purple-100 text-purple-800 w-fit">2024 - 2 semaines</Badge>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Stage en entreprise d'architecture acoustique
+                  </h3>
+                  <Badge
+                    variant="secondary"
+                    className="bg-purple-100 text-purple-800 w-fit"
+                  >
+                    2024 - 2 semaines
+                  </Badge>
                 </div>
-                <p className="text-gray-600">Découverte des principes de l'acoustique appliquée en architecture et des méthodes de mesure sonore.</p>
+                <p className="text-gray-600">
+                  Découverte des principes de l'acoustique appliquée en
+                  architecture et des méthodes de mesure sonore.
+                </p>
               </CardContent>
             </Card>
 
             <Card className="p-6 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
               <CardContent className="p-0">
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-gray-900">Stage chez ARCHI META VISION</h3>
-                  <Badge variant="secondary" className="bg-orange-100 text-orange-800 w-fit">Novembre 2020 - 1 semaine</Badge>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Stage chez ARCHI META VISION
+                  </h3>
+                  <Badge
+                    variant="secondary"
+                    className="bg-orange-100 text-orange-800 w-fit"
+                  >
+                    Novembre 2020 - 1 semaine
+                  </Badge>
                 </div>
                 <p className="text-gray-700 mb-2">Géomètre</p>
-                <p className="text-gray-600">Initiation aux techniques de géométrie appliquée et aux outils de mesure topographique.</p>
+                <p className="text-gray-600">
+                  Initiation aux techniques de géométrie appliquée et aux outils
+                  de mesure topographique.
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -299,27 +397,86 @@ export default function Index() {
                       Sciences & Recherche
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline" className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors">Chimie Organique</Badge>
-                      <Badge variant="outline" className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors">Chimie Analytique</Badge>
-                      <Badge variant="outline" className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors">Physique-Chimie</Badge>
-                      <Badge variant="outline" className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors">Mathématiques</Badge>
-                      <Badge variant="outline" className="bg-green-50 text-green-700 hover:bg-green-100 transition-colors">Méthodes de Recherche</Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                      >
+                        Chimie Organique
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                      >
+                        Chimie Analytique
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                      >
+                        Physique-Chimie
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                      >
+                        Mathématiques
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-green-50 text-green-700 hover:bg-green-100 transition-colors"
+                      >
+                        Méthodes de Recherche
+                      </Badge>
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">Spécialisations</h4>
+                    <h4 className="font-medium text-gray-900 mb-2">
+                      Spécialisations
+                    </h4>
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline" className="bg-purple-50 text-purple-700">Acoustique</Badge>
-                      <Badge variant="outline" className="bg-purple-50 text-purple-700">Géométrie appliquée</Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-purple-50 text-purple-700"
+                      >
+                        Acoustique
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-purple-50 text-purple-700"
+                      >
+                        Géométrie appliquée
+                      </Badge>
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">Soft Skills</h4>
+                    <h4 className="font-medium text-gray-900 mb-2">
+                      Soft Skills
+                    </h4>
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline" className="bg-green-50 text-green-700">Analyse scientifique</Badge>
-                      <Badge variant="outline" className="bg-green-50 text-green-700">Esprit logique</Badge>
-                      <Badge variant="outline" className="bg-green-50 text-green-700">Travail en équipe</Badge>
-                      <Badge variant="outline" className="bg-green-50 text-green-700">Adaptation rapide</Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-green-50 text-green-700"
+                      >
+                        Analyse scientifique
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-green-50 text-green-700"
+                      >
+                        Esprit logique
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-green-50 text-green-700"
+                      >
+                        Travail en équipe
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-green-50 text-green-700"
+                      >
+                        Adaptation rapide
+                      </Badge>
                     </div>
                   </div>
                 </div>
@@ -334,19 +491,33 @@ export default function Index() {
                 </h3>
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-3">Langues parlées</h4>
+                    <h4 className="font-medium text-gray-900 mb-3">
+                      Langues parlées
+                    </h4>
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="text-gray-700">Français</span>
-                        <Badge className="bg-green-100 text-green-800">Courant</Badge>
+                        <Badge className="bg-green-100 text-green-800">
+                          Courant
+                        </Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-700">Anglais</span>
-                        <Badge variant="outline" className="bg-yellow-50 text-yellow-700">Niveau scolaire</Badge>
+                        <Badge
+                          variant="outline"
+                          className="bg-yellow-50 text-yellow-700"
+                        >
+                          Niveau scolaire
+                        </Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-700">Espagnol</span>
-                        <Badge variant="outline" className="bg-yellow-50 text-yellow-700">Niveau scolaire</Badge>
+                        <Badge
+                          variant="outline"
+                          className="bg-yellow-50 text-yellow-700"
+                        >
+                          Niveau scolaire
+                        </Badge>
                       </div>
                     </div>
                   </div>
@@ -357,10 +528,30 @@ export default function Index() {
                       Centres d'intérêt
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline" className="bg-pink-50 text-pink-700">Musique</Badge>
-                      <Badge variant="outline" className="bg-pink-50 text-pink-700">Théâtre</Badge>
-                      <Badge variant="outline" className="bg-pink-50 text-pink-700">Jeux vidéo</Badge>
-                      <Badge variant="outline" className="bg-pink-50 text-pink-700">Volleyball</Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-pink-50 text-pink-700"
+                      >
+                        Musique
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-pink-50 text-pink-700"
+                      >
+                        Théâtre
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-pink-50 text-pink-700"
+                      >
+                        Jeux vidéo
+                      </Badge>
+                      <Badge
+                        variant="outline"
+                        className="bg-pink-50 text-pink-700"
+                      >
+                        Volleyball
+                      </Badge>
                     </div>
                   </div>
                 </div>
@@ -373,7 +564,9 @@ export default function Index() {
       {/* Contact Section */}
       <section id="contact" className="py-16 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12 text-gray-900 neon-text">Restons en contact</h2>
+          <h2 className="text-3xl font-bold mb-12 text-gray-900 neon-text">
+            Restons en contact
+          </h2>
 
           {/* Loading molecule animation */}
           <div className="flex justify-center mb-8">
@@ -382,7 +575,8 @@ export default function Index() {
 
           <ChemistryCard icon={<Mail className="w-4 h-4" />} className="p-8">
             <p className="text-lg text-gray-700 mb-8">
-              N'hésitez pas à me contacter pour toute opportunité de stage, de collaboration ou simplement pour échanger !
+              N'hésitez pas à me contacter pour toute opportunité de stage, de
+              collaboration ou simplement pour échanger !
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-center justify-center gap-3 p-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg text-white shadow-xl hover:scale-105 transition-all duration-300 animate-glow-pulse">
@@ -406,7 +600,7 @@ export default function Index() {
               style={{
                 left: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`
+                animationDuration: `${3 + Math.random() * 2}s`,
               }}
             />
           ))}
@@ -432,10 +626,18 @@ export default function Index() {
 
         {/* Background chemical formula pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="text-6xl font-bold text-blue-600 absolute top-2 left-10">H₂O</div>
-          <div className="text-5xl font-bold text-purple-600 absolute bottom-2 right-10">CO₂</div>
-          <div className="text-4xl font-bold text-green-600 absolute top-1/2 left-1/4">CH₄</div>
-          <div className="text-5xl font-bold text-red-600 absolute top-1/4 right-1/4">NaCl</div>
+          <div className="text-6xl font-bold text-blue-600 absolute top-2 left-10">
+            H₂O
+          </div>
+          <div className="text-5xl font-bold text-purple-600 absolute bottom-2 right-10">
+            CO₂
+          </div>
+          <div className="text-4xl font-bold text-green-600 absolute top-1/2 left-1/4">
+            CH₄
+          </div>
+          <div className="text-5xl font-bold text-red-600 absolute top-1/4 right-1/4">
+            NaCl
+          </div>
         </div>
       </footer>
     </div>

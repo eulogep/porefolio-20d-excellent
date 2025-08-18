@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Atom, FlaskConical, Microscope, Zap, Beaker } from 'lucide-react';
+import React, { useEffect, useRef } from "react";
+import { Atom, FlaskConical, Microscope, Zap, Beaker } from "lucide-react";
 
 interface Particle {
   x: number;
@@ -20,7 +20,7 @@ export const FloatingParticles: React.FC = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const resizeCanvas = () => {
@@ -29,10 +29,10 @@ export const FloatingParticles: React.FC = () => {
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     // Initialize particles
-    const colors = ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B', '#EF4444'];
+    const colors = ["#3B82F6", "#8B5CF6", "#10B981", "#F59E0B", "#EF4444"];
     for (let i = 0; i < 50; i++) {
       particlesRef.current.push({
         x: Math.random() * canvas.width,
@@ -41,14 +41,14 @@ export const FloatingParticles: React.FC = () => {
         vy: (Math.random() - 0.5) * 0.5,
         size: Math.random() * 3 + 1,
         color: colors[Math.floor(Math.random() * colors.length)],
-        opacity: Math.random() * 0.5 + 0.2
+        opacity: Math.random() * 0.5 + 0.2,
       });
     }
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particlesRef.current.forEach(particle => {
+      particlesRef.current.forEach((particle) => {
         particle.x += particle.vx;
         particle.y += particle.vy;
 
@@ -68,7 +68,7 @@ export const FloatingParticles: React.FC = () => {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -84,11 +84,11 @@ export const FloatingParticles: React.FC = () => {
   );
 };
 
-export const GlowingButton: React.FC<{ children: React.ReactNode; onClick?: () => void; className?: string }> = ({ 
-  children, 
-  onClick, 
-  className = "" 
-}) => {
+export const GlowingButton: React.FC<{
+  children: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+}> = ({ children, onClick, className = "" }) => {
   return (
     <button
       onClick={onClick}
@@ -102,9 +102,7 @@ export const GlowingButton: React.FC<{ children: React.ReactNode; onClick?: () =
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-      <div className="relative z-10 flex items-center gap-2">
-        {children}
-      </div>
+      <div className="relative z-10 flex items-center gap-2">{children}</div>
       <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-30 blur-xl transition-all duration-300" />
     </button>
   );
@@ -120,25 +118,58 @@ export const MoleculeAnimation: React.FC = () => {
         <div className="w-3 h-3 bg-yellow-500 rounded-full absolute top-1/4 left-0 transform -translate-y-1/2" />
       </div>
       <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-red-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse" />
-      
+
       {/* Connecting lines */}
       <svg className="absolute inset-0 w-full h-full">
-        <line x1="50%" y1="0" x2="50%" y2="50%" stroke="#3B82F6" strokeWidth="1" opacity="0.5" />
-        <line x1="50%" y1="50%" x2="100%" y2="50%" stroke="#8B5CF6" strokeWidth="1" opacity="0.5" />
-        <line x1="50%" y1="50%" x2="25%" y2="100%" stroke="#10B981" strokeWidth="1" opacity="0.5" />
-        <line x1="50%" y1="50%" x2="0" y2="25%" stroke="#F59E0B" strokeWidth="1" opacity="0.5" />
+        <line
+          x1="50%"
+          y1="0"
+          x2="50%"
+          y2="50%"
+          stroke="#3B82F6"
+          strokeWidth="1"
+          opacity="0.5"
+        />
+        <line
+          x1="50%"
+          y1="50%"
+          x2="100%"
+          y2="50%"
+          stroke="#8B5CF6"
+          strokeWidth="1"
+          opacity="0.5"
+        />
+        <line
+          x1="50%"
+          y1="50%"
+          x2="25%"
+          y2="100%"
+          stroke="#10B981"
+          strokeWidth="1"
+          opacity="0.5"
+        />
+        <line
+          x1="50%"
+          y1="50%"
+          x2="0"
+          y2="25%"
+          stroke="#F59E0B"
+          strokeWidth="1"
+          opacity="0.5"
+        />
       </svg>
     </div>
   );
 };
 
-export const ChemistryCard: React.FC<{ 
-  children: React.ReactNode; 
-  className?: string; 
+export const ChemistryCard: React.FC<{
+  children: React.ReactNode;
+  className?: string;
   icon?: React.ReactNode;
 }> = ({ children, className = "", icon }) => {
   return (
-    <div className={`
+    <div
+      className={`
       relative group p-6 rounded-2xl
       bg-gradient-to-br from-white/20 to-white/5
       backdrop-blur-md border border-white/20
@@ -146,23 +177,22 @@ export const ChemistryCard: React.FC<{
       transition-all duration-500
       hover:scale-105 hover:-translate-y-2
       ${className}
-    `}>
+    `}
+    >
       {/* Animated background */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
+
       {/* Glow effect */}
       <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500" />
-      
+
       {/* Icon floating effect */}
       {icon && (
         <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg group-hover:animate-bounce">
           {icon}
         </div>
       )}
-      
-      <div className="relative z-10">
-        {children}
-      </div>
+
+      <div className="relative z-10">{children}</div>
     </div>
   );
 };
@@ -177,8 +207,8 @@ export const DNAHelix: React.FC = () => {
             className="absolute w-2 h-2 bg-blue-500 rounded-full animate-pulse"
             style={{
               left: `${50 + 30 * Math.sin((i * Math.PI) / 4)}%`,
-              top: `${(i * 12.5)}%`,
-              animationDelay: `${i * 0.1}s`
+              top: `${i * 12.5}%`,
+              animationDelay: `${i * 0.1}s`,
             }}
           />
         ))}
@@ -188,8 +218,8 @@ export const DNAHelix: React.FC = () => {
             className="absolute w-2 h-2 bg-purple-500 rounded-full animate-pulse"
             style={{
               left: `${50 - 30 * Math.sin((i * Math.PI) / 4)}%`,
-              top: `${(i * 12.5)}%`,
-              animationDelay: `${i * 0.1 + 0.5}s`
+              top: `${i * 12.5}%`,
+              animationDelay: `${i * 0.1 + 0.5}s`,
             }}
           />
         ))}
@@ -198,19 +228,21 @@ export const DNAHelix: React.FC = () => {
   );
 };
 
-export const PeriodicElement: React.FC<{ symbol: string; name: string; number: number }> = ({ 
-  symbol, 
-  name, 
-  number 
-}) => {
+export const PeriodicElement: React.FC<{
+  symbol: string;
+  name: string;
+  number: number;
+}> = ({ symbol, name, number }) => {
   return (
-    <div className="
+    <div
+      className="
       relative w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600
       rounded-lg text-white text-center cursor-pointer
       transition-all duration-300 hover:scale-110 hover:rotate-6
       shadow-lg hover:shadow-2xl
       group
-    ">
+    "
+    >
       <div className="absolute inset-0 bg-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       <div className="relative z-10 p-1">
         <div className="text-xs font-bold">{number}</div>
@@ -232,7 +264,7 @@ export const LoadingMolecule: React.FC = () => {
             style={{
               left: `${50 + 40 * Math.cos((i * Math.PI) / 3)}%`,
               top: `${50 + 40 * Math.sin((i * Math.PI) / 3)}%`,
-              animationDelay: `${i * 0.1}s`
+              animationDelay: `${i * 0.1}s`,
             }}
           />
         ))}
