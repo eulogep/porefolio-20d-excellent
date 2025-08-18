@@ -47,8 +47,18 @@ export default function Index() {
       <section className="pt-20 pb-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center py-20">
-            <div className="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full mx-auto mb-8 flex items-center justify-center text-white text-4xl font-bold">
-              ECG
+            <div className="relative w-32 h-32 mx-auto mb-8">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2Fb763a074828b443491d7e3e64f46617d%2F128de65beba046ed97de67b7f1b32662?format=webp&width=800"
+                alt="Excellent Chadrak Gédéon"
+                className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+              />
+              <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center animate-pulse">
+                <Atom className="w-4 h-4 text-white" />
+              </div>
+              <div className="absolute -bottom-2 -left-2 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center animate-bounce">
+                <FlaskConical className="w-4 h-4 text-white" />
+              </div>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
               MABIALA Excellent
