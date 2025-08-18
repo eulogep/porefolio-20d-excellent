@@ -46,7 +46,7 @@ export default function Index() {
       {/* Hero Section */}
       <section className="pt-20 pb-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center py-20">
+          <div className="text-center py-20 relative">
             <div className="relative w-32 h-32 mx-auto mb-8">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2Fb763a074828b443491d7e3e64f46617d%2F128de65beba046ed97de67b7f1b32662?format=webp&width=800"
