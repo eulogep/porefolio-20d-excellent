@@ -19,6 +19,15 @@ import {
   Beaker,
   Zap
 } from "lucide-react";
+import {
+  FloatingParticles,
+  GlowingButton,
+  MoleculeAnimation,
+  ChemistryCard,
+  DNAHelix,
+  PeriodicElement,
+  LoadingMolecule
+} from "@/components/ChemistryEffects";
 
 export default function Index() {
   const scrollToSection = (id: string) => {
