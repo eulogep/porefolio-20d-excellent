@@ -139,7 +139,10 @@ export default function Index() {
             </div>
             <Card className="p-6 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
               <CardContent className="p-0">
-                <h3 className="font-semibold text-lg mb-4 text-gray-900">Informations personnelles</h3>
+                <h3 className="font-semibold text-lg mb-4 text-gray-900 flex items-center gap-2">
+                  <Beaker className="w-5 h-5 text-blue-600" />
+                  Informations personnelles
+                </h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <MapPin size={16} className="text-blue-600" />
