@@ -121,11 +121,21 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Jeune étudiant passionné par les sciences, je poursuis actuellement mes études en Licence Chimie-Physique à l'Université Versailles Saint-Quentin-en-Yvelines. Mon parcours académique et mes expériences de stage m'ont permis de développer une approche analytique et logique face aux défis scientifiques.
+                Jeune étudiant passionné par les sciences, je poursuis actuellement mes études en Licence Chimie-Physique à l'Université Versailles Saint-Quentin-en-Yvelines. <strong className="text-blue-600">Mon objectif : devenir chercheur en chimie</strong> pour contribuer aux avancées scientifiques et aux innovations qui amélioreront notre monde.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Au-delà des sciences, je cultive ma créativité à travers le théâtre et la musique, tout en maintenant un équilibre avec le sport, notamment le volleyball. Cette diversité d'intérêts enrichit ma vision du monde et renforce ma capacité d'adaptation.
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                Mon parcours académique et mes expériences de stage m'ont permis de développer une approche analytique rigoureuse face aux défis scientifiques. Je suis particulièrement attiré par la recherche fondamentale et appliquée en chimie.
               </p>
+              <div className="flex items-center justify-center gap-4 mt-6">
+                <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full">
+                  <Atom className="w-5 h-5 text-blue-600 animate-spin-slow" />
+                  <span className="text-blue-700 font-medium">Recherche Fondamentale</span>
+                </div>
+                <div className="flex items-center gap-2 bg-purple-50 px-4 py-2 rounded-full">
+                  <FlaskConical className="w-5 h-5 text-purple-600 animate-pulse" />
+                  <span className="text-purple-700 font-medium">Innovation Chimique</span>
+                </div>
+              </div>
             </div>
             <Card className="p-6 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
               <CardContent className="p-0">
