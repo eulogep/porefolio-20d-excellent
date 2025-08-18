@@ -141,12 +141,10 @@ export default function Index() {
                 <span>Né le 07/11/2007</span>
               </div>
             </div>
-            <Button 
-              onClick={() => scrollToSection('contact')} 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg"
-            >
+            <GlowingButton onClick={() => scrollToSection('contact')}>
+              <Mail className="w-5 h-5" />
               Me contacter
-            </Button>
+            </GlowingButton>
           </div>
         </div>
       </section>
