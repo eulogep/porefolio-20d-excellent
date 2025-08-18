@@ -172,7 +172,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 flex items-center justify-center gap-3">
             <GraduationCap className="text-blue-600" />
-            Formation acad��mique
+            Formation académique
           </h2>
           <div className="space-y-8">
             <Card className="p-6 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
@@ -243,8 +243,8 @@ export default function Index() {
             <Card className="p-6 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
               <CardContent className="p-0">
                 <h3 className="text-xl font-semibold mb-6 text-gray-900 flex items-center gap-2">
-                  <Award className="text-blue-600" />
-                  Compétences techniques
+                  <Award className="text-blue-600 animate-bounce" />
+                  Compétences techniques & Recherche
                 </h3>
                 <div className="space-y-4">
                   <div>
