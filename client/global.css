@@ -370,6 +370,56 @@
   animation: spin-slow 3s linear infinite;
 }
 
+/* Chemistry Animation Utilities */
+.animate-chemistry-pulse {
+  animation: chemistry-pulse 2s ease-in-out infinite;
+}
+
+.animate-molecular-rotation {
+  animation: molecular-rotation 8s linear infinite;
+}
+
+.animate-electron-orbit {
+  animation: electron-orbit 3s linear infinite;
+}
+
+.animate-bubble-reaction {
+  animation: bubble-reaction 2s ease-in-out infinite;
+}
+
+.animate-dna-helix {
+  animation: dna-helix 10s linear infinite;
+}
+
+.animate-periodic-glow {
+  animation: periodic-glow 3s ease-in-out infinite;
+}
+
+/* Advanced glass effects */
+.glass-chemistry {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Chemical element card effects */
+.element-card {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.element-card:hover {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
 /* Advanced Chemistry Animations */
 @keyframes molecule-orbit {
   0% {
