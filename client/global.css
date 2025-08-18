@@ -190,3 +190,147 @@
 .animate-spin-slow {
   animation: spin-slow 3s linear infinite;
 }
+
+/* Advanced Chemistry Animations */
+@keyframes molecule-orbit {
+  0% {
+    transform: rotate(0deg) translateX(20px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(20px) rotate(-360deg);
+  }
+}
+
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(139, 92, 246, 0.6);
+  }
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(240deg);
+  }
+}
+
+@keyframes shake-reaction {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes chemical-reaction {
+  0% {
+    background: linear-gradient(45deg, #3B82F6, #8B5CF6);
+  }
+  25% {
+    background: linear-gradient(45deg, #8B5CF6, #10B981);
+  }
+  50% {
+    background: linear-gradient(45deg, #10B981, #F59E0B);
+  }
+  75% {
+    background: linear-gradient(45deg, #F59E0B, #EF4444);
+  }
+  100% {
+    background: linear-gradient(45deg, #EF4444, #3B82F6);
+  }
+}
+
+@keyframes periodic-glow {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.2) saturate(1.5);
+  }
+}
+
+/* Glass morphism enhanced */
+.glass-advanced {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Utility classes */
+.animate-molecule-orbit {
+  animation: molecule-orbit 4s linear infinite;
+}
+
+.animate-bubble-rise {
+  animation: bubble-rise 3s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-particle-float {
+  animation: particle-float 6s ease-in-out infinite;
+}
+
+.animate-shake-reaction {
+  animation: shake-reaction 0.5s ease-in-out infinite;
+}
+
+.animate-chemical-reaction {
+  animation: chemical-reaction 5s ease-in-out infinite;
+}
+
+.animate-periodic-glow {
+  animation: periodic-glow 3s ease-in-out infinite;
+}
+
+/* 3D Effects */
+.transform-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Neon text effect */
+.neon-text {
+  text-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px currentColor;
+}
