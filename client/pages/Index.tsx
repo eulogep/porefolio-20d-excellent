@@ -361,32 +361,62 @@ export default function Index() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="group p-8 bg-gradient-to-br from-purple-900/20 to-pink-900/10 rounded-3xl border border-purple-500/20 hover:border-purple-400/40 transition-all duration-500 hover:scale-105">
+            <div className="group p-8 bg-gradient-to-br from-purple-900/20 to-pink-900/10 rounded-3xl border border-purple-500/20 hover:border-purple-400/40 transition-all duration-500 hover:scale-105 relative overflow-hidden">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-400 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-400 rounded-xl flex items-center justify-center group-hover:animate-pulse">
                   <Microscope className="w-6 h-6 text-white" />
                 </div>
-                <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">2024</Badge>
+                <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">Jan 2024</Badge>
               </div>
-              <h3 className="text-xl font-medium text-purple-200 mb-4">Architecture Acoustique</h3>
-              <p className="text-gray-400 font-light leading-relaxed">
-                Stage de 2 semaines dans une entreprise d'architecture acoustique. 
-                Découverte des principes physiques appliqués et des technologies de mesure sonore.
-              </p>
+              <h3 className="text-xl font-medium text-purple-200 mb-4">Stage - Entreprise d'Architecture Acoustique</h3>
+              <div className="space-y-3 text-gray-400 font-light leading-relaxed">
+                <p className="flex items-start gap-2">
+                  <Target className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
+                  Immersion dans le domaine de l'acoustique appliquée
+                </p>
+                <p className="flex items-start gap-2">
+                  <Target className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
+                  Participation à l'étude de l'isolation et du confort sonore dans les bâtiments
+                </p>
+                <p className="flex items-start gap-2">
+                  <Target className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
+                  Découverte du lien entre sciences physiques et applications architecturales
+                </p>
+              </div>
+
+              {/* Animated background effect */}
+              <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <ChemicalReactionEffect />
+              </div>
             </div>
 
-            <div className="group p-8 bg-gradient-to-br from-orange-900/20 to-red-900/10 rounded-3xl border border-orange-500/20 hover:border-orange-400/40 transition-all duration-500 hover:scale-105">
+            <div className="group p-8 bg-gradient-to-br from-orange-900/20 to-red-900/10 rounded-3xl border border-orange-500/20 hover:border-orange-400/40 transition-all duration-500 hover:scale-105 relative overflow-hidden">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-400 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-400 rounded-xl flex items-center justify-center group-hover:animate-pulse">
                   <Zap className="w-6 h-6 text-white" />
                 </div>
-                <Badge className="bg-orange-500/20 text-orange-300 border-orange-500/30">2020</Badge>
+                <Badge className="bg-orange-500/20 text-orange-300 border-orange-500/30">Nov 2020</Badge>
               </div>
-              <h3 className="text-xl font-medium text-orange-200 mb-4">ARCHI META VISION</h3>
-              <p className="text-gray-400 font-light leading-relaxed">
-                Stage d'initiation chez un géomètre. Première approche des techniques 
-                de mesure topographique et des outils de géométrie appliquée.
-              </p>
+              <h3 className="text-xl font-medium text-orange-200 mb-4">Stage - ARCHI META VISION Géomètre</h3>
+              <div className="space-y-3 text-gray-400 font-light leading-relaxed">
+                <p className="flex items-start gap-2">
+                  <Target className="w-4 h-4 text-orange-400 mt-1 flex-shrink-0" />
+                  Découverte du métier de géomètre et des techniques de mesure
+                </p>
+                <p className="flex items-start gap-2">
+                  <Target className="w-4 h-4 text-orange-400 mt-1 flex-shrink-0" />
+                  Observation et participation aux relevés de terrain
+                </p>
+                <p className="flex items-start gap-2">
+                  <Target className="w-4 h-4 text-orange-400 mt-1 flex-shrink-0" />
+                  Initiation aux outils et logiciels de cartographie
+                </p>
+              </div>
+
+              {/* Animated background effect */}
+              <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                <ChemicalReactionEffect />
+              </div>
             </div>
           </div>
         </div>
