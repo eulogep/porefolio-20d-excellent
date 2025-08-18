@@ -248,11 +248,16 @@ export default function Index() {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">Sciences</h4>
+                    <h4 className="font-medium text-gray-900 mb-2 flex items-center gap-2">
+                      <FlaskConical className="w-4 h-4 text-blue-600" />
+                      Sciences & Recherche
+                    </h4>
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline" className="bg-blue-50 text-blue-700">Chimie</Badge>
-                      <Badge variant="outline" className="bg-blue-50 text-blue-700">Physique</Badge>
-                      <Badge variant="outline" className="bg-blue-50 text-blue-700">Mathématiques</Badge>
+                      <Badge variant="outline" className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors">Chimie Organique</Badge>
+                      <Badge variant="outline" className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors">Chimie Analytique</Badge>
+                      <Badge variant="outline" className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors">Physique-Chimie</Badge>
+                      <Badge variant="outline" className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors">Mathématiques</Badge>
+                      <Badge variant="outline" className="bg-green-50 text-green-700 hover:bg-green-100 transition-colors">Méthodes de Recherche</Badge>
                     </div>
                   </div>
                   <div>
