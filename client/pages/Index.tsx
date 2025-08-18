@@ -371,26 +371,45 @@ export default function Index() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-6">
+      <section id="contact" className="py-16 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12 text-gray-900">Restons en contact</h2>
-          <Card className="p-8 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
-            <CardContent className="p-0">
-              <p className="text-lg text-gray-700 mb-8">
-                N'hésitez pas à me contacter pour toute opportunité de stage, de collaboration ou simplement pour échanger !
-              </p>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="flex items-center justify-center gap-3 p-4 bg-blue-50 rounded-lg">
-                  <Phone className="text-blue-600" />
-                  <span className="text-gray-900 font-medium">07 66 16 06 22</span>
-                </div>
-                <div className="flex items-center justify-center gap-3 p-4 bg-purple-50 rounded-lg">
-                  <Mail className="text-purple-600" />
-                  <span className="text-gray-900 font-medium">mex.exce@gmail.com</span>
-                </div>
+          <h2 className="text-3xl font-bold mb-12 text-gray-900 neon-text">Restons en contact</h2>
+
+          {/* Loading molecule animation */}
+          <div className="flex justify-center mb-8">
+            <LoadingMolecule />
+          </div>
+
+          <ChemistryCard icon={<Mail className="w-4 h-4" />} className="p-8">
+            <p className="text-lg text-gray-700 mb-8">
+              N'hésitez pas à me contacter pour toute opportunité de stage, de collaboration ou simplement pour échanger !
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="flex items-center justify-center gap-3 p-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg text-white shadow-xl hover:scale-105 transition-all duration-300 animate-glow-pulse">
+                <Phone className="text-white animate-bounce" />
+                <span className="font-medium">07 66 16 06 22</span>
               </div>
-            </CardContent>
-          </Card>
+              <div className="flex items-center justify-center gap-3 p-4 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg text-white shadow-xl hover:scale-105 transition-all duration-300 animate-glow-pulse">
+                <Mail className="text-white animate-bounce" />
+                <span className="font-medium">mex.exce@gmail.com</span>
+              </div>
+            </div>
+          </ChemistryCard>
+        </div>
+
+        {/* Floating bubbles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-4 h-4 bg-blue-200 rounded-full animate-bubble-rise opacity-60"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${3 + Math.random() * 2}s`
+              }}
+            />
+          ))}
         </div>
       </section>
 
