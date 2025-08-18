@@ -156,7 +156,7 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Jeune étudiant passionné par les sciences, je poursuis actuellement mes études en Licence Chimie-Physique à l'Université Versailles Saint-Quentin-en-Yvelines. <strong className="text-blue-600">Mon objectif : devenir chercheur en chimie</strong> pour contribuer aux avancées scientifiques et aux innovations qui amélioreront notre monde.
+                Jeune étudiant passionné par les sciences, je poursuis actuellement mes études en Licence Chimie-Physique à l'Université Versailles Saint-Quentin-en-Yvelines. <strong className="text-blue-600">Mon objectif : devenir chercheur en chimie</strong> pour contribuer aux avancées scientifiques et aux innovations qui am��lioreront notre monde.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
                 Mon parcours académique et mes expériences de stage m'ont permis de développer une approche analytique rigoureuse face aux défis scientifiques. Je suis particulièrement attiré par la recherche fondamentale et appliquée en chimie.
@@ -414,11 +414,28 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-gray-200/50 bg-white/50">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-gray-600">
-            © 2024 MABIALA Excellent Chadrak Gédéon - Portfolio personnel
-          </p>
+      <footer className="py-8 px-6 border-t border-gray-200/50 bg-gradient-to-r from-blue-50 to-purple-50 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto text-center relative z-10">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center animate-pulse">
+              <Atom className="w-4 h-4 text-white" />
+            </div>
+            <p className="text-gray-700 font-medium">
+              © 2024 MABIALA Excellent Chadrak Gédéon
+            </p>
+            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-full flex items-center justify-center animate-pulse">
+              <FlaskConical className="w-4 h-4 text-white" />
+            </div>
+          </div>
+          <p className="text-gray-600 italic">Futur Chercheur en Chimie</p>
+        </div>
+
+        {/* Background chemical formula pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="text-6xl font-bold text-blue-600 absolute top-2 left-10">H₂O</div>
+          <div className="text-5xl font-bold text-purple-600 absolute bottom-2 right-10">CO₂</div>
+          <div className="text-4xl font-bold text-green-600 absolute top-1/2 left-1/4">CH₄</div>
+          <div className="text-5xl font-bold text-red-600 absolute top-1/4 right-1/4">NaCl</div>
         </div>
       </footer>
     </div>
