@@ -400,6 +400,12 @@ export default function Index() {
               Compétences
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-teal-600 rounded-full mx-auto mb-8" />
+
+            {/* Periodic Table Elements */}
+            <PeriodicTableElements />
+
+            {/* Lab Equipment Animation */}
+            <LabEquipmentAnimation />
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
