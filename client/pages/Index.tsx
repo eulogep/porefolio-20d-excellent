@@ -182,7 +182,7 @@ export default function Index() {
                   <Badge variant="secondary" className="bg-blue-100 text-blue-800 w-fit">2025–2026</Badge>
                 </div>
                 <p className="text-gray-700 mb-2">UFR Sciences, Université Versailles Saint-Quentin-en-Yvelines</p>
-                <p className="text-gray-600">Poursuite de mes études scientifiques avec spécialisation en chimie et physique appliquée.</p>
+                <p className="text-gray-600">Spécialisation approfondie en chimie et physique, avec focus sur la recherche expérimentale et théorique.</p>
               </CardContent>
             </Card>
 
