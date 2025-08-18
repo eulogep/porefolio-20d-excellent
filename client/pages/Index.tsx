@@ -172,32 +172,30 @@ export default function Index() {
                 </div>
               </div>
             </div>
-            <Card className="p-6 bg-white/70 backdrop-blur-sm border-0 shadow-lg">
-              <CardContent className="p-0">
-                <h3 className="font-semibold text-lg mb-4 text-gray-900 flex items-center gap-2">
-                  <Beaker className="w-5 h-5 text-blue-600" />
-                  Informations personnelles
-                </h3>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <MapPin size={16} className="text-blue-600" />
-                    <span className="text-gray-700">70 boulevard Barbès, 75018 Paris</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Phone size={16} className="text-blue-600" />
-                    <span className="text-gray-700">07 66 16 06 22</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Mail size={16} className="text-blue-600" />
-                    <span className="text-gray-700">mex.exce@gmail.com</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="w-4 h-4 rounded-full bg-green-500 inline-block"></span>
-                    <span className="text-gray-700">Nationalité Congolaise</span>
-                  </div>
+            <ChemistryCard icon={<Beaker className="w-4 h-4" />}>
+              <h3 className="font-semibold text-lg mb-4 text-gray-900 flex items-center gap-2">
+                <Beaker className="w-5 h-5 text-blue-600" />
+                Informations personnelles
+              </h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <MapPin size={16} className="text-blue-600" />
+                  <span className="text-gray-700">70 boulevard Barbès, 75018 Paris</span>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="flex items-center gap-3">
+                  <Phone size={16} className="text-blue-600" />
+                  <span className="text-gray-700">07 66 16 06 22</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail size={16} className="text-blue-600" />
+                  <span className="text-gray-700">mex.exce@gmail.com</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-4 h-4 rounded-full bg-green-500 inline-block animate-pulse"></span>
+                  <span className="text-gray-700">Nationalité Congolaise</span>
+                </div>
+              </div>
+            </ChemistryCard>
           </div>
         </div>
       </section>
