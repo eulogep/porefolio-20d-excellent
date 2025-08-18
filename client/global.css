@@ -102,7 +102,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-black text-white;
     font-family:
       "Inter",
       -apple-system,
@@ -111,10 +111,32 @@
       "Roboto",
       "Oxygen",
       sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    overflow-x: hidden;
   }
 
   html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(59, 130, 246, 0.5) transparent;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3B82F6, #8B5CF6);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #2563EB, #7C3AED);
   }
 }
 
