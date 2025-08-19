@@ -164,10 +164,12 @@ export default function Index() {
                 <TypingAnimation
                   text="EULOGE JUNIOR"
                   speed={150}
-                  className="text-xl font-light tracking-wider"
+                  className="text-xl font-light tracking-wider opacity-30"
                   cursor={false}
                 />
-                <StatusIndicator status="online" animated size="sm" label />
+                <div className="opacity-30">
+                  <StatusIndicator status="online" animated size="sm" label />
+                </div>
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -988,7 +990,7 @@ export default function Index() {
                   { skill: "Pentesting", level: 75 },
                   { skill: "Cryptographie", level: 80 },
                   { skill: "Analyse vuln.", level: 70 },
-                  { skill: "Réseaux", level: 85 },
+                  { skill: "R��seaux", level: 85 },
                   { skill: "OSINT", level: 65 },
                   { skill: "Forensics", level: 60 },
                 ].map(({ skill, level }) => (
