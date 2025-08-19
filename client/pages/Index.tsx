@@ -207,20 +207,35 @@ export default function Index() {
               <div className="absolute inset-4 rounded-full border border-purple-500/30 animate-pulse" />
 
               {/* Main profile container */}
-              <div className="absolute inset-6 w-36 h-36 rounded-full bg-gradient-to-br from-green-500 to-blue-600 border-2 border-white/20 shadow-2xl group-hover:scale-110 transition-all duration-700 flex items-center justify-center overflow-hidden">
-                {/* Profile initials with glow */}
-                <span className="text-4xl font-bold text-white relative z-10">EM</span>
-                
-                {/* Animated background pattern */}
-                <div className="absolute inset-0 opacity-20">
-                  {[...Array(12)].map((_, i) => (
+              <div className="absolute inset-6 w-36 h-36 rounded-full border-2 border-white/20 shadow-2xl group-hover:scale-110 transition-all duration-700 overflow-hidden">
+                {/* Profile photo */}
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fb763a074828b443491d7e3e64f46617d%2Fbb7bdfbef8144b53b1dd19ca04900b26?format=webp&width=800"
+                  alt="Euloge Junior Mabiala - Aspirant en Cyber-sécurité"
+                  className="w-full h-full object-cover object-center rounded-full relative z-10"
+                />
+
+                {/* Cyber overlay effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-transparent to-blue-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Scanning lines effect */}
+                <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500">
+                  <div className="absolute top-1/4 left-0 right-0 h-0.5 bg-green-400 animate-pulse" />
+                  <div className="absolute top-2/4 left-0 right-0 h-0.5 bg-blue-400 animate-pulse" style={{ animationDelay: "0.5s" }} />
+                  <div className="absolute top-3/4 left-0 right-0 h-0.5 bg-purple-400 animate-pulse" style={{ animationDelay: "1s" }} />
+                </div>
+
+                {/* Animated particles overlay */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity duration-500 rounded-full">
+                  {[...Array(8)].map((_, i) => (
                     <div
                       key={i}
-                      className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+                      className="absolute w-1 h-1 bg-green-400 rounded-full animate-ping"
                       style={{
-                        left: `${20 + (i % 4) * 20}%`,
-                        top: `${20 + Math.floor(i / 4) * 20}%`,
-                        animationDelay: `${i * 0.2}s`
+                        left: `${15 + (i % 4) * 25}%`,
+                        top: `${15 + Math.floor(i / 4) * 35}%`,
+                        animationDelay: `${i * 0.3}s`,
+                        animationDuration: "2s"
                       }}
                     />
                   ))}
