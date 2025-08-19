@@ -766,6 +766,110 @@ export default function Index() {
             <CyberToolsAnimation />
           </div>
 
+          {/* Demo Section */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-light mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
+                🚀 Testez mes démonstrations en direct
+              </h3>
+              <p className="text-gray-400 font-light max-w-2xl mx-auto">
+                Découvrez mes projets cybersécurité en action avec ces démos interactives
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* CyberSentinel AI Demo */}
+              <ModernCard
+                glowColor="cyan"
+                icon={<Eye className="w-4 h-4" />}
+                className="p-8 bg-gradient-to-br from-cyan-900/20 to-blue-900/20"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-400 rounded-xl flex items-center justify-center animate-pulse">
+                    <Eye className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30 mb-2 animate-pulse">
+                      DÉMO LIVE
+                    </Badge>
+                    <h3 className="text-xl font-medium text-cyan-200">
+                      CyberSentinel AI
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-gray-300 font-light mb-6">
+                  Système de détection de menaces en temps réel alimenté par l'IA.
+                  Interface interactive avec tableaux de bord et alertes.
+                </p>
+                <div className="flex items-center gap-3 mb-6">
+                  <StatusIndicator status="online" animated />
+                  <span className="text-xs text-green-300">Démo fonctionnelle</span>
+                </div>
+                <GlowButton
+                  variant="primary"
+                  size="lg"
+                  onClick={() =>
+                    window.open("https://classy-raindrop-17eb77.netlify.app", "_blank")
+                  }
+                  className="w-full"
+                >
+                  <Eye className="w-5 h-5" />
+                  Tester CyberSentinel AI
+                  <ExternalLink className="w-4 h-4" />
+                </GlowButton>
+              </ModernCard>
+
+              {/* Brute Force Simulator Demo */}
+              <ModernCard
+                glowColor="red"
+                icon={<AlertTriangle className="w-4 h-4" />}
+                className="p-8 bg-gradient-to-br from-red-900/20 to-orange-900/20"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-400 rounded-xl flex items-center justify-center animate-pulse">
+                    <AlertTriangle className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <Badge className="bg-red-500/20 text-red-300 border-red-500/30 mb-2 animate-pulse">
+                      DÉMO ÉDUCATIVE
+                    </Badge>
+                    <h3 className="text-xl font-medium text-red-200">
+                      Simulateur Brute Force
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-gray-300 font-light mb-6">
+                  Démonstration interactive de la sécurité des mots de passe.
+                  Analyse en temps réel et visualisations éducatives.
+                </p>
+                <div className="flex items-center gap-3 mb-6">
+                  <StatusIndicator status="online" animated />
+                  <span className="text-xs text-green-300">Démo sécurisée</span>
+                </div>
+                <GlowButton
+                  variant="danger"
+                  size="lg"
+                  onClick={() =>
+                    window.open("https://dancing-trifle-bd9ab5.netlify.app", "_blank")
+                  }
+                  className="w-full"
+                >
+                  <AlertTriangle className="w-5 h-5" />
+                  Tester le Simulateur
+                  <ExternalLink className="w-4 h-4" />
+                </GlowButton>
+              </ModernCard>
+            </div>
+
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-full border border-white/10">
+                <Monitor className="w-4 h-4 text-green-400" />
+                <span className="text-sm text-gray-300">Démos hébergées sur Netlify</span>
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-8">
             {/* BruteForce Tool */}
             <ModernCard
