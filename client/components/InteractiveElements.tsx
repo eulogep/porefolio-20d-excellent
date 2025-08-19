@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Mouse, ArrowUp, Zap, Sparkles, Activity } from 'lucide-react';
 
 // Curseur personnalisé avec effet de suivi
-export const CustomCursor = () => {
+const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
