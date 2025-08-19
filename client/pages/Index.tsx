@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   GraduationCap,
@@ -31,6 +30,11 @@ import {
   Server,
   Eye,
   AlertTriangle,
+  Zap,
+  Monitor,
+  Wifi,
+  Settings,
+  Activity,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
@@ -38,15 +42,27 @@ import {
   HackingTerminal,
   SecurityMetrics,
   CyberToolsAnimation,
-  CVDownloadButton,
   CyberBackground,
   VulnerabilityScanner,
   EncryptionAnimation,
 } from "@/components/CyberSecurityAnimations";
+import {
+  GlowButton,
+  ModernCard,
+  TypingAnimation,
+  ModernLoader,
+  AnimatedProgress,
+  FloatingActionButton,
+  TerminalText,
+  GlassContainer,
+  StatusIndicator,
+  DownloadButton,
+} from "@/components/ModernUIComponents";
 
 export default function Index() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState({});
+  const [showTerminal, setShowTerminal] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -60,6 +76,15 @@ export default function Index() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const terminalLines = [
+    "whoami",
+    "euloge@cybersec",
+    "nmap -sS target.com",
+    "Starting Nmap scan...",
+    "python exploit.py",
+    "Access granted ✓"
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <CyberBackground />
@@ -67,6 +92,31 @@ export default function Index() {
       <HackingTerminal />
       <VulnerabilityScanner />
       <EncryptionAnimation />
+      
+      {/* Floating Action Button */}
+      <FloatingActionButton
+        icon={<Terminal className="w-6 h-6" />}
+        onClick={() => setShowTerminal(!showTerminal)}
+        color="green"
+      />
+
+      {/* Floating Terminal */}
+      {showTerminal && (
+        <div className="fixed bottom-20 right-6 z-40">
+          <GlassContainer className="w-80 p-4" blur="lg">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="text-green-400 text-sm ml-2">cyber-terminal</span>
+              </div>
+              <StatusIndicator status="online" animated size="sm" />
+            </div>
+            <TerminalText lines={terminalLines} speed={50} />
+          </GlassContainer>
+        </div>
+      )}
       
       {/* Animated Background */}
       <div className="fixed inset-0 opacity-20">
@@ -87,18 +137,23 @@ export default function Index() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-2xl bg-black/20 border-b border-green-500/20">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+      <nav className="fixed top-0 w-full z-50">
+        <GlassContainer blur="xl" className="mx-6 mt-4 px-6 py-4" opacity={0.05}>
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <Shield
-                  className="w-6 h-6 text-white animate-pulse"
-                />
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-600 rounded-lg flex items-center justify-center relative">
+                <Shield className="w-6 h-6 text-white animate-pulse" />
+                <div className="absolute inset-0 bg-green-400/20 rounded-lg animate-ping" />
               </div>
-              <span className="text-xl font-light tracking-wider">
-                EULOGE JUNIOR
-              </span>
+              <div>
+                <TypingAnimation 
+                  text="EULOGE JUNIOR" 
+                  speed={150} 
+                  className="text-xl font-light tracking-wider"
+                  cursor={false}
+                />
+                <StatusIndicator status="online" animated size="sm" label />
+              </div>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               {["about", "education", "experience", "projects", "skills", "contact"].map(
@@ -120,64 +175,63 @@ export default function Index() {
                               ? "Compétences"
                               : "Contact"}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-blue-600 group-hover:w-full transition-all duration-300" />
+                    
+                    {/* Hover glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                   </button>
                 ),
               )}
             </div>
           </div>
-        </div>
+        </GlassContainer>
       </nav>
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative px-6">
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          {/* Profile Image with Cyber Effects */}
+          {/* Profile Image with Advanced Cyber Effects */}
           <div className="relative mb-12 group">
             <div className="relative w-48 h-48 mx-auto">
-              {/* Scanning rings */}
-              <div
-                className="absolute inset-0 rounded-full border border-green-500/30 animate-ping"
-                style={{ animationDuration: "3s" }}
-              />
-              <div
-                className="absolute inset-2 rounded-full border border-blue-500/30 animate-ping"
-                style={{
-                  animationDuration: "2s",
-                  animationDelay: "0.5s"
-                }}
-              />
-              <div
-                className="absolute inset-4 rounded-full border border-purple-500/30 animate-pulse"
-              />
+              {/* Animated scanning rings */}
+              <div className="absolute inset-0 rounded-full border border-green-500/30 animate-ping" style={{ animationDuration: "3s" }} />
+              <div className="absolute inset-2 rounded-full border border-blue-500/30 animate-ping" style={{ animationDuration: "2s", animationDelay: "0.5s" }} />
+              <div className="absolute inset-4 rounded-full border border-purple-500/30 animate-pulse" />
 
-              {/* Main image placeholder - will be replaced with actual photo */}
-              <div className="absolute inset-6 w-36 h-36 rounded-full bg-gradient-to-br from-green-500 to-blue-600 border-2 border-white/20 shadow-2xl group-hover:scale-110 transition-all duration-700 flex items-center justify-center">
-                <span className="text-4xl font-bold text-white">EM</span>
+              {/* Main profile container */}
+              <div className="absolute inset-6 w-36 h-36 rounded-full bg-gradient-to-br from-green-500 to-blue-600 border-2 border-white/20 shadow-2xl group-hover:scale-110 transition-all duration-700 flex items-center justify-center overflow-hidden">
+                {/* Profile initials with glow */}
+                <span className="text-4xl font-bold text-white relative z-10">EM</span>
+                
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 opacity-20">
+                  {[...Array(12)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+                      style={{
+                        left: `${20 + (i % 4) * 20}%`,
+                        top: `${20 + Math.floor(i / 4) * 20}%`,
+                        animationDelay: `${i * 0.2}s`
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
 
-              {/* Floating cyber icons */}
-              <div
-                className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-green-500 to-cyan-400 rounded-full shadow-lg animate-bounce"
-                style={{ animationDelay: "0s" }}
-              >
-                <Shield className="w-4 h-4 text-white m-2" />
+              {/* Floating cyber icons with enhanced animations */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-green-500 to-cyan-400 rounded-full shadow-lg animate-bounce flex items-center justify-center" style={{ animationDelay: "0s" }}>
+                <Shield className="w-4 h-4 text-white" />
               </div>
-              <div
-                className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-400 rounded-full shadow-lg animate-bounce"
-                style={{ animationDelay: "1s" }}
-              >
-                <Lock className="w-4 h-4 text-white m-2" />
+              <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-400 rounded-full shadow-lg animate-bounce flex items-center justify-center" style={{ animationDelay: "1s" }}>
+                <Lock className="w-4 h-4 text-white" />
               </div>
-              <div
-                className="absolute top-1/2 -right-8 w-6 h-6 bg-gradient-to-r from-red-500 to-orange-400 rounded-full shadow-lg animate-bounce"
-                style={{ animationDelay: "2s" }}
-              >
-                <Bug className="w-3 h-3 text-white m-1.5" />
+              <div className="absolute top-1/2 -right-8 w-6 h-6 bg-gradient-to-r from-red-500 to-orange-400 rounded-full shadow-lg animate-bounce flex items-center justify-center" style={{ animationDelay: "2s" }}>
+                <Bug className="w-3 h-3 text-white" />
               </div>
             </div>
           </div>
 
-          {/* Name and Title */}
+          {/* Name and Title with Enhanced Typography */}
           <div className="space-y-6 mb-12">
             <h1 className="text-6xl md:text-8xl font-extralight tracking-wider leading-tight">
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-green-200 to-blue-200">
@@ -188,11 +242,15 @@ export default function Index() {
               </span>
             </h1>
 
-            <div className="flex items-center justify-center space-x-4 text-xl text-gray-300">
-              <Terminal className="w-6 h-6 text-green-400 animate-pulse" />
-              <span className="font-light tracking-wide">
-                Aspirant en Cyber-sécurité
-              </span>
+            <div className="flex items-center justify-center space-x-6 text-xl text-gray-300">
+              <div className="flex items-center gap-2">
+                <Terminal className="w-6 h-6 text-green-400 animate-pulse" />
+                <TypingAnimation 
+                  text="Aspirant en Cyber-sécurité" 
+                  speed={100}
+                  className="font-light tracking-wide"
+                />
+              </div>
               <Shield className="w-6 h-6 text-blue-400 animate-pulse" />
             </div>
 
@@ -203,21 +261,22 @@ export default function Index() {
             </p>
           </div>
 
-          {/* CTA Buttons */}
+          {/* Enhanced CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
-            <button
+            <GlowButton
               onClick={() => scrollToSection("contact")}
-              className="group relative px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 rounded-full font-medium tracking-wide overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25"
+              variant="primary"
+              size="lg"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                <Mail className="w-5 h-5" />
-                Me contacter
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </button>
+              <Mail className="w-5 h-5" />
+              Me contacter
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </GlowButton>
 
-            <CVDownloadButton />
+            <DownloadButton
+              filename="CV_Euloge_Junior_Mabiala.pdf"
+              url="#"
+            />
           </div>
 
           {/* Scroll Indicator */}
@@ -226,16 +285,16 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Floating Elements */}
+        {/* Enhanced Floating Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(8)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
             <div
               key={i}
               className="absolute w-2 h-2 bg-green-400/30 rounded-full animate-ping"
               style={{
-                left: `${15 + i * 12}%`,
-                top: `${25 + i * 8}%`,
-                animationDelay: `${i * 0.4}s`,
+                left: `${10 + i * 8}%`,
+                top: `${20 + (i % 4) * 20}%`,
+                animationDelay: `${i * 0.3}s`,
                 animationDuration: "2s",
               }}
             />
@@ -243,7 +302,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section with Modern Cards */}
       <section id="about" className="py-32 px-6 relative">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -272,91 +331,105 @@ export default function Index() {
               </p>
 
               <div className="grid grid-cols-2 gap-6 pt-8">
-                <div className="group p-6 bg-gradient-to-br from-green-900/20 to-green-800/10 rounded-2xl border border-green-500/20 hover:border-green-400/40 transition-all duration-300 hover:scale-105">
-                  <Shield className="w-8 h-8 text-green-400 mb-4 group-hover:animate-pulse" />
+                <ModernCard 
+                  glowColor="green" 
+                  icon={<Shield className="w-4 h-4" />}
+                  className="p-6"
+                >
+                  <Shield className="w-8 h-8 text-green-400 mb-4" />
                   <h3 className="text-lg font-medium text-green-200 mb-2">
                     Sécurité Offensive
                   </h3>
                   <p className="text-sm text-gray-400 font-light">
                     Penetration testing et analyse de vulnérabilités
                   </p>
-                </div>
+                  <AnimatedProgress progress={75} color="green" />
+                </ModernCard>
 
-                <div className="group p-6 bg-gradient-to-br from-blue-900/20 to-blue-800/10 rounded-2xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:scale-105">
-                  <Lock className="w-8 h-8 text-blue-400 mb-4 group-hover:animate-pulse" />
+                <ModernCard 
+                  glowColor="blue" 
+                  icon={<Lock className="w-4 h-4" />}
+                  className="p-6"
+                >
+                  <Lock className="w-8 h-8 text-blue-400 mb-4" />
                   <h3 className="text-lg font-medium text-blue-200 mb-2">
                     Sécurité Défensive
                   </h3>
                   <p className="text-sm text-gray-400 font-light">
                     Protection des systèmes et détection d'intrusions
                   </p>
-                </div>
+                  <AnimatedProgress progress={80} color="blue" />
+                </ModernCard>
               </div>
             </div>
 
             <div className="relative">
-              {/* Contact Card */}
-              <div className="p-8 bg-gradient-to-br from-gray-900/50 to-gray-800/30 rounded-3xl border border-white/10 backdrop-blur-xl">
-                <h3 className="text-2xl font-light mb-8 text-gray-200">
-                  Informations
-                </h3>
+              {/* Enhanced Contact Card */}
+              <GlassContainer className="p-8" blur="xl">
+                <div className="flex items-center gap-3 mb-8">
+                  <h3 className="text-2xl font-light text-gray-200">
+                    Informations
+                  </h3>
+                  <StatusIndicator status="online" animated />
+                </div>
 
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4 group">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-cyan-400 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <MapPin className="w-5 h-5 text-white" />
+                  <ModernCard className="p-4" glowColor="green">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-cyan-400 rounded-xl flex items-center justify-center">
+                        <MapPin className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-sm font-light">Adresse</p>
+                        <p className="text-gray-200">Paris, France</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-gray-400 text-sm font-light">
-                        Adresse
-                      </p>
-                      <p className="text-gray-200">Paris, France</p>
-                    </div>
-                  </div>
+                  </ModernCard>
 
-                  <div className="flex items-center gap-4 group">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-400 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Phone className="w-5 h-5 text-white" />
+                  <ModernCard className="p-4" glowColor="blue">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-400 rounded-xl flex items-center justify-center">
+                        <Phone className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-sm font-light">Téléphone</p>
+                        <p className="text-gray-200">07 60 83 09 31</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-gray-400 text-sm font-light">
-                        Téléphone
-                      </p>
-                      <p className="text-gray-200">07 60 83 09 31</p>
-                    </div>
-                  </div>
+                  </ModernCard>
 
-                  <div className="flex items-center gap-4 group">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-400 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Mail className="w-5 h-5 text-white" />
+                  <ModernCard className="p-4" glowColor="purple">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-400 rounded-xl flex items-center justify-center">
+                        <Mail className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-sm font-light">Email</p>
+                        <p className="text-gray-200 text-sm">mabialaeulogejunior@gmail.com</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-gray-400 text-sm font-light">Email</p>
-                      <p className="text-gray-200">mabialaeulogejunior@gmail.com</p>
-                    </div>
-                  </div>
+                  </ModernCard>
 
-                  <div className="flex items-center gap-4 group">
-                    <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-400 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Github className="w-5 h-5 text-white" />
+                  <ModernCard className="p-4" glowColor="orange">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-400 rounded-xl flex items-center justify-center">
+                        <Github className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-gray-400 text-sm font-light">GitHub</p>
+                        <p className="text-gray-200">github.com/eulogep</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-gray-400 text-sm font-light">GitHub</p>
-                      <p className="text-gray-200">github.com/eulogep</p>
-                    </div>
-                  </div>
+                  </ModernCard>
                 </div>
-              </div>
+              </GlassContainer>
             </div>
           </div>
         </div>
       </section>
 
       {/* Education Section */}
-      <section
-        id="education"
-        className="py-32 px-6 bg-gradient-to-b from-transparent to-gray-900/20"
-      >
+      <section id="education" className="py-32 px-6 bg-gradient-to-b from-transparent to-gray-900/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-extralight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
@@ -370,81 +443,81 @@ export default function Index() {
 
           <div className="space-y-8">
             {/* Current Education */}
-            <div className="group relative p-8 bg-gradient-to-br from-green-900/20 to-blue-900/10 rounded-3xl border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:scale-[1.02]">
+            <ModernCard glowColor="green" icon={<GraduationCap className="w-4 h-4" />} className="p-8">
               <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
                 <div>
                   <h3 className="text-2xl font-medium text-green-200 mb-2">
                     Cycle Ingénieur - Cybersécurité & Développement logiciel
                   </h3>
-                  <p className="text-lg text-gray-300 font-light">
-                    ESIEA, Paris
-                  </p>
+                  <p className="text-lg text-gray-300 font-light">ESIEA, Paris</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Badge className="bg-green-500/20 text-green-300 border-green-500/30 px-4 py-2 text-sm font-light">
                     Depuis janvier 2023
                   </Badge>
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
+                  <StatusIndicator status="online" animated />
                 </div>
               </div>
-              <p className="text-gray-400 leading-relaxed font-light">
+              <p className="text-gray-400 leading-relaxed font-light mb-4">
                 Formation d'ingénieur spécialisée en cybersécurité et développement logiciel. 
                 Acquisition de compétences avancées en sécurité informatique, cryptographie, 
                 analyse de vulnérabilités et développement sécurisé.
               </p>
-
-              <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
-                <Shield className="w-12 h-12 text-green-400" />
-              </div>
-            </div>
+              <AnimatedProgress progress={85} label="Progression" color="green" />
+            </ModernCard>
 
             {/* Previous Education */}
-            <div className="space-y-6">
-              <div className="group relative p-6 bg-gradient-to-br from-blue-900/20 to-purple-900/10 rounded-2xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-500">
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between">
+            <div className="grid md:grid-cols-3 gap-6">
+              <ModernCard glowColor="blue" className="p-6">
+                <div className="flex flex-col justify-between h-full">
                   <div>
-                    <h3 className="text-xl font-medium text-blue-200 mb-1">
+                    <h3 className="text-xl font-medium text-blue-200 mb-2">
                       Classe préparatoire PSI
                     </h3>
-                    <p className="text-gray-300 font-light">Lycée Jean-Jaurès, Saint-Denis</p>
+                    <p className="text-gray-300 font-light text-sm mb-4">
+                      Lycée Jean-Jaurès, Saint-Denis
+                    </p>
                   </div>
-                  <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 px-3 py-1 text-sm">
+                  <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 px-3 py-1 text-xs w-fit">
                     Jan 2022 - Jan 2023
                   </Badge>
                 </div>
-              </div>
+              </ModernCard>
 
-              <div className="group relative p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/10 rounded-2xl border border-purple-500/20 hover:border-purple-400/40 transition-all duration-500">
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between">
+              <ModernCard glowColor="purple" className="p-6">
+                <div className="flex flex-col justify-between h-full">
                   <div>
-                    <h3 className="text-xl font-medium text-purple-200 mb-1">
+                    <h3 className="text-xl font-medium text-purple-200 mb-2">
                       Classe préparatoire MPSI
                     </h3>
-                    <p className="text-gray-300 font-light">Lycée Paul Éluard</p>
+                    <p className="text-gray-300 font-light text-sm mb-4">
+                      Lycée Paul Éluard
+                    </p>
                   </div>
-                  <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 px-3 py-1 text-sm">
+                  <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 px-3 py-1 text-xs w-fit">
                     Jan 2021 - Jan 2022
                   </Badge>
                 </div>
-              </div>
+              </ModernCard>
 
-              <div className="group relative p-6 bg-gradient-to-br from-yellow-900/20 to-orange-900/10 rounded-2xl border border-yellow-500/20 hover:border-yellow-400/40 transition-all duration-500">
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between">
+              <ModernCard glowColor="yellow" icon={<Award className="w-4 h-4" />} className="p-6">
+                <div className="flex flex-col justify-between h-full">
                   <div>
-                    <h3 className="text-xl font-medium text-yellow-200 mb-1">
-                      Baccalauréat Général - Mention Bien
+                    <h3 className="text-xl font-medium text-yellow-200 mb-2">
+                      Baccalauréat Général
                     </h3>
-                    <p className="text-gray-300 font-light">Lycée Colbert, Paris</p>
-                    <p className="text-sm text-gray-400 mt-1">Spécialités : Mathématiques et Physique-Chimie</p>
+                    <p className="text-gray-300 font-light text-sm mb-2">
+                      Lycée Colbert, Paris
+                    </p>
+                    <p className="text-xs text-gray-400 mb-4">
+                      Mention Bien - Math & Physique-Chimie
+                    </p>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Badge className="bg-yellow-500/20 text-yellow-300 border-yellow-500/30 px-3 py-1 text-sm">
-                      Jan 2020 - Jan 2021
-                    </Badge>
-                    <Award className="w-5 h-5 text-yellow-400" />
-                  </div>
+                  <Badge className="bg-yellow-500/20 text-yellow-300 border-yellow-500/30 px-3 py-1 text-xs w-fit">
+                    Jan 2020 - Jan 2021
+                  </Badge>
                 </div>
-              </div>
+              </ModernCard>
             </div>
           </div>
         </div>
@@ -461,18 +534,20 @@ export default function Index() {
           </div>
 
           <div className="space-y-8">
-            <div className="group p-8 bg-gradient-to-br from-blue-900/20 to-purple-900/10 rounded-3xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-500 hover:scale-105 relative overflow-hidden">
+            <ModernCard glowColor="blue" icon={<Briefcase className="w-4 h-4" />} className="p-8">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-400 rounded-xl flex items-center justify-center group-hover:animate-pulse">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-400 rounded-xl flex items-center justify-center">
                   <Briefcase className="w-6 h-6 text-white" />
                 </div>
-                <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30">
-                  Sept 2024 - Jan 2025
-                </Badge>
+                <div>
+                  <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 mb-2">
+                    Sept 2024 - Jan 2025
+                  </Badge>
+                  <h3 className="text-xl font-medium text-blue-200">
+                    Équipier Polyvalent - Five Guys, Levallois-Perret
+                  </h3>
+                </div>
               </div>
-              <h3 className="text-xl font-medium text-blue-200 mb-4">
-                Équipier Polyvalent - Five Guys, Levallois-Perret
-              </h3>
               <div className="space-y-3 text-gray-400 font-light leading-relaxed">
                 <p className="flex items-start gap-2">
                   <Target className="w-4 h-4 text-blue-400 mt-1 flex-shrink-0" />
@@ -487,20 +562,22 @@ export default function Index() {
                   Développement de la capacité à travailler sous pression
                 </p>
               </div>
-            </div>
+            </ModernCard>
 
-            <div className="group p-8 bg-gradient-to-br from-green-900/20 to-teal-900/10 rounded-3xl border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:scale-105 relative overflow-hidden">
+            <ModernCard glowColor="green" icon={<Code className="w-4 h-4" />} className="p-8">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-400 rounded-xl flex items-center justify-center group-hover:animate-pulse">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-400 rounded-xl flex items-center justify-center">
                   <Code className="w-6 h-6 text-white" />
                 </div>
-                <Badge className="bg-green-500/20 text-green-300 border-green-500/30">
-                  Déc 2021 - Mai 2022
-                </Badge>
+                <div>
+                  <Badge className="bg-green-500/20 text-green-300 border-green-500/30 mb-2">
+                    Déc 2021 - Mai 2022
+                  </Badge>
+                  <h3 className="text-xl font-medium text-green-200">
+                    Assistant de Projet - Événement "Essaimées", Saint-Denis
+                  </h3>
+                </div>
               </div>
-              <h3 className="text-xl font-medium text-green-200 mb-4">
-                Assistant de Projet - Événement "Essaimées", Saint-Denis
-              </h3>
               <div className="space-y-3 text-gray-400 font-light leading-relaxed">
                 <p className="flex items-start gap-2">
                   <Target className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
@@ -515,20 +592,22 @@ export default function Index() {
                   Collaboration avec ingénieurs et artistes dans un projet innovant
                 </p>
               </div>
-            </div>
+            </ModernCard>
 
-            <div className="group p-8 bg-gradient-to-br from-purple-900/20 to-pink-900/10 rounded-3xl border border-purple-500/20 hover:border-purple-400/40 transition-all duration-500 hover:scale-105 relative overflow-hidden">
+            <ModernCard glowColor="purple" icon={<Database className="w-4 h-4" />} className="p-8">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-400 rounded-xl flex items-center justify-center group-hover:animate-pulse">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-400 rounded-xl flex items-center justify-center">
                   <Database className="w-6 h-6 text-white" />
                 </div>
-                <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30">
-                  Juil - Août 2019
-                </Badge>
+                <div>
+                  <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 mb-2">
+                    Juil - Août 2019
+                  </Badge>
+                  <h3 className="text-xl font-medium text-purple-200">
+                    Opérateur de saisie - Cyber Café du Centre, Brazzaville
+                  </h3>
+                </div>
               </div>
-              <h3 className="text-xl font-medium text-purple-200 mb-4">
-                Opérateur de saisie - Cyber Café du Centre, Brazzaville
-              </h3>
               <div className="space-y-3 text-gray-400 font-light leading-relaxed">
                 <p className="flex items-start gap-2">
                   <Target className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
@@ -543,7 +622,7 @@ export default function Index() {
                   Première expérience professionnelle dans le domaine informatique
                 </p>
               </div>
-            </div>
+            </ModernCard>
           </div>
         </div>
       </section>
@@ -556,17 +635,13 @@ export default function Index() {
               Projets GitHub
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-600 rounded-full mx-auto mb-8" />
-
-            {/* Security Metrics */}
             <SecurityMetrics />
-
-            {/* Cyber Tools Animation */}
             <CyberToolsAnimation />
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* BruteForce Tool */}
-            <div className="group p-8 bg-gradient-to-br from-red-900/20 to-orange-900/10 rounded-3xl border border-red-500/20 hover:border-red-400/40 transition-all duration-500 hover:scale-105 relative">
+            <ModernCard glowColor="red" icon={<Bug className="w-4 h-4" />} className="p-8">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-400 rounded-xl flex items-center justify-center">
                   <Bug className="w-6 h-6 text-white" />
@@ -580,28 +655,27 @@ export default function Index() {
               </h3>
               <p className="text-gray-400 font-light mb-6">
                 Outil de test de sécurité éducatif avec interface React/Tailwind et backend Flask. 
-                Supporte les attaques personnalisables, le craquage GPU avec Hashcat et la gestion de dictionnaires.
+                Supporte les attaques personnalisables, le craquage GPU avec Hashcat.
               </p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6">
                 <Badge className="bg-gray-700 text-gray-300 text-xs">Python</Badge>
                 <Badge className="bg-gray-700 text-gray-300 text-xs">Flask</Badge>
                 <Badge className="bg-gray-700 text-gray-300 text-xs">React</Badge>
                 <Badge className="bg-gray-700 text-gray-300 text-xs">Hashcat</Badge>
               </div>
-              <a 
-                href="https://github.com/eulogep" 
-                className="inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
+              <GlowButton
+                variant="danger"
+                size="sm"
+                onClick={() => window.open("https://github.com/eulogep", "_blank")}
               >
                 <Github className="w-4 h-4" />
                 Voir le projet
                 <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
+              </GlowButton>
+            </ModernCard>
 
             {/* CyberSentinel AI */}
-            <div className="group p-8 bg-gradient-to-br from-blue-900/20 to-cyan-900/10 rounded-3xl border border-blue-500/20 hover:border-blue-400/40 transition-all duration-500 hover:scale-105 relative">
+            <ModernCard glowColor="blue" icon={<Eye className="w-4 h-4" />} className="p-8">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center">
                   <Eye className="w-6 h-6 text-white" />
@@ -615,28 +689,27 @@ export default function Index() {
               </h3>
               <p className="text-gray-400 font-light mb-6">
                 Système de détection de menaces utilisant l'IA avec GPT-4. Capture réseau temps réel, 
-                remédiation automatisée et tableaux de bord React avec backend FastAPI.
+                remédiation automatisée et tableaux de bord React.
               </p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6">
                 <Badge className="bg-gray-700 text-gray-300 text-xs">Python</Badge>
                 <Badge className="bg-gray-700 text-gray-300 text-xs">FastAPI</Badge>
                 <Badge className="bg-gray-700 text-gray-300 text-xs">GPT-4</Badge>
                 <Badge className="bg-gray-700 text-gray-300 text-xs">PostgreSQL</Badge>
               </div>
-              <a 
-                href="https://github.com/eulogep" 
-                className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
+              <GlowButton
+                variant="primary"
+                size="sm"
+                onClick={() => window.open("https://github.com/eulogep", "_blank")}
               >
                 <Github className="w-4 h-4" />
                 Voir le projet
                 <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
+              </GlowButton>
+            </ModernCard>
 
             {/* Password Simulator */}
-            <div className="group p-8 bg-gradient-to-br from-green-900/20 to-emerald-900/10 rounded-3xl border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:scale-105 relative">
+            <ModernCard glowColor="green" icon={<Key className="w-4 h-4" />} className="p-8">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-400 rounded-xl flex items-center justify-center">
                   <Key className="w-6 h-6 text-white" />
@@ -650,27 +723,26 @@ export default function Index() {
               </h3>
               <p className="text-gray-400 font-light mb-6">
                 Simulateur interactif de sécurité des mots de passe. Analyse détaillée, 
-                simulations d'attaques et visualisations pour sensibiliser aux bonnes pratiques.
+                simulations d'attaques et visualisations éducatives.
               </p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6">
                 <Badge className="bg-gray-700 text-gray-300 text-xs">HTML/CSS</Badge>
                 <Badge className="bg-gray-700 text-gray-300 text-xs">JavaScript</Badge>
                 <Badge className="bg-gray-700 text-gray-300 text-xs">Education</Badge>
               </div>
-              <a 
-                href="https://github.com/eulogep" 
-                className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
+              <GlowButton
+                variant="secondary"
+                size="sm"
+                onClick={() => window.open("https://github.com/eulogep", "_blank")}
               >
                 <Github className="w-4 h-4" />
                 Voir le projet
                 <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
+              </GlowButton>
+            </ModernCard>
 
             {/* DEX Swap App */}
-            <div className="group p-8 bg-gradient-to-br from-purple-900/20 to-pink-900/10 rounded-3xl border border-purple-500/20 hover:border-purple-400/40 transition-all duration-500 hover:scale-105 relative">
+            <ModernCard glowColor="purple" icon={<Globe className="w-4 h-4" />} className="p-8">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-400 rounded-xl flex items-center justify-center">
                   <Globe className="w-6 h-6 text-white" />
@@ -684,157 +756,151 @@ export default function Index() {
               </h3>
               <p className="text-gray-400 font-light mb-6">
                 Application décentralisée d'échange de cryptomonnaies via Uniswap v3. 
-                Interface glassmorphism avec React 18, ethers.js et intégration MetaMask.
+                Interface glassmorphism avec React 18 et intégration MetaMask.
               </p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-6">
                 <Badge className="bg-gray-700 text-gray-300 text-xs">React 18</Badge>
                 <Badge className="bg-gray-700 text-gray-300 text-xs">Ethers.js</Badge>
                 <Badge className="bg-gray-700 text-gray-300 text-xs">Uniswap</Badge>
                 <Badge className="bg-gray-700 text-gray-300 text-xs">Web3</Badge>
               </div>
-              <a 
-                href="https://github.com/eulogep" 
-                className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
+              <GlowButton
+                variant="primary"
+                size="sm"
+                onClick={() => window.open("https://github.com/eulogep", "_blank")}
               >
                 <Github className="w-4 h-4" />
                 Voir le projet
                 <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
+              </GlowButton>
+            </ModernCard>
           </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section
-        id="skills"
-        className="py-32 px-6 bg-gradient-to-b from-gray-900/20 to-transparent"
-      >
+      <section id="skills" className="py-32 px-6 bg-gradient-to-b from-gray-900/20 to-transparent">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-extralight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
-              Compétences
+              Comp��tences
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-full mx-auto mb-8" />
           </div>
 
           <div className="grid lg:grid-cols-4 gap-8">
-            {/* Technical Skills */}
-            <div className="space-y-6">
+            {/* Programming Skills */}
+            <GlassContainer className="p-6" blur="md">
               <h3 className="text-2xl font-light text-green-200 mb-8 flex items-center gap-3">
                 <Terminal className="w-6 h-6 text-green-400" />
                 Programmation
               </h3>
-              {[
-                "Python (avancé)",
-                "Java (intermédiaire)",
-                "HTML/CSS",
-                "Shell scripting/Bash",
-                "SQL",
-                "JavaScript",
-                "Git/GitHub",
-              ].map((skill, index) => (
-                <div key={skill} className="group flex items-center gap-4">
-                  <div
-                    className="w-2 h-2 bg-green-400 rounded-full group-hover:scale-150 transition-transform duration-300 animate-pulse"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  />
-                  <span className="text-gray-300 font-light group-hover:text-green-200 transition-colors duration-300">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
+              <div className="space-y-4">
+                {[
+                  { skill: "Python", level: 90 },
+                  { skill: "Java", level: 70 },
+                  { skill: "HTML/CSS", level: 85 },
+                  { skill: "JavaScript", level: 75 },
+                  { skill: "SQL", level: 80 },
+                  { skill: "Bash", level: 65 },
+                ].map(({ skill, level }) => (
+                  <div key={skill}>
+                    <AnimatedProgress 
+                      progress={level} 
+                      label={skill} 
+                      color="green"
+                      showPercentage={false}
+                    />
+                  </div>
+                ))}
+              </div>
+            </GlassContainer>
 
             {/* Cybersecurity Skills */}
-            <div className="space-y-6">
+            <GlassContainer className="p-6" blur="md">
               <h3 className="text-2xl font-light text-red-200 mb-8 flex items-center gap-3">
                 <Shield className="w-6 h-6 text-red-400" />
                 Cybersécurité
               </h3>
-              {[
-                "Pentesting",
-                "Analyse vulnérabilités",
-                "Cryptographie",
-                "Détection intrusions",
-                "Sécurité réseaux",
-                "OSINT",
-                "Tests sécurité",
-              ].map((skill, index) => (
-                <div key={skill} className="group flex items-center gap-4">
-                  <div
-                    className="w-2 h-2 bg-red-400 rounded-full group-hover:scale-150 transition-transform duration-300 animate-pulse"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  />
-                  <span className="text-gray-300 font-light group-hover:text-red-200 transition-colors duration-300">
-                    {skill}
-                  </span>
-                </div>
-              ))}
-            </div>
+              <div className="space-y-4">
+                {[
+                  { skill: "Pentesting", level: 75 },
+                  { skill: "Cryptographie", level: 80 },
+                  { skill: "Analyse vuln.", level: 70 },
+                  { skill: "Réseaux", level: 85 },
+                  { skill: "OSINT", level: 65 },
+                  { skill: "Forensics", level: 60 },
+                ].map(({ skill, level }) => (
+                  <div key={skill}>
+                    <AnimatedProgress 
+                      progress={level} 
+                      label={skill} 
+                      color="red"
+                      showPercentage={false}
+                    />
+                  </div>
+                ))}
+              </div>
+            </GlassContainer>
 
-            {/* Languages & Tools */}
-            <div className="space-y-6">
+            {/* Languages */}
+            <GlassContainer className="p-6" blur="md">
               <h3 className="text-2xl font-light text-blue-200 mb-8 flex items-center gap-3">
                 <Languages className="w-6 h-6 text-blue-400" />
-                Langues & Outils
+                Langues
               </h3>
-              {[
-                { lang: "Français", level: "Courant", color: "blue" },
-                { lang: "Anglais", level: "B2", color: "purple" },
-                { lang: "Espagnol", level: "Débutant", color: "pink" },
-              ].map(({ lang, level, color }) => (
-                <div
-                  key={lang}
-                  className="group flex items-center justify-between p-3 rounded-lg bg-gray-800/30 hover:bg-gray-700/40 transition-all duration-300"
-                >
-                  <span className="text-gray-300 font-light">{lang}</span>
-                  <Badge
-                    className={`bg-${color}-500/20 text-${color}-300 border-${color}-500/30 text-xs hover:scale-110 transition-transform`}
-                  >
-                    {level}
-                  </Badge>
-                </div>
-              ))}
-              <div className="pt-4 space-y-3">
-                <p className="text-gray-300 font-light">Linux/Unix</p>
-                <p className="text-gray-300 font-light">LabVIEW</p>
-                <p className="text-gray-300 font-light">Microsoft Office</p>
+              <div className="space-y-6">
+                {[
+                  { lang: "Français", level: "Courant", color: "blue", progress: 100 },
+                  { lang: "Anglais", level: "B2", color: "purple", progress: 75 },
+                  { lang: "Espagnol", level: "Débutant", color: "pink", progress: 30 },
+                ].map(({ lang, level, color, progress }) => (
+                  <ModernCard key={lang} className="p-4" glowColor={color}>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-gray-300 font-light">{lang}</span>
+                      <Badge className={`bg-${color}-500/20 text-${color}-300 border-${color}-500/30 text-xs`}>
+                        {level}
+                      </Badge>
+                    </div>
+                    <AnimatedProgress progress={progress} color={color} showPercentage={false} />
+                  </ModernCard>
+                ))}
               </div>
-            </div>
+            </GlassContainer>
 
             {/* Interests */}
-            <div className="space-y-6">
+            <GlassContainer className="p-6" blur="md">
               <h3 className="text-2xl font-light text-purple-200 mb-8 flex items-center gap-3">
                 <Heart className="w-6 h-6 text-purple-400" />
                 Centres d'intérêt
               </h3>
-              {[
-                { name: "Danse (Hip-hop, Popping)", icon: "💃" },
-                { name: "Sports (Basket, Judo)", icon: "🏀" },
-                { name: "Théâtre amateur", icon: "🎭" },
-                { name: "Culture manga/anime", icon: "🎌" },
-                { name: "Cinéma/Figuration", icon: "🎬" },
-                { name: "Lecture", icon: "📚" },
-              ].map(({ name, icon }, index) => (
-                <div
-                  key={name}
-                  className="group flex items-center gap-4 p-3 rounded-lg bg-purple-900/20 hover:bg-purple-800/30 transition-all duration-300 hover:scale-105"
-                >
-                  <span
-                    className="text-2xl animate-bounce"
-                    style={{ animationDelay: `${index * 0.2}s` }}
+              <div className="space-y-4">
+                {[
+                  { name: "Danse Hip-hop", icon: "💃", color: "pink" },
+                  { name: "Sports", icon: "🏀", color: "orange" },
+                  { name: "Théâtre", icon: "🎭", color: "purple" },
+                  { name: "Manga/Anime", icon: "🎌", color: "red" },
+                  { name: "Cinéma", icon: "🎬", color: "blue" },
+                  { name: "Lecture", icon: "📚", color: "green" },
+                ].map(({ name, icon, color }, index) => (
+                  <ModernCard 
+                    key={name} 
+                    className="p-3 hover:scale-105 transition-transform duration-300" 
+                    glowColor={color}
                   >
-                    {icon}
-                  </span>
-                  <span className="text-gray-300 font-light group-hover:text-purple-200 transition-colors duration-300 text-sm">
-                    {name}
-                  </span>
-                </div>
-              ))}
-            </div>
+                    <div className="flex items-center gap-3">
+                      <span 
+                        className="text-xl animate-bounce" 
+                        style={{ animationDelay: `${index * 0.2}s` }}
+                      >
+                        {icon}
+                      </span>
+                      <span className="text-gray-300 font-light text-sm">{name}</span>
+                    </div>
+                  </ModernCard>
+                ))}
+              </div>
+            </GlassContainer>
           </div>
         </div>
       </section>
@@ -853,71 +919,60 @@ export default function Index() {
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <a
-              href="tel:+33760830931"
-              className="group p-6 bg-gradient-to-br from-green-900/30 to-green-800/20 rounded-2xl border border-green-500/30 hover:border-green-400/50 transition-all duration-300 hover:scale-105"
-            >
-              <Phone className="w-8 h-8 text-green-400 mx-auto mb-3 group-hover:animate-bounce" />
-              <h3 className="text-lg font-medium text-green-200 mb-1">
-                Téléphone
-              </h3>
-              <p className="text-gray-300 font-light text-sm">07 60 83 09 31</p>
-            </a>
+            <ModernCard glowColor="green" className="p-6 text-center">
+              <a href="tel:+33760830931" className="block">
+                <Phone className="w-8 h-8 text-green-400 mx-auto mb-3" />
+                <h3 className="text-lg font-medium text-green-200 mb-1">Téléphone</h3>
+                <p className="text-gray-300 font-light text-sm">07 60 83 09 31</p>
+              </a>
+            </ModernCard>
 
-            <a
-              href="mailto:mabialaeulogejunior@gmail.com"
-              className="group p-6 bg-gradient-to-br from-blue-900/30 to-blue-800/20 rounded-2xl border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 hover:scale-105"
-            >
-              <Mail className="w-8 h-8 text-blue-400 mx-auto mb-3 group-hover:animate-bounce" />
-              <h3 className="text-lg font-medium text-blue-200 mb-1">
-                Email
-              </h3>
-              <p className="text-gray-300 font-light text-sm">mabialaeulogejunior@gmail.com</p>
-            </a>
+            <ModernCard glowColor="blue" className="p-6 text-center">
+              <a href="mailto:mabialaeulogejunior@gmail.com" className="block">
+                <Mail className="w-8 h-8 text-blue-400 mx-auto mb-3" />
+                <h3 className="text-lg font-medium text-blue-200 mb-1">Email</h3>
+                <p className="text-gray-300 font-light text-sm break-all">mabialaeulogejunior@gmail.com</p>
+              </a>
+            </ModernCard>
 
-            <a
-              href="https://github.com/eulogep"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-6 bg-gradient-to-br from-purple-900/30 to-purple-800/20 rounded-2xl border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 hover:scale-105"
-            >
-              <Github className="w-8 h-8 text-purple-400 mx-auto mb-3 group-hover:animate-bounce" />
-              <h3 className="text-lg font-medium text-purple-200 mb-1">
-                GitHub
-              </h3>
-              <p className="text-gray-300 font-light text-sm">github.com/eulogep</p>
-            </a>
+            <ModernCard glowColor="purple" className="p-6 text-center">
+              <a href="https://github.com/eulogep" target="_blank" rel="noopener noreferrer" className="block">
+                <Github className="w-8 h-8 text-purple-400 mx-auto mb-3" />
+                <h3 className="text-lg font-medium text-purple-200 mb-1">GitHub</h3>
+                <p className="text-gray-300 font-light text-sm">github.com/eulogep</p>
+              </a>
+            </ModernCard>
 
-            <a
-              href="https://linkedin.com/in/euloge-junior-mabiala"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-6 bg-gradient-to-br from-orange-900/30 to-orange-800/20 rounded-2xl border border-orange-500/30 hover:border-orange-400/50 transition-all duration-300 hover:scale-105"
-            >
-              <Linkedin className="w-8 h-8 text-orange-400 mx-auto mb-3 group-hover:animate-bounce" />
-              <h3 className="text-lg font-medium text-orange-200 mb-1">
-                LinkedIn
-              </h3>
-              <p className="text-gray-300 font-light text-sm">LinkedIn Profile</p>
-            </a>
+            <ModernCard glowColor="orange" className="p-6 text-center">
+              <a href="https://linkedin.com/in/euloge-junior-mabiala" target="_blank" rel="noopener noreferrer" className="block">
+                <Linkedin className="w-8 h-8 text-orange-400 mx-auto mb-3" />
+                <h3 className="text-lg font-medium text-orange-200 mb-1">LinkedIn</h3>
+                <p className="text-gray-300 font-light text-sm">LinkedIn Profile</p>
+              </a>
+            </ModernCard>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button className="group px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 rounded-full font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25">
-              <span className="flex items-center gap-2">
-                <ExternalLink className="w-5 h-5" />
-                Voir mes projets GitHub
-              </span>
-            </button>
+            <GlowButton
+              variant="primary"
+              size="lg"
+              onClick={() => window.open("https://github.com/eulogep", "_blank")}
+            >
+              <ExternalLink className="w-5 h-5" />
+              Voir mes projets GitHub
+            </GlowButton>
 
-            <CVDownloadButton />
+            <DownloadButton
+              filename="CV_Euloge_Junior_Mabiala.pdf"
+              url="#"
+            />
           </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="py-16 px-6 border-t border-white/10 bg-gradient-to-t from-black to-transparent">
-        <div className="max-w-6xl mx-auto text-center">
+        <GlassContainer className="max-w-6xl mx-auto text-center py-8" blur="md">
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-600 rounded-lg flex items-center justify-center">
               <Shield className="w-4 h-4 text-white" />
@@ -929,10 +984,14 @@ export default function Index() {
               <Lock className="w-4 h-4 text-white" />
             </div>
           </div>
-          <p className="text-gray-500 font-light italic">
+          <p className="text-gray-500 font-light italic mb-4">
             Aspirant en Cyber-sécurité - Portfolio Interactif 2024
           </p>
-        </div>
+          <div className="flex items-center justify-center gap-4">
+            <StatusIndicator status="online" animated label />
+            <span className="text-xs text-gray-400">Système sécurisé et opérationnel</span>
+          </div>
+        </GlassContainer>
       </footer>
     </div>
   );
