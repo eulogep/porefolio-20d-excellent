@@ -74,7 +74,7 @@ export const CustomCursor = () => {
 };
 
 // Bouton "Back to top" avec animation
-export const BackToTopButton = () => {
+const BackToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
