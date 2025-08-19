@@ -1,6 +1,23 @@
-import { Award, Calendar, ExternalLink, CheckCircle, Star, Shield, Lock, Terminal, Globe, Database, Network } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import { ModernCard, GlowButton, AnimatedProgress, StatusIndicator } from '@/components/ModernUIComponents';
+import {
+  Award,
+  Calendar,
+  ExternalLink,
+  CheckCircle,
+  Star,
+  Shield,
+  Lock,
+  Terminal,
+  Globe,
+  Database,
+  Network,
+} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import {
+  ModernCard,
+  GlowButton,
+  AnimatedProgress,
+  StatusIndicator,
+} from "@/components/ModernUIComponents";
 
 export const CertificationsSection = () => {
   const certifications = [
@@ -13,7 +30,7 @@ export const CertificationsSection = () => {
       skills: ["Sécurité réseau", "Menaces cyber", "Cryptographie de base"],
       icon: Shield,
       color: "blue",
-      verified: true
+      verified: true,
     },
     {
       name: "Network Security Fundamentals",
@@ -24,7 +41,7 @@ export const CertificationsSection = () => {
       skills: ["Firewall", "VPN", "IDS/IPS", "Audit sécurité"],
       icon: Network,
       color: "green",
-      verified: false
+      verified: false,
     },
     {
       name: "Ethical Hacking Basics",
@@ -34,8 +51,8 @@ export const CertificationsSection = () => {
       skills: ["Pentesting", "Vulnérabilités", "Exploits", "Reporting"],
       icon: Terminal,
       color: "red",
-      verified: false
-    }
+      verified: false,
+    },
   ];
 
   const onlinePrograms = [
@@ -46,7 +63,7 @@ export const CertificationsSection = () => {
       duration: "6 semaines",
       grade: "98%",
       icon: Database,
-      color: "purple"
+      color: "purple",
     },
     {
       name: "Web Application Security",
@@ -55,8 +72,8 @@ export const CertificationsSection = () => {
       duration: "4 semaines",
       grade: "95%",
       icon: Globe,
-      color: "orange"
-    }
+      color: "orange",
+    },
   ];
 
   const achievements = [
@@ -66,7 +83,7 @@ export const CertificationsSection = () => {
       date: "Mars 2024",
       rank: "8ème place",
       icon: Award,
-      color: "yellow"
+      color: "yellow",
     },
     {
       title: "Hackathon Sécurité",
@@ -74,25 +91,33 @@ export const CertificationsSection = () => {
       date: "Novembre 2023",
       rank: "2ème place",
       icon: Star,
-      color: "cyan"
-    }
+      color: "cyan",
+    },
   ];
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'completed': return 'green';
-      case 'in-progress': return 'blue';
-      case 'planned': return 'purple';
-      default: return 'gray';
+      case "completed":
+        return "green";
+      case "in-progress":
+        return "blue";
+      case "planned":
+        return "purple";
+      default:
+        return "gray";
     }
   };
 
   const getStatusLabel = (status: string) => {
     switch (status) {
-      case 'completed': return 'Certifié';
-      case 'in-progress': return 'En cours';
-      case 'planned': return 'Planifié';
-      default: return 'À venir';
+      case "completed":
+        return "Certifié";
+      case "in-progress":
+        return "En cours";
+      case "planned":
+        return "Planifié";
+      default:
+        return "À venir";
     }
   };
 
@@ -105,7 +130,8 @@ export const CertificationsSection = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full mx-auto mb-8" />
           <p className="text-xl text-gray-400 font-light max-w-2xl mx-auto">
-            Engagement continu dans l'amélioration des compétences et la validation des expertises
+            Engagement continu dans l'amélioration des compétences et la
+            validation des expertises
           </p>
         </div>
 
@@ -118,7 +144,7 @@ export const CertificationsSection = () => {
             {certifications.map((cert, index) => {
               const IconComponent = cert.icon;
               const statusColor = getStatusColor(cert.status);
-              
+
               return (
                 <ModernCard
                   key={cert.name}
@@ -127,7 +153,9 @@ export const CertificationsSection = () => {
                 >
                   {/* Status badge */}
                   <div className="absolute top-4 right-4 flex items-center gap-2">
-                    <Badge className={`bg-${statusColor}-500/20 text-${statusColor}-300 border-${statusColor}-500/30 text-xs`}>
+                    <Badge
+                      className={`bg-${statusColor}-500/20 text-${statusColor}-300 border-${statusColor}-500/30 text-xs`}
+                    >
                       {getStatusLabel(cert.status)}
                     </Badge>
                     {cert.verified && (
@@ -137,11 +165,15 @@ export const CertificationsSection = () => {
 
                   {/* Icon and title */}
                   <div className="flex items-start gap-4 mb-6">
-                    <div className={`w-12 h-12 bg-gradient-to-r from-${cert.color}-500 to-${cert.color}-600 rounded-xl flex items-center justify-center`}>
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-r from-${cert.color}-500 to-${cert.color}-600 rounded-xl flex items-center justify-center`}
+                    >
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h4 className={`text-lg font-medium text-${cert.color}-200 mb-1`}>
+                      <h4
+                        className={`text-lg font-medium text-${cert.color}-200 mb-1`}
+                      >
                         {cert.name}
                       </h4>
                       <p className="text-gray-400 text-sm font-light">
@@ -151,11 +183,11 @@ export const CertificationsSection = () => {
                   </div>
 
                   {/* Progress for in-progress certs */}
-                  {cert.status === 'in-progress' && cert.progress && (
+                  {cert.status === "in-progress" && cert.progress && (
                     <div className="mb-4">
-                      <AnimatedProgress 
-                        progress={cert.progress} 
-                        label="Progression" 
+                      <AnimatedProgress
+                        progress={cert.progress}
+                        label="Progression"
                         color={cert.color}
                         showPercentage={true}
                       />
@@ -164,10 +196,15 @@ export const CertificationsSection = () => {
 
                   {/* Skills */}
                   <div className="mb-4">
-                    <p className="text-xs text-gray-500 mb-2">Compétences acquises :</p>
+                    <p className="text-xs text-gray-500 mb-2">
+                      Compétences acquises :
+                    </p>
                     <div className="flex flex-wrap gap-1">
-                      {cert.skills.map(skill => (
-                        <Badge key={skill} className="bg-gray-700 text-gray-300 text-xs">
+                      {cert.skills.map((skill) => (
+                        <Badge
+                          key={skill}
+                          className="bg-gray-700 text-gray-300 text-xs"
+                        >
                           {skill}
                         </Badge>
                       ))}
@@ -181,9 +218,7 @@ export const CertificationsSection = () => {
                       {cert.date}
                     </div>
                     {cert.credentialId && (
-                      <span className="font-mono">
-                        ID: {cert.credentialId}
-                      </span>
+                      <span className="font-mono">ID: {cert.credentialId}</span>
                     )}
                   </div>
                 </ModernCard>
@@ -200,7 +235,7 @@ export const CertificationsSection = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {onlinePrograms.map((program, index) => {
               const IconComponent = program.icon;
-              
+
               return (
                 <ModernCard
                   key={program.name}
@@ -208,18 +243,24 @@ export const CertificationsSection = () => {
                   className="p-6"
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <div className={`w-10 h-10 bg-gradient-to-r from-${program.color}-500 to-${program.color}-600 rounded-lg flex items-center justify-center`}>
+                    <div
+                      className={`w-10 h-10 bg-gradient-to-r from-${program.color}-500 to-${program.color}-600 rounded-lg flex items-center justify-center`}
+                    >
                       <IconComponent className="w-5 h-5 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h4 className={`text-lg font-medium text-${program.color}-200`}>
+                      <h4
+                        className={`text-lg font-medium text-${program.color}-200`}
+                      >
                         {program.name}
                       </h4>
                       <p className="text-gray-400 text-sm">
                         {program.provider}
                       </p>
                     </div>
-                    <Badge className={`bg-${program.color}-500/20 text-${program.color}-300 border-${program.color}-500/30`}>
+                    <Badge
+                      className={`bg-${program.color}-500/20 text-${program.color}-300 border-${program.color}-500/30`}
+                    >
                       {program.grade}
                     </Badge>
                   </div>
@@ -241,7 +282,7 @@ export const CertificationsSection = () => {
           <div className="grid md:grid-cols-2 gap-6">
             {achievements.map((achievement, index) => {
               const IconComponent = achievement.icon;
-              
+
               return (
                 <ModernCard
                   key={achievement.title}
@@ -249,15 +290,21 @@ export const CertificationsSection = () => {
                   className="p-6"
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 bg-gradient-to-r from-${achievement.color}-500 to-${achievement.color}-600 rounded-xl flex items-center justify-center`}>
+                    <div
+                      className={`w-12 h-12 bg-gradient-to-r from-${achievement.color}-500 to-${achievement.color}-600 rounded-xl flex items-center justify-center`}
+                    >
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <h4 className={`text-xl font-medium text-${achievement.color}-200`}>
+                        <h4
+                          className={`text-xl font-medium text-${achievement.color}-200`}
+                        >
                           {achievement.title}
                         </h4>
-                        <Badge className={`bg-${achievement.color}-500/20 text-${achievement.color}-300 border-${achievement.color}-500/30`}>
+                        <Badge
+                          className={`bg-${achievement.color}-500/20 text-${achievement.color}-300 border-${achievement.color}-500/30`}
+                        >
                           {achievement.rank}
                         </Badge>
                       </div>
@@ -281,7 +328,12 @@ export const CertificationsSection = () => {
           <GlowButton
             variant="primary"
             size="lg"
-            onClick={() => window.open('https://linkedin.com/in/euloge-junior-mabiala', '_blank')}
+            onClick={() =>
+              window.open(
+                "https://linkedin.com/in/euloge-junior-mabiala",
+                "_blank",
+              )
+            }
           >
             <ExternalLink className="w-5 h-5" />
             Voir les certifications complètes

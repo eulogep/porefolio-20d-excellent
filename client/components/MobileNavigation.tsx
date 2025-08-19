@@ -1,6 +1,19 @@
-import { useState, useEffect } from 'react';
-import { X, Menu, Shield, Lock, Terminal, Mail, User, GraduationCap, Briefcase, FolderOpen, Code, Phone } from 'lucide-react';
-import { GlassContainer } from '@/components/ModernUIComponents';
+import { useState, useEffect } from "react";
+import {
+  X,
+  Menu,
+  Shield,
+  Lock,
+  Terminal,
+  Mail,
+  User,
+  GraduationCap,
+  Briefcase,
+  FolderOpen,
+  Code,
+  Phone,
+} from "lucide-react";
+import { GlassContainer } from "@/components/ModernUIComponents";
 
 interface MobileNavigationProps {
   onNavigate: (section: string) => void;
@@ -8,45 +21,48 @@ interface MobileNavigationProps {
 
 export const MobileNavigation = ({ onNavigate }: MobileNavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState("hero");
 
   const navigationItems = [
-    { id: 'about', label: 'À propos', icon: User },
-    { id: 'education', label: 'Formation', icon: GraduationCap },
-    { id: 'experience', label: 'Expérience', icon: Briefcase },
-    { id: 'projects', label: 'Projets', icon: FolderOpen },
-    { id: 'skills', label: 'Compétences', icon: Code },
-    { id: 'contact', label: 'Contact', icon: Phone },
+    { id: "about", label: "À propos", icon: User },
+    { id: "education", label: "Formation", icon: GraduationCap },
+    { id: "experience", label: "Expérience", icon: Briefcase },
+    { id: "projects", label: "Projets", icon: FolderOpen },
+    { id: "skills", label: "Compétences", icon: Code },
+    { id: "contact", label: "Contact", icon: Phone },
   ];
 
   // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (isOpen && !(event.target as Element).closest('.mobile-nav-container')) {
+      if (
+        isOpen &&
+        !(event.target as Element).closest(".mobile-nav-container")
+      ) {
         setIsOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
 
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
   // Observe sections for active state
   useEffect(() => {
-    const observers = navigationItems.map(item => {
+    const observers = navigationItems.map((item) => {
       const element = document.getElementById(item.id);
       if (!element) return null;
 
@@ -56,7 +72,7 @@ export const MobileNavigation = ({ onNavigate }: MobileNavigationProps) => {
             setActiveSection(item.id);
           }
         },
-        { threshold: 0.3 }
+        { threshold: 0.3 },
       );
 
       observer.observe(element);
@@ -64,7 +80,7 @@ export const MobileNavigation = ({ onNavigate }: MobileNavigationProps) => {
     });
 
     return () => {
-      observers.forEach(observer => observer?.disconnect());
+      observers.forEach((observer) => observer?.disconnect());
     };
   }, []);
 
@@ -85,15 +101,11 @@ export const MobileNavigation = ({ onNavigate }: MobileNavigationProps) => {
           flex items-center justify-center
           text-white transition-all duration-300
           hover:scale-110 hover:shadow-2xl hover:shadow-green-500/50
-          ${isOpen ? 'bg-gradient-to-r from-red-600 to-orange-600' : ''}
+          ${isOpen ? "bg-gradient-to-r from-red-600 to-orange-600" : ""}
         `}
-        aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+        aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
       >
-        {isOpen ? (
-          <X className="w-6 h-6" />
-        ) : (
-          <Menu className="w-6 h-6" />
-        )}
+        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
 
       {/* Mobile Menu Overlay */}
@@ -125,7 +137,7 @@ export const MobileNavigation = ({ onNavigate }: MobileNavigationProps) => {
                 {navigationItems.map((item) => {
                   const IconComponent = item.icon;
                   const isActive = activeSection === item.id;
-                  
+
                   return (
                     <button
                       key={item.id}
@@ -133,19 +145,23 @@ export const MobileNavigation = ({ onNavigate }: MobileNavigationProps) => {
                       className={`
                         w-full flex items-center gap-4 p-4 rounded-xl
                         transition-all duration-300 text-left
-                        ${isActive 
-                          ? 'bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-500/30 text-green-200' 
-                          : 'hover:bg-white/5 text-gray-300 hover:text-white'
+                        ${
+                          isActive
+                            ? "bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-500/30 text-green-200"
+                            : "hover:bg-white/5 text-gray-300 hover:text-white"
                         }
                       `}
                     >
-                      <div className={`
+                      <div
+                        className={`
                         w-10 h-10 rounded-lg flex items-center justify-center
-                        ${isActive 
-                          ? 'bg-gradient-to-r from-green-500 to-blue-600' 
-                          : 'bg-white/10'
+                        ${
+                          isActive
+                            ? "bg-gradient-to-r from-green-500 to-blue-600"
+                            : "bg-white/10"
                         }
-                      `}>
+                      `}
+                      >
                         <IconComponent className="w-5 h-5" />
                       </div>
                       <span className="font-medium">{item.label}</span>
@@ -160,13 +176,13 @@ export const MobileNavigation = ({ onNavigate }: MobileNavigationProps) => {
               {/* Quick Actions */}
               <div className="mt-8 pt-6 border-t border-white/10 space-y-3">
                 <button
-                  onClick={() => handleNavigation('contact')}
+                  onClick={() => handleNavigation("contact")}
                   className="w-full flex items-center justify-center gap-3 p-4 bg-gradient-to-r from-green-500 to-blue-600 rounded-xl text-white font-medium transition-all duration-300 hover:scale-105"
                 >
                   <Mail className="w-5 h-5" />
                   Me contacter
                 </button>
-                
+
                 <a
                   href="https://github.com/eulogep"
                   target="_blank"

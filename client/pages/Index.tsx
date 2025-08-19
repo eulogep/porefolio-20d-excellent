@@ -88,7 +88,14 @@ export default function Index() {
   const [showTerminal, setShowTerminal] = useState(false);
   const [navCollapsed, setNavCollapsed] = useState(false);
 
-  const sections = ['about', 'education', 'experience', 'projects', 'skills', 'contact'];
+  const sections = [
+    "about",
+    "education",
+    "experience",
+    "projects",
+    "skills",
+    "contact",
+  ];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -103,9 +110,9 @@ export default function Index() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       // Announce navigation to screen readers
-      const announcement = document.createElement('div');
-      announcement.setAttribute('aria-live', 'polite');
-      announcement.className = 'sr-only';
+      const announcement = document.createElement("div");
+      announcement.setAttribute("aria-live", "polite");
+      announcement.className = "sr-only";
       announcement.textContent = `Navigation vers la section ${id}`;
       document.body.appendChild(announcement);
       setTimeout(() => document.body.removeChild(announcement), 1000);
@@ -280,7 +287,11 @@ export default function Index() {
       </button>
 
       {/* Hero Section */}
-      <section id={"main-content\" className=\"min-h-screen flex items-center justify-center relative px-6\" role=\"banner\" aria-label=\"Section d'accueil\""}>
+      <section
+        id={
+          'main-content" className="min-h-screen flex items-center justify-center relative px-6" role="banner" aria-label="Section d\'accueil"'
+        }
+      >
         <div className="max-w-6xl mx-auto text-center relative z-10">
           {/* Profile Image with Advanced Cyber Effects */}
           <div className="relative mb-12 group">
@@ -379,7 +390,7 @@ export default function Index() {
                     "Aspirant en Cyber-sécurité",
                     "Étudiant-Ingénieur ESIEA",
                     "Passionné de Sécurité Offensive",
-                    "Expert en Développement Sécurisé"
+                    "Expert en Développement Sécurisé",
                   ]}
                   speed={120}
                   deleteSpeed={60}

@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { Mouse, ArrowUp, Zap, Sparkles, Activity } from 'lucide-react';
+import { useState, useEffect, useRef } from "react";
+import { Mouse, ArrowUp, Zap, Sparkles, Activity } from "lucide-react";
 
 // Curseur personnalisé avec effet de suivi
 const CustomCursor = () => {
@@ -17,30 +17,38 @@ const CustomCursor = () => {
 
     const handleMouseEnter = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target && typeof target.matches === 'function' && target.matches('button, a, [data-interactive]')) {
+      if (
+        target &&
+        typeof target.matches === "function" &&
+        target.matches("button, a, [data-interactive]")
+      ) {
         setIsHovering(true);
       }
     };
 
     const handleMouseLeave = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target && typeof target.matches === 'function' && target.matches('button, a, [data-interactive]')) {
+      if (
+        target &&
+        typeof target.matches === "function" &&
+        target.matches("button, a, [data-interactive]")
+      ) {
         setIsHovering(false);
       }
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mousedown', handleMouseDown);
-    document.addEventListener('mouseup', handleMouseUp);
-    document.addEventListener('mouseenter', handleMouseEnter, true);
-    document.addEventListener('mouseleave', handleMouseLeave, true);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("mouseenter", handleMouseEnter, true);
+    document.addEventListener("mouseleave", handleMouseLeave, true);
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mouseup', handleMouseUp);
-      document.removeEventListener('mouseenter', handleMouseEnter, true);
-      document.removeEventListener('mouseleave', handleMouseLeave, true);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("mouseenter", handleMouseEnter, true);
+      document.removeEventListener("mouseleave", handleMouseLeave, true);
     };
   }, []);
 
@@ -51,16 +59,16 @@ const CustomCursor = () => {
         className={`
           absolute w-6 h-6 bg-gradient-to-r from-green-400 to-blue-500 rounded-full
           transition-all duration-200 ease-out mix-blend-difference
-          ${isHovering ? 'scale-150' : 'scale-100'}
-          ${isClicking ? 'scale-75' : ''}
+          ${isHovering ? "scale-150" : "scale-100"}
+          ${isClicking ? "scale-75" : ""}
         `}
         style={{
           left: mousePosition.x - 12,
           top: mousePosition.y - 12,
-          transform: `translate3d(0, 0, 0) scale(${isHovering ? 1.5 : 1}) ${isClicking ? 'scale(0.75)' : ''}`,
+          transform: `translate3d(0, 0, 0) scale(${isHovering ? 1.5 : 1}) ${isClicking ? "scale(0.75)" : ""}`,
         }}
       />
-      
+
       {/* Cursor trail */}
       <div
         className="absolute w-2 h-2 bg-green-400/50 rounded-full transition-all duration-500 ease-out"
@@ -82,14 +90,14 @@ const BackToTopButton = () => {
       setIsVisible(window.scrollY > 500);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -103,7 +111,7 @@ const BackToTopButton = () => {
         flex items-center justify-center
         text-white transition-all duration-500
         hover:scale-110 hover:shadow-2xl hover:shadow-green-500/50
-        ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'}
+        ${isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"}
       `}
       aria-label="Retour en haut"
     >
@@ -120,13 +128,14 @@ const ReadingProgress = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
       const progress = (scrollTop / docHeight) * 100;
       setProgress(Math.min(Math.max(progress, 0), 100));
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -137,7 +146,7 @@ const ReadingProgress = () => {
       />
       <div
         className="absolute top-0 right-0 w-8 h-1 bg-green-400/50 animate-pulse"
-        style={{ transform: `translateX(${progress > 95 ? '0' : '100%'})` }}
+        style={{ transform: `translateX(${progress > 95 ? "0" : "100%"})` }}
       />
     </div>
   );
@@ -147,21 +156,23 @@ const ReadingProgress = () => {
 const InteractiveParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
-  const particlesRef = useRef<Array<{
-    x: number;
-    y: number;
-    vx: number;
-    vy: number;
-    radius: number;
-    opacity: number;
-    color: string;
-  }>>([]);
+  const particlesRef = useRef<
+    Array<{
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      radius: number;
+      opacity: number;
+      color: string;
+    }>
+  >([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const resizeCanvas = () => {
@@ -170,10 +181,10 @@ const InteractiveParticles = () => {
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     // Initialize particles
-    const colors = ['#10b981', '#3b82f6', '#8b5cf6', '#06b6d4'];
+    const colors = ["#10b981", "#3b82f6", "#8b5cf6", "#06b6d4"];
     for (let i = 0; i < 50; i++) {
       particlesRef.current.push({
         x: Math.random() * canvas.width,
@@ -182,14 +193,14 @@ const InteractiveParticles = () => {
         vy: (Math.random() - 0.5) * 0.5,
         radius: Math.random() * 2 + 1,
         opacity: Math.random() * 0.3 + 0.1,
-        color: colors[Math.floor(Math.random() * colors.length)]
+        color: colors[Math.floor(Math.random() * colors.length)],
       });
     }
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particlesRef.current.forEach(particle => {
+      particlesRef.current.forEach((particle) => {
         // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
@@ -214,7 +225,7 @@ const InteractiveParticles = () => {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -232,7 +243,7 @@ const InteractiveParticles = () => {
 
 // Indicateur de vitesse de connexion
 const ConnectionSpeed = () => {
-  const [speed, setSpeed] = useState<'fast' | 'medium' | 'slow'>('fast');
+  const [speed, setSpeed] = useState<"fast" | "medium" | "slow">("fast");
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
@@ -244,63 +255,78 @@ const ConnectionSpeed = () => {
     const img = new Image();
     img.onload = () => {
       const loadTime = performance.now() - startTime;
-      if (loadTime < 100) setSpeed('fast');
-      else if (loadTime < 500) setSpeed('medium');
-      else setSpeed('slow');
+      if (loadTime < 100) setSpeed("fast");
+      else if (loadTime < 500) setSpeed("medium");
+      else setSpeed("slow");
     };
-    img.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB2aWV3Qm94PSIwIDAgMSAxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAwMDAiLz48L3N2Zz4=';
+    img.src =
+      "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB2aWV3Qm94PSIwIDAgMSAxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAwMDAiLz48L3N2Zz4=";
 
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
 
     return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
     };
   }, []);
 
   const getSpeedColor = () => {
-    if (!isOnline) return 'red';
+    if (!isOnline) return "red";
     switch (speed) {
-      case 'fast': return 'green';
-      case 'medium': return 'yellow';
-      case 'slow': return 'orange';
-      default: return 'gray';
+      case "fast":
+        return "green";
+      case "medium":
+        return "yellow";
+      case "slow":
+        return "orange";
+      default:
+        return "gray";
     }
   };
 
   const getSpeedIcon = () => {
     if (!isOnline) return <Activity className="w-3 h-3" />;
     switch (speed) {
-      case 'fast': return <Zap className="w-3 h-3" />;
-      case 'medium': return <Activity className="w-3 h-3" />;
-      case 'slow': return <Mouse className="w-3 h-3" />;
-      default: return <Activity className="w-3 h-3" />;
+      case "fast":
+        return <Zap className="w-3 h-3" />;
+      case "medium":
+        return <Activity className="w-3 h-3" />;
+      case "slow":
+        return <Mouse className="w-3 h-3" />;
+      default:
+        return <Activity className="w-3 h-3" />;
     }
   };
 
   const getSpeedLabel = () => {
-    if (!isOnline) return 'Hors ligne';
+    if (!isOnline) return "Hors ligne";
     switch (speed) {
-      case 'fast': return 'Connexion rapide';
-      case 'medium': return 'Connexion modérée';
-      case 'slow': return 'Connexion lente';
-      default: return 'Connexion';
+      case "fast":
+        return "Connexion rapide";
+      case "medium":
+        return "Connexion modérée";
+      case "slow":
+        return "Connexion lente";
+      default:
+        return "Connexion";
     }
   };
 
   return (
     <div className="fixed bottom-4 left-4 z-40">
-      <div className={`
+      <div
+        className={`
         flex items-center gap-2 px-3 py-2 rounded-full
         bg-black/50 backdrop-blur-sm border border-white/10
         text-xs text-${getSpeedColor()}-300
-      `}>
-        <div className={`text-${getSpeedColor()}-400`}>
-          {getSpeedIcon()}
-        </div>
+      `}
+      >
+        <div className={`text-${getSpeedColor()}-400`}>{getSpeedIcon()}</div>
         <span>{getSpeedLabel()}</span>
-        <div className={`w-2 h-2 bg-${getSpeedColor()}-400 rounded-full animate-pulse`} />
+        <div
+          className={`w-2 h-2 bg-${getSpeedColor()}-400 rounded-full animate-pulse`}
+        />
       </div>
     </div>
   );
@@ -312,7 +338,7 @@ const AdvancedTypingEffect = ({
   speed = 100,
   deleteSpeed = 50,
   pauseDuration = 2000,
-  className = ""
+  className = "",
 }: {
   texts: string[];
   speed?: number;
@@ -320,38 +346,51 @@ const AdvancedTypingEffect = ({
   pauseDuration?: number;
   className?: string;
 }) => {
-  const [currentText, setCurrentText] = useState('');
+  const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
     const currentFullText = texts[currentIndex];
-    
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        if (currentText.length < currentFullText.length) {
-          setCurrentText(currentFullText.substring(0, currentText.length + 1));
+
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          if (currentText.length < currentFullText.length) {
+            setCurrentText(
+              currentFullText.substring(0, currentText.length + 1),
+            );
+          } else {
+            setTimeout(() => setIsDeleting(true), pauseDuration);
+          }
         } else {
-          setTimeout(() => setIsDeleting(true), pauseDuration);
+          if (currentText.length > 0) {
+            setCurrentText(currentText.substring(0, currentText.length - 1));
+          } else {
+            setIsDeleting(false);
+            setCurrentIndex((prev) => (prev + 1) % texts.length);
+          }
         }
-      } else {
-        if (currentText.length > 0) {
-          setCurrentText(currentText.substring(0, currentText.length - 1));
-        } else {
-          setIsDeleting(false);
-          setCurrentIndex((prev) => (prev + 1) % texts.length);
-        }
-      }
-    }, isDeleting ? deleteSpeed : speed);
+      },
+      isDeleting ? deleteSpeed : speed,
+    );
 
     return () => clearTimeout(timeout);
-  }, [currentText, currentIndex, isDeleting, texts, speed, deleteSpeed, pauseDuration]);
+  }, [
+    currentText,
+    currentIndex,
+    isDeleting,
+    texts,
+    speed,
+    deleteSpeed,
+    pauseDuration,
+  ]);
 
   // Cursor blinking effect
   useEffect(() => {
     const cursorInterval = setInterval(() => {
-      setShowCursor(prev => !prev);
+      setShowCursor((prev) => !prev);
     }, 500);
 
     return () => clearInterval(cursorInterval);
@@ -360,7 +399,9 @@ const AdvancedTypingEffect = ({
   return (
     <span className={className}>
       {currentText}
-      <span className={`inline-block w-0.5 h-5 bg-current ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`} />
+      <span
+        className={`inline-block w-0.5 h-5 bg-current ml-1 ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity duration-100`}
+      />
     </span>
   );
 };
@@ -371,5 +412,5 @@ export {
   ReadingProgress,
   InteractiveParticles,
   ConnectionSpeed,
-  AdvancedTypingEffect
+  AdvancedTypingEffect,
 };
