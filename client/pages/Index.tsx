@@ -374,9 +374,16 @@ export default function Index() {
             <div className="flex items-center justify-center space-x-6 text-xl text-gray-300">
               <div className="flex items-center gap-2">
                 <Terminal className="w-6 h-6 text-green-400 animate-pulse" />
-                <TypingAnimation
-                  text="Aspirant en Cyber-sécurité"
-                  speed={100}
+                <AdvancedTypingEffect
+                  texts={[
+                    "Aspirant en Cyber-sécurité",
+                    "Étudiant-Ingénieur ESIEA",
+                    "Passionné de Sécurité Offensive",
+                    "Expert en Développement Sécurisé"
+                  ]}
+                  speed={120}
+                  deleteSpeed={60}
+                  pauseDuration={3000}
                   className="font-light tracking-wide"
                 />
               </div>
