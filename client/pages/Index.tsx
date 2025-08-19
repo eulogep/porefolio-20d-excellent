@@ -946,7 +946,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* BruteForce Tool */}
             <ModernCard
               glowColor="red"
