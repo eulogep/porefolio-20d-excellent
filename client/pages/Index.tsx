@@ -88,6 +88,8 @@ export default function Index() {
   const [showTerminal, setShowTerminal] = useState(false);
   const [navCollapsed, setNavCollapsed] = useState(false);
 
+  const sections = ['about', 'education', 'experience', 'projects', 'skills', 'contact'];
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -97,8 +99,21 @@ export default function Index() {
   }, []);
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      // Announce navigation to screen readers
+      const announcement = document.createElement('div');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.className = 'sr-only';
+      announcement.textContent = `Navigation vers la section ${id}`;
+      document.body.appendChild(announcement);
+      setTimeout(() => document.body.removeChild(announcement), 1000);
+    }
   };
+
+  // Initialize keyboard navigation
+  useKeyboardNavigation({ sections, onNavigate: scrollToSection });
 
   const terminalLines = [
     "whoami",
