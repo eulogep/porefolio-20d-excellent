@@ -307,10 +307,10 @@ export const ConnectionSpeed = () => {
 };
 
 // Effet de typing avancé avec curseur clignotant
-export const AdvancedTypingEffect = ({ 
-  texts, 
-  speed = 100, 
-  deleteSpeed = 50, 
+const AdvancedTypingEffect = ({
+  texts,
+  speed = 100,
+  deleteSpeed = 50,
   pauseDuration = 2000,
   className = ""
 }: {
