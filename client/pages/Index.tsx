@@ -1139,6 +1139,66 @@ export default function Index() {
                 <ExternalLink className="w-3 h-3" />
               </GlowButton>
             </ModernCard>
+
+            {/* Euloge Learning Platform */}
+            <ModernCard
+              glowColor="cyan"
+              icon={<Brain className="w-4 h-4" />}
+              className="p-8"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-teal-400 rounded-xl flex items-center justify-center">
+                  <Brain className="w-6 h-6 text-white" />
+                </div>
+                <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30">
+                  2025 - IA & Éducation
+                </Badge>
+              </div>
+              <h3 className="text-xl font-medium text-cyan-200 mb-4">
+                Euloge Learning Platform
+              </h3>
+              <p className="text-gray-400 font-light mb-6">
+                Plateforme d'apprentissage intelligente basée sur l'IA et les neurosciences.
+                Interface moderne avec optimisation personnalisée pour l'expérience d'apprentissage des étudiants.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  TypeScript
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  React
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  Tailwind CSS
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  IA/Neurosciences
+                </Badge>
+              </div>
+              <div className="flex gap-3">
+                <GlowButton
+                  variant="primary"
+                  size="sm"
+                  onClick={() =>
+                    window.open("https://github.com/eulogep/eulo-learn-boost", "_blank")
+                  }
+                >
+                  <Github className="w-4 h-4" />
+                  Voir le code
+                  <ExternalLink className="w-3 h-3" />
+                </GlowButton>
+                <GlowButton
+                  variant="secondary"
+                  size="sm"
+                  onClick={() =>
+                    window.open("https://singular-speculoos-908b2d.netlify.app", "_blank")
+                  }
+                >
+                  <Monitor className="w-4 h-4" />
+                  Live Demo
+                </GlowButton>
+              </div>
+            </ModernCard>
           </div>
         </div>
       </section>
