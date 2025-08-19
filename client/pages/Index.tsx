@@ -69,6 +69,18 @@ import {
   StatusIndicator,
   DownloadButton,
 } from "@/components/ModernUIComponents";
+import { MobileNavigation } from "@/components/MobileNavigation";
+import { LazySection } from "@/components/LazySection";
+import { CertificationsSection } from "@/components/CertificationsSection";
+import {
+  CustomCursor,
+  BackToTopButton,
+  ReadingProgress,
+  InteractiveParticles,
+  ConnectionSpeed,
+  AdvancedTypingEffect,
+} from "@/components/InteractiveElements";
+import { useKeyboardNavigation } from "@/hooks/useKeyboardNavigation";
 
 export default function Index() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
