@@ -231,7 +231,7 @@ export const InteractiveParticles = () => {
 };
 
 // Indicateur de vitesse de connexion
-export const ConnectionSpeed = () => {
+const ConnectionSpeed = () => {
   const [speed, setSpeed] = useState<'fast' | 'medium' | 'slow'>('fast');
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
