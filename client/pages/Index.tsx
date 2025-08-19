@@ -35,6 +35,15 @@ import {
   Wifi,
   Settings,
   Activity,
+  Music,
+  Dumbbell,
+  Theater,
+  Gamepad2,
+  Film,
+  BookOpen,
+  Sparkles,
+  Star,
+  Palette,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
