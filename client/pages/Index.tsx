@@ -280,7 +280,7 @@ export default function Index() {
       </button>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative px-6">
+      <section id={"main-content\" className=\"min-h-screen flex items-center justify-center relative px-6\" role=\"banner\" aria-label=\"Section d'accueil\""}>
         <div className="max-w-6xl mx-auto text-center relative z-10">
           {/* Profile Image with Advanced Cyber Effects */}
           <div className="relative mb-12 group">
