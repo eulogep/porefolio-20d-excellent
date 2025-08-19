@@ -1158,8 +1158,9 @@ export default function Index() {
                 Euloge Learning Platform
               </h3>
               <p className="text-gray-400 font-light mb-6">
-                Plateforme d'apprentissage intelligente basée sur l'IA et les neurosciences.
-                Interface moderne avec optimisation personnalisée pour l'expérience d'apprentissage des étudiants.
+                Plateforme d'apprentissage intelligente basée sur l'IA et les
+                neurosciences. Interface moderne avec optimisation personnalisée
+                pour l'expérience d'apprentissage des étudiants.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
                 <Badge className="bg-gray-700 text-gray-300 text-xs">
@@ -1180,7 +1181,10 @@ export default function Index() {
                   variant="primary"
                   size="sm"
                   onClick={() =>
-                    window.open("https://github.com/eulogep/eulo-learn-boost", "_blank")
+                    window.open(
+                      "https://github.com/eulogep/eulo-learn-boost",
+                      "_blank",
+                    )
                   }
                 >
                   <Github className="w-4 h-4" />
@@ -1191,7 +1195,10 @@ export default function Index() {
                   variant="secondary"
                   size="sm"
                   onClick={() =>
-                    window.open("https://singular-speculoos-908b2d.netlify.app", "_blank")
+                    window.open(
+                      "https://singular-speculoos-908b2d.netlify.app",
+                      "_blank",
+                    )
                   }
                 >
                   <Monitor className="w-4 h-4" />
