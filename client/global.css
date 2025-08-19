@@ -591,3 +591,71 @@
     0 0 15px currentColor,
     0 0 20px currentColor;
 }
+
+/* Modern UI Styles inspired by uiverse.io */
+
+/* Advanced Gradient Utilities */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Enhanced Glassmorphism */
+.glass-ultra {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Terminal Cursor */
+.terminal-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  background: #00ff41;
+  animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Status Indicators */
+.status-online {
+  background: radial-gradient(circle, #00ff41 0%, #008000 100%);
+  box-shadow: 0 0 10px #00ff41;
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* Enhanced animations for modern components */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Cyber glow effect */
+.cyber-glow {
+  filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor);
+}
+
+/* Advanced hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
