@@ -144,7 +144,7 @@ export const ReadingProgress = () => {
 };
 
 // Particules interactives de fond
-export const InteractiveParticles = () => {
+const InteractiveParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
   const particlesRef = useRef<Array<{
