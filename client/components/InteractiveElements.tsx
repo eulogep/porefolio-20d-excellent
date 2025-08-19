@@ -114,7 +114,7 @@ export const BackToTopButton = () => {
 };
 
 // Indicateur de progression de lecture
-export const ReadingProgress = () => {
+const ReadingProgress = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
