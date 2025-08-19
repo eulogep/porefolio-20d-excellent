@@ -44,6 +44,9 @@ import {
   Sparkles,
   Star,
   Palette,
+  Menu,
+  X,
+  GraduationCap as Education,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
@@ -67,12 +70,33 @@ import {
   StatusIndicator,
   DownloadButton,
 } from "@/components/ModernUIComponents";
+import { MobileNavigation } from "@/components/MobileNavigation";
+import { LazySection } from "@/components/LazySection";
+import { CertificationsSection } from "@/components/CertificationsSection";
+import {
+  CustomCursor,
+  BackToTopButton,
+  ReadingProgress,
+  InteractiveParticles,
+  ConnectionSpeed,
+  AdvancedTypingEffect,
+} from "@/components/InteractiveElements";
+import { useKeyboardNavigation } from "@/hooks/useKeyboardNavigation";
 
 export default function Index() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState({});
   const [showTerminal, setShowTerminal] = useState(false);
   const [navCollapsed, setNavCollapsed] = useState(false);
+
+  const sections = [
+    "about",
+    "education",
+    "experience",
+    "projects",
+    "skills",
+    "contact",
+  ];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -83,8 +107,21 @@ export default function Index() {
   }, []);
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      // Announce navigation to screen readers
+      const announcement = document.createElement("div");
+      announcement.setAttribute("aria-live", "polite");
+      announcement.className = "sr-only";
+      announcement.textContent = `Navigation vers la section ${id}`;
+      document.body.appendChild(announcement);
+      setTimeout(() => document.body.removeChild(announcement), 1000);
+    }
   };
+
+  // Initialize keyboard navigation
+  useKeyboardNavigation({ sections, onNavigate: scrollToSection });
 
   const terminalLines = [
     "whoami",
@@ -97,6 +134,24 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Enhanced interactive elements */}
+      <CustomCursor />
+      <ReadingProgress />
+      <InteractiveParticles />
+      <BackToTopButton />
+      <ConnectionSpeed />
+
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-green-500 text-white rounded-md"
+      >
+        Aller au contenu principal
+      </a>
+
+      {/* Mobile Navigation */}
+      <MobileNavigation onNavigate={scrollToSection} />
+
       <CyberBackground />
       <NetworkStructure />
       <HackingTerminal />
@@ -233,7 +288,11 @@ export default function Index() {
       </button>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative px-6">
+      <section
+        id={
+          'main-content" className="min-h-screen flex items-center justify-center relative px-6" role="banner" aria-label="Section d\'accueil"'
+        }
+      >
         <div className="max-w-6xl mx-auto text-center relative z-10">
           {/* Profile Image with Advanced Cyber Effects */}
           <div className="relative mb-12 group">
@@ -327,9 +386,16 @@ export default function Index() {
             <div className="flex items-center justify-center space-x-6 text-xl text-gray-300">
               <div className="flex items-center gap-2">
                 <Terminal className="w-6 h-6 text-green-400 animate-pulse" />
-                <TypingAnimation
-                  text="Aspirant en Cyber-sécurité"
-                  speed={100}
+                <AdvancedTypingEffect
+                  texts={[
+                    "Aspirant en Cyber-sécurité",
+                    "Étudiant-Ingénieur ESIEA",
+                    "Passionné de Sécurité Offensive",
+                    "Expert en Développement Sécurisé",
+                  ]}
+                  speed={120}
+                  deleteSpeed={60}
+                  pauseDuration={3000}
                   className="font-light tracking-wide"
                 />
               </div>
@@ -766,7 +832,122 @@ export default function Index() {
             <CyberToolsAnimation />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          {/* Demo Section */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-light mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
+                🚀 Testez mes démonstrations en direct
+              </h3>
+              <p className="text-gray-400 font-light max-w-2xl mx-auto">
+                Découvrez mes projets cybersécurité en action avec ces démos
+                interactives
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* CyberSentinel AI Demo */}
+              <ModernCard
+                glowColor="cyan"
+                icon={<Eye className="w-4 h-4" />}
+                className="p-8 bg-gradient-to-br from-cyan-900/20 to-blue-900/20"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-400 rounded-xl flex items-center justify-center animate-pulse">
+                    <Eye className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30 mb-2 animate-pulse">
+                      DÉMO LIVE
+                    </Badge>
+                    <h3 className="text-xl font-medium text-cyan-200">
+                      CyberSentinel AI
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-gray-300 font-light mb-6">
+                  Système de détection de menaces en temps réel alimenté par
+                  l'IA. Interface interactive avec tableaux de bord et alertes.
+                </p>
+                <div className="flex items-center gap-3 mb-6">
+                  <StatusIndicator status="online" animated />
+                  <span className="text-xs text-green-300">
+                    Démo fonctionnelle
+                  </span>
+                </div>
+                <GlowButton
+                  variant="primary"
+                  size="lg"
+                  onClick={() =>
+                    window.open(
+                      "https://classy-raindrop-17eb77.netlify.app",
+                      "_blank",
+                    )
+                  }
+                  className="w-full"
+                >
+                  <Eye className="w-5 h-5" />
+                  Tester CyberSentinel AI
+                  <ExternalLink className="w-4 h-4" />
+                </GlowButton>
+              </ModernCard>
+
+              {/* Brute Force Simulator Demo */}
+              <ModernCard
+                glowColor="red"
+                icon={<AlertTriangle className="w-4 h-4" />}
+                className="p-8 bg-gradient-to-br from-red-900/20 to-orange-900/20"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-400 rounded-xl flex items-center justify-center animate-pulse">
+                    <AlertTriangle className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <Badge className="bg-red-500/20 text-red-300 border-red-500/30 mb-2 animate-pulse">
+                      DÉMO ÉDUCATIVE
+                    </Badge>
+                    <h3 className="text-xl font-medium text-red-200">
+                      Simulateur Brute Force
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-gray-300 font-light mb-6">
+                  Démonstration interactive de la sécurité des mots de passe.
+                  Analyse en temps réel et visualisations éducatives.
+                </p>
+                <div className="flex items-center gap-3 mb-6">
+                  <StatusIndicator status="online" animated />
+                  <span className="text-xs text-green-300">Démo sécurisée</span>
+                </div>
+                <GlowButton
+                  variant="danger"
+                  size="lg"
+                  onClick={() =>
+                    window.open(
+                      "https://dancing-trifle-bd9ab5.netlify.app",
+                      "_blank",
+                    )
+                  }
+                  className="w-full"
+                >
+                  <AlertTriangle className="w-5 h-5" />
+                  Tester le Simulateur
+                  <ExternalLink className="w-4 h-4" />
+                </GlowButton>
+              </ModernCard>
+            </div>
+
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-full border border-white/10">
+                <Monitor className="w-4 h-4 text-green-400" />
+                <span className="text-sm text-gray-300">
+                  Démos hébergées sur Netlify
+                </span>
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* BruteForce Tool */}
             <ModernCard
               glowColor="red"
@@ -958,9 +1139,81 @@ export default function Index() {
                 <ExternalLink className="w-3 h-3" />
               </GlowButton>
             </ModernCard>
+
+            {/* Euloge Learning Platform */}
+            <ModernCard
+              glowColor="cyan"
+              icon={<Brain className="w-4 h-4" />}
+              className="p-8"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-teal-400 rounded-xl flex items-center justify-center">
+                  <Brain className="w-6 h-6 text-white" />
+                </div>
+                <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30">
+                  2025 - IA & Éducation
+                </Badge>
+              </div>
+              <h3 className="text-xl font-medium text-cyan-200 mb-4">
+                Euloge Learning Platform
+              </h3>
+              <p className="text-gray-400 font-light mb-6">
+                Plateforme d'apprentissage intelligente basée sur l'IA et les
+                neurosciences. Interface moderne avec optimisation personnalisée
+                pour l'expérience d'apprentissage des étudiants.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  TypeScript
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  React
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  Tailwind CSS
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  IA/Neurosciences
+                </Badge>
+              </div>
+              <div className="flex gap-3">
+                <GlowButton
+                  variant="primary"
+                  size="sm"
+                  onClick={() =>
+                    window.open(
+                      "https://github.com/eulogep/eulo-learn-boost",
+                      "_blank",
+                    )
+                  }
+                >
+                  <Github className="w-4 h-4" />
+                  Voir le code
+                  <ExternalLink className="w-3 h-3" />
+                </GlowButton>
+                <GlowButton
+                  variant="secondary"
+                  size="sm"
+                  onClick={() =>
+                    window.open(
+                      "https://singular-speculoos-908b2d.netlify.app",
+                      "_blank",
+                    )
+                  }
+                >
+                  <Monitor className="w-4 h-4" />
+                  Live Demo
+                </GlowButton>
+              </div>
+            </ModernCard>
           </div>
         </div>
       </section>
+
+      {/* Certifications Section */}
+      <LazySection>
+        <CertificationsSection />
+      </LazySection>
 
       {/* Skills Section */}
       <section
