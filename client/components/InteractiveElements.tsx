@@ -17,14 +17,14 @@ const CustomCursor = () => {
 
     const handleMouseEnter = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.matches('button, a, [data-interactive]')) {
+      if (target && typeof target.matches === 'function' && target.matches('button, a, [data-interactive]')) {
         setIsHovering(true);
       }
     };
 
     const handleMouseLeave = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.matches('button, a, [data-interactive]')) {
+      if (target && typeof target.matches === 'function' && target.matches('button, a, [data-interactive]')) {
         setIsHovering(false);
       }
     };
