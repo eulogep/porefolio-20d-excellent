@@ -149,7 +149,9 @@ export default function Index() {
       </div>
 
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${navCollapsed ? '-translate-y-full' : 'translate-y-0'}`}>
+      <nav
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${navCollapsed ? "-translate-y-full" : "translate-y-0"}`}
+      >
         <GlassContainer
           blur="xl"
           className="mx-6 mt-4 px-6 py-4"
@@ -219,12 +221,14 @@ export default function Index() {
           flex items-center justify-center
           text-white transition-all duration-300
           hover:scale-110 hover:shadow-2xl hover:shadow-green-500/50
-          ${navCollapsed ? 'bg-gradient-to-r from-blue-600 to-purple-600' : ''}
+          ${navCollapsed ? "bg-gradient-to-r from-blue-600 to-purple-600" : ""}
         `}
-        title={navCollapsed ? "Afficher la navigation" : "Masquer la navigation"}
+        title={
+          navCollapsed ? "Afficher la navigation" : "Masquer la navigation"
+        }
       >
         <ChevronDown
-          className={`w-6 h-6 transition-transform duration-300 ${navCollapsed ? 'rotate-180' : ''}`}
+          className={`w-6 h-6 transition-transform duration-300 ${navCollapsed ? "rotate-180" : ""}`}
         />
       </button>
 
