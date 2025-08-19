@@ -72,6 +72,7 @@ export default function Index() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState({});
   const [showTerminal, setShowTerminal] = useState(false);
+  const [navCollapsed, setNavCollapsed] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -990,7 +991,7 @@ export default function Index() {
                   { skill: "Pentesting", level: 75 },
                   { skill: "Cryptographie", level: 80 },
                   { skill: "Analyse vuln.", level: 70 },
-                  { skill: "R��seaux", level: 85 },
+                  { skill: "Réseaux", level: 85 },
                   { skill: "OSINT", level: 65 },
                   { skill: "Forensics", level: 60 },
                 ].map(({ skill, level }) => (
