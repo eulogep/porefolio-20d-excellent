@@ -880,34 +880,166 @@ export default function Index() {
             {/* Interests */}
             <GlassContainer className="p-6" blur="md">
               <h3 className="text-2xl font-light text-purple-200 mb-8 flex items-center gap-3">
-                <Heart className="w-6 h-6 text-purple-400" />
+                <Sparkles className="w-6 h-6 text-purple-400 animate-pulse" />
                 Centres d'intérêt
               </h3>
               <div className="space-y-4">
                 {[
-                  { name: "Danse Hip-hop", icon: "💃", color: "pink" },
-                  { name: "Sports", icon: "🏀", color: "orange" },
-                  { name: "Théâtre", icon: "🎭", color: "purple" },
-                  { name: "Manga/Anime", icon: "🎌", color: "red" },
-                  { name: "Cinéma", icon: "🎬", color: "blue" },
-                  { name: "Lecture", icon: "📚", color: "green" },
-                ].map(({ name, icon, color }, index) => (
-                  <ModernCard 
-                    key={name} 
-                    className="p-3 hover:scale-105 transition-transform duration-300" 
+                  {
+                    name: "Danse Hip-hop",
+                    icon: Music,
+                    color: "pink",
+                    description: "Popping, Afro, Valse"
+                  },
+                  {
+                    name: "Sports",
+                    icon: Dumbbell,
+                    color: "orange",
+                    description: "Basket, Football, Judo"
+                  },
+                  {
+                    name: "Théâtre",
+                    icon: Theater,
+                    color: "purple",
+                    description: "Théâtre amateur, Expression"
+                  },
+                  {
+                    name: "Culture Otaku",
+                    icon: Star,
+                    color: "red",
+                    description: "Manga, Anime, Culture japonaise"
+                  },
+                  {
+                    name: "Cinéma",
+                    icon: Film,
+                    color: "blue",
+                    description: "Figuration, Découvertes"
+                  },
+                  {
+                    name: "Lecture",
+                    icon: BookOpen,
+                    color: "green",
+                    description: "Littérature, Technique"
+                  },
+                ].map(({ name, icon: IconComponent, color, description }, index) => (
+                  <ModernCard
+                    key={name}
+                    className="p-4 hover:scale-105 transition-all duration-300 group"
                     glowColor={color}
                   >
-                    <div className="flex items-center gap-3">
-                      <span 
-                        className="text-xl animate-bounce" 
-                        style={{ animationDelay: `${index * 0.2}s` }}
-                      >
-                        {icon}
-                      </span>
-                      <span className="text-gray-300 font-light text-sm">{name}</span>
+                    <div className="flex items-center gap-4">
+                      {/* Icon with enhanced animations */}
+                      <div className={`
+                        relative w-12 h-12 rounded-xl flex items-center justify-center
+                        bg-gradient-to-br from-${color}-500/20 to-${color}-600/10
+                        border border-${color}-500/30
+                        group-hover:scale-110 transition-all duration-300
+                        group-hover:shadow-lg group-hover:shadow-${color}-500/50
+                      `}>
+                        <IconComponent
+                          className={`w-6 h-6 text-${color}-400 group-hover:text-${color}-300 transition-colors duration-300`}
+                          style={{
+                            animationDelay: `${index * 0.2}s`,
+                            filter: 'drop-shadow(0 0 8px currentColor)'
+                          }}
+                        />
+
+                        {/* Animated border */}
+                        <div className={`
+                          absolute inset-0 rounded-xl border-2 border-${color}-400/0
+                          group-hover:border-${color}-400/50 transition-all duration-300
+                          animate-pulse
+                        `} />
+
+                        {/* Floating particles */}
+                        <div className="absolute inset-0 pointer-events-none">
+                          {[...Array(3)].map((_, i) => (
+                            <div
+                              key={i}
+                              className={`
+                                absolute w-1 h-1 bg-${color}-400 rounded-full
+                                opacity-0 group-hover:opacity-100
+                                animate-ping transition-opacity duration-300
+                              `}
+                              style={{
+                                left: `${20 + i * 20}%`,
+                                top: `${20 + i * 20}%`,
+                                animationDelay: `${i * 0.3}s`
+                              }}
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1">
+                        <h4 className={`
+                          text-lg font-medium text-${color}-200 mb-1
+                          group-hover:text-${color}-100 transition-colors duration-300
+                        `}>
+                          {name}
+                        </h4>
+                        <p className="text-gray-400 text-xs font-light leading-relaxed">
+                          {description}
+                        </p>
+
+                        {/* Skill level indicator */}
+                        <div className="mt-2 flex items-center gap-1">
+                          {[...Array(5)].map((_, i) => (
+                            <div
+                              key={i}
+                              className={`
+                                w-1.5 h-1.5 rounded-full transition-all duration-300
+                                ${i < 4
+                                  ? `bg-${color}-400 opacity-100`
+                                  : 'bg-gray-600 opacity-50'
+                                }
+                                group-hover:animate-pulse
+                              `}
+                              style={{ animationDelay: `${i * 0.1}s` }}
+                            />
+                          ))}
+                          <span className="text-xs text-gray-500 ml-2">Passionné</span>
+                        </div>
+                      </div>
+
+                      {/* Hover indicator */}
+                      <div className={`
+                        w-2 h-2 rounded-full bg-${color}-400
+                        opacity-0 group-hover:opacity-100
+                        transition-all duration-300 animate-pulse
+                      `} />
+                    </div>
+
+                    {/* Background pattern */}
+                    <div className="absolute inset-0 opacity-5 pointer-events-none">
+                      <div className={`
+                        w-full h-full bg-gradient-to-br from-${color}-500/10 to-transparent
+                        transform rotate-45 scale-150
+                        group-hover:rotate-90 transition-transform duration-700
+                      `} />
                     </div>
                   </ModernCard>
                 ))}
+              </div>
+
+              {/* Fun stats */}
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <div className="flex items-center justify-between text-xs text-gray-500">
+                  <div className="flex items-center gap-2">
+                    <Palette className="w-4 h-4" />
+                    <span>Créativité active</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {[...Array(6)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="w-1 h-1 bg-purple-400 rounded-full animate-pulse"
+                        style={{ animationDelay: `${i * 0.2}s` }}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </GlassContainer>
           </div>
