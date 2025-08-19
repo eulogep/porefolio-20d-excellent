@@ -46,6 +46,7 @@ import {
   Palette,
   Menu,
   X,
+  GraduationCap as Education,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
