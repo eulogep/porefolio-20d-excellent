@@ -44,6 +44,8 @@ import {
   Sparkles,
   Star,
   Palette,
+  Menu,
+  X,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
