@@ -11,16 +11,19 @@
 Étudiant-ingénieur passionné par la **cybersécurité** et le **développement sécurisé**, actuellement en formation à l'**ESIEA Paris**. Fort d'un parcours académique rigoureux (classes préparatoires PSI/MPSI) et d'une expérience pratique en développement, je recherche une **alternance en cybersécurité** pour approfondir mes compétences techniques et contribuer à la protection des systèmes d'information.
 
 ### 🎯 Objectif Professionnel
+
 Devenir un expert en cybersécurité capable de concevoir et implémenter des solutions de sécurité robustes, tout en développant des applications sécurisées et en sensibilisant aux bonnes pratiques de sécurité.
 
 ## 🚀 Projets Phares & Démonstrations
 
 ### 🔍 CyberSentinel AI - Système de Détection de Menaces
+
 **🌟 [ESSAYER LA DÉMO](https://classy-raindrop-17eb77.netlify.app)**
 
 Système avancé de détection et de réponse aux menaces utilisant l'Intelligence Artificielle.
 
 **Fonctionnalités:**
+
 - 🔮 Détection de menaces pilotée par GPT-4
 - 📊 Tableau de bord React en temps réel
 - 🌐 Capture de paquets réseau
@@ -29,6 +32,7 @@ Système avancé de détection et de réponse aux menaces utilisant l'Intelligen
 - ⚡ Mises à jour WebSocket
 
 **Stack Technique:**
+
 - **Backend:** Python, FastAPI, PostgreSQL, Redis, Celery
 - **Frontend:** React, TypeScript, Tailwind CSS
 - **IA:** Intégration GPT-4 pour l'analyse comportementale
@@ -37,11 +41,13 @@ Système avancé de détection et de réponse aux menaces utilisant l'Intelligen
 ---
 
 ### 🛡️ Simulateur d'Attaque Brute Force - Outil Éducatif
+
 **🌟 [ESSAYER LA DÉMO](https://dancing-trifle-bd9ab5.netlify.app/)**
 
 Simulateur interactif de sensibilisation à la sécurité des mots de passe et aux techniques d'attaque.
 
 **Fonctionnalités:**
+
 - 📈 Indicateur de force des mots de passe
 - 🔍 Analyses détaillées (caractères, patterns)
 - 💻 Simulations d'attaques (Basique/GPU/Cluster)
@@ -54,9 +60,11 @@ Simulateur interactif de sensibilisation à la sécurité des mots de passe et a
 ---
 
 ### 🔧 BruteForce Tool - Plateforme de Test de Sécurité
+
 Outil professionnel de test de sécurité destiné à l'éducation et aux tests autorisés.
 
 **Fonctionnalités:**
+
 - ⚙️ Attaques personnalisables basées sur des règles
 - 🖥️ Craquage de hash avec support GPU (Hashcat)
 - 📋 Gestion avancée de dictionnaires
@@ -65,6 +73,7 @@ Outil professionnel de test de sécurité destiné à l'éducation et aux tests 
 - 🛡️ Framework éthique intégré
 
 **Architecture:**
+
 - **Backend:** Flask, Python, API REST
 - **Frontend:** React, Tailwind CSS
 - **Sécurité:** Validation stricte, usage éthique
@@ -72,9 +81,11 @@ Outil professionnel de test de sécurité destiné à l'éducation et aux tests 
 ---
 
 ### 🏦 DEX Swap App - Application DeFi
+
 Application décentralisée d'échange de cryptomonnaies démontrant ma maîtrise des technologies Web3.
 
 **Fonctionnalités:**
+
 - 🔄 Échange via Uniswap v3 (ETH, USDC, DAI, WBTC, USDT)
 - 🎨 Interface glassmorphism moderne
 - 🔊 Onboarding vocal (Web Speech API)
@@ -87,12 +98,14 @@ Application décentralisée d'échange de cryptomonnaies démontrant ma maîtris
 ## 💼 Formation & Expérience
 
 ### 🎓 Formation
+
 - **2023-2026** | **ESIEA Paris** - Cycle Ingénieur Cybersécurité & Développement Logiciel
 - **2022-2023** | **Lycée Jean-Jaurès** - Classe Préparatoire PSI
 - **2021-2022** | **Lycée Paul Éluard** - Classe Préparatoire MPSI
 - **2021** | **Lycée Colbert** - Baccalauréat Général **Mention Bien** (Math, Physique-Chimie)
 
 ### 💻 Expérience Professionnelle
+
 - **Sept 2024 - Jan 2025** | **Five Guys** - Équipier Polyvalent
 - **Déc 2021 - Mai 2022** | **Événement "Essaimées"** - Assistant de Projet (LabVIEW, Robotique)
 - **Juil-Août 2019** | **Cyber Café du Centre** - Opérateur de saisie
@@ -100,6 +113,7 @@ Application décentralisée d'échange de cryptomonnaies démontrant ma maîtris
 ## 🛠️ Compétences Techniques
 
 ### 💻 Programmation
+
 ![Python](https://img.shields.io/badge/Python-Advanced-brightgreen?style=flat-square&logo=python)
 ![Java](https://img.shields.io/badge/Java-Intermediate-yellow?style=flat-square&logo=java)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Intermediate-yellow?style=flat-square&logo=javascript)
@@ -108,6 +122,7 @@ Application décentralisée d'échange de cryptomonnaies démontrant ma maîtris
 ![Bash](https://img.shields.io/badge/Bash-Intermediate-yellow?style=flat-square&logo=gnu-bash)
 
 ### 🔒 Cybersécurité
+
 - **Tests d'intrusion** & Analyse de vulnérabilités
 - **Cryptographie** & Sécurité des communications
 - **Sécurité des réseaux** & Détection d'intrusions
@@ -116,6 +131,7 @@ Application décentralisée d'échange de cryptomonnaies démontrant ma maîtris
 - **Forensique numérique** & Analyse d'incidents
 
 ### 🛠️ Outils & Technologies
+
 - **Systèmes:** Linux/Unix, Windows
 - **Développement:** Git/GitHub, Docker, CI/CD
 - **Frameworks:** React, FastAPI, Flask, Express
@@ -124,6 +140,7 @@ Application décentralisée d'échange de cryptomonnaies démontrant ma maîtris
 - **Spécialisés:** LabVIEW, Hashcat, Wireshark
 
 ### 🌐 Langues
+
 - **Français:** Courant (Natif)
 - **Anglais:** B2 (Technique et professionnel)
 - **Espagnol:** Notions de base
@@ -131,6 +148,7 @@ Application décentralisée d'échange de cryptomonnaies démontrant ma maîtris
 ## 🎯 Recherche d'Alternance
 
 ### 📍 Profil Recherché
+
 - **Type:** Alternance en Cybersécurité (2025-2026)
 - **Rythme:** 3 semaines entreprise / 1 semaine école
 - **Localisation:** Paris et région parisienne
@@ -143,6 +161,7 @@ Application décentralisée d'échange de cryptomonnaies démontrant ma maîtris
   - Sécurité Cloud & DevSecOps
 
 ### 💪 Atouts
+
 - **Formation technique solide** (Prépa + École d'ingénieur)
 - **Projets concrets** avec démos fonctionnelles
 - **Approche éthique** de la cybersécurité
@@ -163,11 +182,13 @@ Application décentralisée d'échange de cryptomonnaies démontrant ma maîtris
 ## 🚀 Installation & Développement Local
 
 ### Prérequis
+
 - Node.js (v18+)
 - pnpm
 - Git
 
 ### Installation
+
 ```bash
 # Cloner le repository
 git clone https://github.com/eulogep/portfolio-cybersecurity.git
@@ -187,6 +208,7 @@ pnpm start
 ```
 
 ### Structure du Projet
+
 ```
 portfolio-cybersecurity/
 ├── client/                 # Application React frontend
@@ -209,6 +231,7 @@ Ce portfolio et l'ensemble des projets présentés ont ét�� **entièrement 
 ### 🌟 Mentions Spéciales
 
 Ce portfolio utilise des technologies modernes et des bonnes pratiques de développement :
+
 - **React 18** avec hooks avancés
 - **TypeScript** pour la sécurité des types
 - **Tailwind CSS** pour le design
@@ -220,5 +243,5 @@ Ce portfolio utilise des technologies modernes et des bonnes pratiques de dével
 
 ---
 
-> *"La cybersécurité n'est pas un produit, mais un processus. Mon objectif est de contribuer à ce processus en alliant compétences techniques, éthique professionnelle et innovation continue."*  
+> _"La cybersécurité n'est pas un produit, mais un processus. Mon objectif est de contribuer à ce processus en alliant compétences techniques, éthique professionnelle et innovation continue."_  
 > — **Euloge Junior Mabiala**
