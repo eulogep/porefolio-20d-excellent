@@ -126,6 +126,24 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Enhanced interactive elements */}
+      <CustomCursor />
+      <ReadingProgress />
+      <InteractiveParticles />
+      <BackToTopButton />
+      <ConnectionSpeed />
+
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] px-4 py-2 bg-green-500 text-white rounded-md"
+      >
+        Aller au contenu principal
+      </a>
+
+      {/* Mobile Navigation */}
+      <MobileNavigation onNavigate={scrollToSection} />
+
       <CyberBackground />
       <NetworkStructure />
       <HackingTerminal />
