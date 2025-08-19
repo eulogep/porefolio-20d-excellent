@@ -1131,6 +1131,11 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Certifications Section */}
+      <LazySection>
+        <CertificationsSection />
+      </LazySection>
+
       {/* Skills Section */}
       <section
         id="skills"
