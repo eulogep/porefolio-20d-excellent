@@ -1,5 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Shield, Lock, Eye, Terminal, Wifi, Zap, Binary, Code, Server, Network, Globe, Bug, AlertTriangle, Key, Database, Monitor } from "lucide-react";
+import {
+  Shield,
+  Lock,
+  Eye,
+  Terminal,
+  Wifi,
+  Zap,
+  Binary,
+  Code,
+  Server,
+  Network,
+  Globe,
+  Bug,
+  AlertTriangle,
+  Key,
+  Database,
+  Monitor,
+} from "lucide-react";
 
 export const CyberBackground: React.FC = () => {
   return (
@@ -22,7 +39,13 @@ export const CyberBackground: React.FC = () => {
       {/* Network nodes */}
       <svg className="absolute inset-0 w-full h-full">
         <defs>
-          <linearGradient id="networkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient
+            id="networkGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="rgba(34, 197, 94, 0.3)" />
             <stop offset="100%" stopColor="rgba(59, 130, 246, 0.3)" />
           </linearGradient>
@@ -116,7 +139,7 @@ export const NetworkStructure: React.FC = () => {
             {i % 3 === 1 && <Shield className="w-4 h-4 text-white" />}
             {i % 3 === 2 && <Lock className="w-4 h-4 text-white" />}
           </div>
-          
+
           {/* Connection lines */}
           <svg className="absolute inset-0 w-full h-full">
             <line
@@ -144,9 +167,15 @@ export const NetworkStructure: React.FC = () => {
       {/* Encryption Process */}
       <div className="absolute bottom-20 left-10 w-32 h-8">
         <div className="flex items-center gap-2">
-          <Key className="w-6 h-6 text-yellow-400 animate-spin" style={{ animationDuration: "3s" }} />
+          <Key
+            className="w-6 h-6 text-yellow-400 animate-spin"
+            style={{ animationDuration: "3s" }}
+          />
           <div className="flex-1 h-2 bg-gray-700 rounded-full overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-yellow-400 to-green-400 rounded-full animate-pulse" style={{ width: "75%" }} />
+            <div
+              className="h-full bg-gradient-to-r from-yellow-400 to-green-400 rounded-full animate-pulse"
+              style={{ width: "75%" }}
+            />
           </div>
           <Lock className="w-6 h-6 text-green-400 animate-pulse" />
         </div>
@@ -162,14 +191,16 @@ export const HackingTerminal: React.FC = () => {
     "$ nmap -sS target.com",
     "Starting Nmap scan...",
     "$ python exploit.py",
-    "Payload delivered successfully"
+    "Payload delivered successfully",
   ]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setLines(prev => {
+      setLines((prev) => {
         const newLines = [...prev];
-        newLines.push(`$ ${Math.random() > 0.5 ? 'sudo' : 'python'} ${Math.random() > 0.5 ? 'scan.py' : 'analyze.sh'}`);
+        newLines.push(
+          `$ ${Math.random() > 0.5 ? "sudo" : "python"} ${Math.random() > 0.5 ? "scan.py" : "analyze.sh"}`,
+        );
         if (newLines.length > 8) newLines.shift();
         return newLines;
       });
@@ -189,7 +220,7 @@ export const HackingTerminal: React.FC = () => {
         {lines.map((line, i) => (
           <div
             key={i}
-            className={`${line.startsWith('$') ? 'text-green-400' : 'text-gray-300'} animate-fadeIn`}
+            className={`${line.startsWith("$") ? "text-green-400" : "text-gray-300"} animate-fadeIn`}
             style={{ animationDelay: `${i * 0.1}s` }}
           >
             {line}
@@ -206,7 +237,7 @@ export const SecurityMetrics: React.FC = () => {
     { label: "Threats Blocked", value: "99.9%", color: "green" },
     { label: "System Integrity", value: "100%", color: "blue" },
     { label: "Encryption Level", value: "AES-256", color: "purple" },
-    { label: "Firewall Status", value: "Active", color: "red" }
+    { label: "Firewall Status", value: "Active", color: "red" },
   ];
 
   return (
@@ -271,9 +302,7 @@ export const CyberToolsAnimation: React.FC = () => {
 
       {/* Security Shield */}
       <div className="relative w-12 h-12">
-        <Shield
-          className="w-12 h-12 text-green-400 animate-pulse"
-        />
+        <Shield className="w-12 h-12 text-green-400 animate-pulse" />
         <div
           className="absolute top-1/2 left-1/2 w-8 h-8 border border-green-400/50 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-spin"
           style={{ animationDuration: "2s" }}
@@ -365,9 +394,9 @@ export const VulnerabilityScanner: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setScanning(prev => !prev);
+      setScanning((prev) => !prev);
       if (scanning) {
-        setProgress(prev => (prev + 10) % 100);
+        setProgress((prev) => (prev + 10) % 100);
       }
     }, 2000);
     return () => clearInterval(interval);
@@ -377,7 +406,9 @@ export const VulnerabilityScanner: React.FC = () => {
     <div className="absolute bottom-1/4 left-1/4 w-48 h-24 bg-gray-900/80 rounded-lg border border-red-500/50 p-3">
       <div className="flex items-center gap-2 mb-2">
         <AlertTriangle className="w-4 h-4 text-red-400" />
-        <span className="text-red-400 text-sm font-mono">Vulnerability Scanner</span>
+        <span className="text-red-400 text-sm font-mono">
+          Vulnerability Scanner
+        </span>
       </div>
       <div className="space-y-2">
         <div className="flex justify-between text-xs text-gray-300">
@@ -385,7 +416,7 @@ export const VulnerabilityScanner: React.FC = () => {
           <span>{progress}%</span>
         </div>
         <div className="w-full bg-gray-700 rounded-full h-2">
-          <div 
+          <div
             className="bg-gradient-to-r from-red-500 to-yellow-500 h-2 rounded-full transition-all duration-300"
             style={{ width: `${progress}%` }}
           />
@@ -403,7 +434,7 @@ export const EncryptionAnimation: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setEncrypted(prev => !prev);
+      setEncrypted((prev) => !prev);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -416,14 +447,16 @@ export const EncryptionAnimation: React.FC = () => {
           {encrypted ? "************" : "secret_data"}
         </div>
       </div>
-      
+
       <div className="flex flex-col items-center">
-        <Key className={`w-8 h-8 text-yellow-400 transition-transform duration-500 ${encrypted ? 'rotate-180' : ''}`} />
+        <Key
+          className={`w-8 h-8 text-yellow-400 transition-transform duration-500 ${encrypted ? "rotate-180" : ""}`}
+        />
         <div className="text-xs text-yellow-400 mt-1">
           {encrypted ? "Encrypted" : "Encrypting"}
         </div>
       </div>
-      
+
       <div className="text-center">
         <div className="text-sm text-gray-300 mb-2">Cipher Text</div>
         <div className="px-4 py-2 bg-gray-800 rounded font-mono text-red-400">

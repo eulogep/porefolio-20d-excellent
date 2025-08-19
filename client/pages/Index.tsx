@@ -91,7 +91,7 @@ export default function Index() {
     "nmap -sS target.com",
     "Starting Nmap scan...",
     "python exploit.py",
-    "Access granted ✓"
+    "Access granted ✓",
   ];
 
   return (
@@ -101,7 +101,7 @@ export default function Index() {
       <HackingTerminal />
       <VulnerabilityScanner />
       <EncryptionAnimation />
-      
+
       {/* Floating Action Button */}
       <FloatingActionButton
         icon={<Terminal className="w-6 h-6" />}
@@ -118,7 +118,9 @@ export default function Index() {
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-green-400 text-sm ml-2">cyber-terminal</span>
+                <span className="text-green-400 text-sm ml-2">
+                  cyber-terminal
+                </span>
               </div>
               <StatusIndicator status="online" animated size="sm" />
             </div>
@@ -126,7 +128,7 @@ export default function Index() {
           </GlassContainer>
         </div>
       )}
-      
+
       {/* Animated Background */}
       <div className="fixed inset-0 opacity-20">
         <div className="absolute inset-0 bg-gradient-to-br from-green-900/30 via-blue-900/20 to-purple-900/30" />
@@ -147,7 +149,11 @@ export default function Index() {
 
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50">
-        <GlassContainer blur="xl" className="mx-6 mt-4 px-6 py-4" opacity={0.05}>
+        <GlassContainer
+          blur="xl"
+          className="mx-6 mt-4 px-6 py-4"
+          opacity={0.05}
+        >
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-600 rounded-lg flex items-center justify-center relative">
@@ -155,9 +161,9 @@ export default function Index() {
                 <div className="absolute inset-0 bg-green-400/20 rounded-lg animate-ping" />
               </div>
               <div>
-                <TypingAnimation 
-                  text="EULOGE JUNIOR" 
-                  speed={150} 
+                <TypingAnimation
+                  text="EULOGE JUNIOR"
+                  speed={150}
                   className="text-xl font-light tracking-wider"
                   cursor={false}
                 />
@@ -165,31 +171,36 @@ export default function Index() {
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              {["about", "education", "experience", "projects", "skills", "contact"].map(
-                (item) => (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(item)}
-                    className="relative text-gray-300 hover:text-white transition-all duration-300 capitalize tracking-wide group"
-                  >
-                    {item === "about"
-                      ? "À propos"
-                      : item === "education"
-                        ? "Formation"
-                        : item === "experience"
-                          ? "Expérience"
-                          : item === "projects"
-                            ? "Projets"
-                            : item === "skills"
-                              ? "Compétences"
-                              : "Contact"}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-blue-600 group-hover:w-full transition-all duration-300" />
-                    
-                    {/* Hover glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-                  </button>
-                ),
-              )}
+              {[
+                "about",
+                "education",
+                "experience",
+                "projects",
+                "skills",
+                "contact",
+              ].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="relative text-gray-300 hover:text-white transition-all duration-300 capitalize tracking-wide group"
+                >
+                  {item === "about"
+                    ? "À propos"
+                    : item === "education"
+                      ? "Formation"
+                      : item === "experience"
+                        ? "Expérience"
+                        : item === "projects"
+                          ? "Projets"
+                          : item === "skills"
+                            ? "Compétences"
+                            : "Contact"}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-blue-600 group-hover:w-full transition-all duration-300" />
+
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                </button>
+              ))}
             </div>
           </div>
         </GlassContainer>
@@ -202,8 +213,14 @@ export default function Index() {
           <div className="relative mb-12 group">
             <div className="relative w-48 h-48 mx-auto">
               {/* Animated scanning rings */}
-              <div className="absolute inset-0 rounded-full border border-green-500/30 animate-ping" style={{ animationDuration: "3s" }} />
-              <div className="absolute inset-2 rounded-full border border-blue-500/30 animate-ping" style={{ animationDuration: "2s", animationDelay: "0.5s" }} />
+              <div
+                className="absolute inset-0 rounded-full border border-green-500/30 animate-ping"
+                style={{ animationDuration: "3s" }}
+              />
+              <div
+                className="absolute inset-2 rounded-full border border-blue-500/30 animate-ping"
+                style={{ animationDuration: "2s", animationDelay: "0.5s" }}
+              />
               <div className="absolute inset-4 rounded-full border border-purple-500/30 animate-pulse" />
 
               {/* Main profile container */}
@@ -221,8 +238,14 @@ export default function Index() {
                 {/* Scanning lines effect */}
                 <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-500">
                   <div className="absolute top-1/4 left-0 right-0 h-0.5 bg-green-400 animate-pulse" />
-                  <div className="absolute top-2/4 left-0 right-0 h-0.5 bg-blue-400 animate-pulse" style={{ animationDelay: "0.5s" }} />
-                  <div className="absolute top-3/4 left-0 right-0 h-0.5 bg-purple-400 animate-pulse" style={{ animationDelay: "1s" }} />
+                  <div
+                    className="absolute top-2/4 left-0 right-0 h-0.5 bg-blue-400 animate-pulse"
+                    style={{ animationDelay: "0.5s" }}
+                  />
+                  <div
+                    className="absolute top-3/4 left-0 right-0 h-0.5 bg-purple-400 animate-pulse"
+                    style={{ animationDelay: "1s" }}
+                  />
                 </div>
 
                 {/* Animated particles overlay */}
@@ -235,7 +258,7 @@ export default function Index() {
                         left: `${15 + (i % 4) * 25}%`,
                         top: `${15 + Math.floor(i / 4) * 35}%`,
                         animationDelay: `${i * 0.3}s`,
-                        animationDuration: "2s"
+                        animationDuration: "2s",
                       }}
                     />
                   ))}
@@ -243,13 +266,22 @@ export default function Index() {
               </div>
 
               {/* Floating cyber icons with enhanced animations */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-green-500 to-cyan-400 rounded-full shadow-lg animate-bounce flex items-center justify-center" style={{ animationDelay: "0s" }}>
+              <div
+                className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-green-500 to-cyan-400 rounded-full shadow-lg animate-bounce flex items-center justify-center"
+                style={{ animationDelay: "0s" }}
+              >
                 <Shield className="w-4 h-4 text-white" />
               </div>
-              <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-400 rounded-full shadow-lg animate-bounce flex items-center justify-center" style={{ animationDelay: "1s" }}>
+              <div
+                className="absolute -bottom-4 -left-4 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-400 rounded-full shadow-lg animate-bounce flex items-center justify-center"
+                style={{ animationDelay: "1s" }}
+              >
                 <Lock className="w-4 h-4 text-white" />
               </div>
-              <div className="absolute top-1/2 -right-8 w-6 h-6 bg-gradient-to-r from-red-500 to-orange-400 rounded-full shadow-lg animate-bounce flex items-center justify-center" style={{ animationDelay: "2s" }}>
+              <div
+                className="absolute top-1/2 -right-8 w-6 h-6 bg-gradient-to-r from-red-500 to-orange-400 rounded-full shadow-lg animate-bounce flex items-center justify-center"
+                style={{ animationDelay: "2s" }}
+              >
                 <Bug className="w-3 h-3 text-white" />
               </div>
             </div>
@@ -269,8 +301,8 @@ export default function Index() {
             <div className="flex items-center justify-center space-x-6 text-xl text-gray-300">
               <div className="flex items-center gap-2">
                 <Terminal className="w-6 h-6 text-green-400 animate-pulse" />
-                <TypingAnimation 
-                  text="Aspirant en Cyber-sécurité" 
+                <TypingAnimation
+                  text="Aspirant en Cyber-sécurité"
                   speed={100}
                   className="font-light tracking-wide"
                 />
@@ -279,9 +311,9 @@ export default function Index() {
             </div>
 
             <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light">
-              Étudiant-ingénieur en informatique passionné par la cybersécurité, 
-              l'optimisation logicielle et la défense numérique. Proactif, curieux 
-              et engagé dans la protection des systèmes d'information.
+              Étudiant-ingénieur en informatique passionné par la cybersécurité,
+              l'optimisation logicielle et la défense numérique. Proactif,
+              curieux et engagé dans la protection des systèmes d'information.
             </p>
           </div>
 
@@ -297,10 +329,7 @@ export default function Index() {
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </GlowButton>
 
-            <DownloadButton
-              filename="CV_Euloge_Junior_Mabiala.pdf"
-              url="#"
-            />
+            <DownloadButton filename="CV_Euloge_Junior_Mabiala.pdf" url="#" />
           </div>
 
           {/* Scroll Indicator */}
@@ -343,20 +372,22 @@ export default function Index() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 font-medium">
                   cybersécurité et développement logiciel
                 </span>
-                . Mon parcours académique rigoureux et ma passion pour les nouvelles 
-                technologies me poussent vers l'excellence dans la protection des systèmes numériques.
+                . Mon parcours académique rigoureux et ma passion pour les
+                nouvelles technologies me poussent vers l'excellence dans la
+                protection des systèmes numériques.
               </p>
 
               <p className="text-lg text-gray-400 leading-relaxed font-light">
-                Proactif et curieux, j'apprécie résoudre des problèmes complexes, 
-                travailler en équipe et apprendre en continu. Mon objectif est de 
-                devenir un expert en cybersécurité capable de défendre notre 
-                infrastructure numérique contre les menaces émergentes.
+                Proactif et curieux, j'apprécie résoudre des problèmes
+                complexes, travailler en équipe et apprendre en continu. Mon
+                objectif est de devenir un expert en cybersécurité capable de
+                défendre notre infrastructure numérique contre les menaces
+                émergentes.
               </p>
 
               <div className="grid grid-cols-2 gap-6 pt-8">
-                <ModernCard 
-                  glowColor="green" 
+                <ModernCard
+                  glowColor="green"
                   icon={<Shield className="w-4 h-4" />}
                   className="p-6"
                 >
@@ -370,8 +401,8 @@ export default function Index() {
                   <AnimatedProgress progress={75} color="green" />
                 </ModernCard>
 
-                <ModernCard 
-                  glowColor="blue" 
+                <ModernCard
+                  glowColor="blue"
                   icon={<Lock className="w-4 h-4" />}
                   className="p-6"
                 >
@@ -404,7 +435,9 @@ export default function Index() {
                         <MapPin className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-gray-400 text-sm font-light">Adresse</p>
+                        <p className="text-gray-400 text-sm font-light">
+                          Adresse
+                        </p>
                         <p className="text-gray-200">Paris, France</p>
                       </div>
                     </div>
@@ -416,7 +449,9 @@ export default function Index() {
                         <Phone className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-gray-400 text-sm font-light">Téléphone</p>
+                        <p className="text-gray-400 text-sm font-light">
+                          Téléphone
+                        </p>
                         <p className="text-gray-200">07 60 83 09 31</p>
                       </div>
                     </div>
@@ -428,8 +463,12 @@ export default function Index() {
                         <Mail className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-gray-400 text-sm font-light">Email</p>
-                        <p className="text-gray-200 text-sm">mabialaeulogejunior@gmail.com</p>
+                        <p className="text-gray-400 text-sm font-light">
+                          Email
+                        </p>
+                        <p className="text-gray-200 text-sm">
+                          mabialaeulogejunior@gmail.com
+                        </p>
                       </div>
                     </div>
                   </ModernCard>
@@ -440,7 +479,9 @@ export default function Index() {
                         <Github className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <p className="text-gray-400 text-sm font-light">GitHub</p>
+                        <p className="text-gray-400 text-sm font-light">
+                          GitHub
+                        </p>
                         <p className="text-gray-200">github.com/eulogep</p>
                       </div>
                     </div>
@@ -453,7 +494,10 @@ export default function Index() {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-32 px-6 bg-gradient-to-b from-transparent to-gray-900/20">
+      <section
+        id="education"
+        className="py-32 px-6 bg-gradient-to-b from-transparent to-gray-900/20"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-extralight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
@@ -467,13 +511,19 @@ export default function Index() {
 
           <div className="space-y-8">
             {/* Current Education */}
-            <ModernCard glowColor="green" icon={<GraduationCap className="w-4 h-4" />} className="p-8">
+            <ModernCard
+              glowColor="green"
+              icon={<GraduationCap className="w-4 h-4" />}
+              className="p-8"
+            >
               <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
                 <div>
                   <h3 className="text-2xl font-medium text-green-200 mb-2">
                     Cycle Ingénieur - Cybersécurité & Développement logiciel
                   </h3>
-                  <p className="text-lg text-gray-300 font-light">ESIEA, Paris</p>
+                  <p className="text-lg text-gray-300 font-light">
+                    ESIEA, Paris
+                  </p>
                 </div>
                 <div className="flex items-center gap-3">
                   <Badge className="bg-green-500/20 text-green-300 border-green-500/30 px-4 py-2 text-sm font-light">
@@ -483,11 +533,16 @@ export default function Index() {
                 </div>
               </div>
               <p className="text-gray-400 leading-relaxed font-light mb-4">
-                Formation d'ingénieur spécialisée en cybersécurité et développement logiciel. 
-                Acquisition de compétences avancées en sécurité informatique, cryptographie, 
-                analyse de vulnérabilités et développement sécurisé.
+                Formation d'ingénieur spécialisée en cybersécurité et
+                développement logiciel. Acquisition de compétences avancées en
+                sécurité informatique, cryptographie, analyse de vulnérabilités
+                et développement sécurisé.
               </p>
-              <AnimatedProgress progress={85} label="Progression" color="green" />
+              <AnimatedProgress
+                progress={85}
+                label="Progression"
+                color="green"
+              />
             </ModernCard>
 
             {/* Previous Education */}
@@ -524,7 +579,11 @@ export default function Index() {
                 </div>
               </ModernCard>
 
-              <ModernCard glowColor="yellow" icon={<Award className="w-4 h-4" />} className="p-6">
+              <ModernCard
+                glowColor="yellow"
+                icon={<Award className="w-4 h-4" />}
+                className="p-6"
+              >
                 <div className="flex flex-col justify-between h-full">
                   <div>
                     <h3 className="text-xl font-medium text-yellow-200 mb-2">
@@ -558,7 +617,11 @@ export default function Index() {
           </div>
 
           <div className="space-y-8">
-            <ModernCard glowColor="blue" icon={<Briefcase className="w-4 h-4" />} className="p-8">
+            <ModernCard
+              glowColor="blue"
+              icon={<Briefcase className="w-4 h-4" />}
+              className="p-8"
+            >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-400 rounded-xl flex items-center justify-center">
                   <Briefcase className="w-6 h-6 text-white" />
@@ -575,7 +638,8 @@ export default function Index() {
               <div className="space-y-3 text-gray-400 font-light leading-relaxed">
                 <p className="flex items-start gap-2">
                   <Target className="w-4 h-4 text-blue-400 mt-1 flex-shrink-0" />
-                  Gestion des commandes et service client en environnement rapide
+                  Gestion des commandes et service client en environnement
+                  rapide
                 </p>
                 <p className="flex items-start gap-2">
                   <Target className="w-4 h-4 text-blue-400 mt-1 flex-shrink-0" />
@@ -588,7 +652,11 @@ export default function Index() {
               </div>
             </ModernCard>
 
-            <ModernCard glowColor="green" icon={<Code className="w-4 h-4" />} className="p-8">
+            <ModernCard
+              glowColor="green"
+              icon={<Code className="w-4 h-4" />}
+              className="p-8"
+            >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-400 rounded-xl flex items-center justify-center">
                   <Code className="w-6 h-6 text-white" />
@@ -613,12 +681,17 @@ export default function Index() {
                 </p>
                 <p className="flex items-start gap-2">
                   <Target className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" />
-                  Collaboration avec ingénieurs et artistes dans un projet innovant
+                  Collaboration avec ingénieurs et artistes dans un projet
+                  innovant
                 </p>
               </div>
             </ModernCard>
 
-            <ModernCard glowColor="purple" icon={<Database className="w-4 h-4" />} className="p-8">
+            <ModernCard
+              glowColor="purple"
+              icon={<Database className="w-4 h-4" />}
+              className="p-8"
+            >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-400 rounded-xl flex items-center justify-center">
                   <Database className="w-6 h-6 text-white" />
@@ -643,7 +716,8 @@ export default function Index() {
                 </p>
                 <p className="flex items-start gap-2">
                   <Target className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
-                  Première expérience professionnelle dans le domaine informatique
+                  Première expérience professionnelle dans le domaine
+                  informatique
                 </p>
               </div>
             </ModernCard>
@@ -652,7 +726,10 @@ export default function Index() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-32 px-6 bg-gradient-to-b from-gray-900/20 to-transparent">
+      <section
+        id="projects"
+        className="py-32 px-6 bg-gradient-to-b from-gray-900/20 to-transparent"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-extralight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
@@ -665,7 +742,11 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* BruteForce Tool */}
-            <ModernCard glowColor="red" icon={<Bug className="w-4 h-4" />} className="p-8">
+            <ModernCard
+              glowColor="red"
+              icon={<Bug className="w-4 h-4" />}
+              className="p-8"
+            >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-400 rounded-xl flex items-center justify-center">
                   <Bug className="w-6 h-6 text-white" />
@@ -678,19 +759,30 @@ export default function Index() {
                 BruteForce Tool
               </h3>
               <p className="text-gray-400 font-light mb-6">
-                Outil de test de sécurité éducatif avec interface React/Tailwind et backend Flask. 
-                Supporte les attaques personnalisables, le craquage GPU avec Hashcat.
+                Outil de test de sécurité éducatif avec interface React/Tailwind
+                et backend Flask. Supporte les attaques personnalisables, le
+                craquage GPU avec Hashcat.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                <Badge className="bg-gray-700 text-gray-300 text-xs">Python</Badge>
-                <Badge className="bg-gray-700 text-gray-300 text-xs">Flask</Badge>
-                <Badge className="bg-gray-700 text-gray-300 text-xs">React</Badge>
-                <Badge className="bg-gray-700 text-gray-300 text-xs">Hashcat</Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  Python
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  Flask
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  React
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  Hashcat
+                </Badge>
               </div>
               <GlowButton
                 variant="danger"
                 size="sm"
-                onClick={() => window.open("https://github.com/eulogep", "_blank")}
+                onClick={() =>
+                  window.open("https://github.com/eulogep", "_blank")
+                }
               >
                 <Github className="w-4 h-4" />
                 Voir le projet
@@ -699,7 +791,11 @@ export default function Index() {
             </ModernCard>
 
             {/* CyberSentinel AI */}
-            <ModernCard glowColor="blue" icon={<Eye className="w-4 h-4" />} className="p-8">
+            <ModernCard
+              glowColor="blue"
+              icon={<Eye className="w-4 h-4" />}
+              className="p-8"
+            >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center">
                   <Eye className="w-6 h-6 text-white" />
@@ -712,19 +808,30 @@ export default function Index() {
                 CyberSentinel AI
               </h3>
               <p className="text-gray-400 font-light mb-6">
-                Système de détection de menaces utilisant l'IA avec GPT-4. Capture réseau temps réel, 
-                remédiation automatisée et tableaux de bord React.
+                Système de détection de menaces utilisant l'IA avec GPT-4.
+                Capture réseau temps réel, remédiation automatisée et tableaux
+                de bord React.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                <Badge className="bg-gray-700 text-gray-300 text-xs">Python</Badge>
-                <Badge className="bg-gray-700 text-gray-300 text-xs">FastAPI</Badge>
-                <Badge className="bg-gray-700 text-gray-300 text-xs">GPT-4</Badge>
-                <Badge className="bg-gray-700 text-gray-300 text-xs">PostgreSQL</Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  Python
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  FastAPI
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  GPT-4
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  PostgreSQL
+                </Badge>
               </div>
               <GlowButton
                 variant="primary"
                 size="sm"
-                onClick={() => window.open("https://github.com/eulogep", "_blank")}
+                onClick={() =>
+                  window.open("https://github.com/eulogep", "_blank")
+                }
               >
                 <Github className="w-4 h-4" />
                 Voir le projet
@@ -733,7 +840,11 @@ export default function Index() {
             </ModernCard>
 
             {/* Password Simulator */}
-            <ModernCard glowColor="green" icon={<Key className="w-4 h-4" />} className="p-8">
+            <ModernCard
+              glowColor="green"
+              icon={<Key className="w-4 h-4" />}
+              className="p-8"
+            >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-400 rounded-xl flex items-center justify-center">
                   <Key className="w-6 h-6 text-white" />
@@ -746,18 +857,26 @@ export default function Index() {
                 Simulateur d'Attaque Brute Force
               </h3>
               <p className="text-gray-400 font-light mb-6">
-                Simulateur interactif de sécurité des mots de passe. Analyse détaillée, 
-                simulations d'attaques et visualisations éducatives.
+                Simulateur interactif de sécurité des mots de passe. Analyse
+                détaillée, simulations d'attaques et visualisations éducatives.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                <Badge className="bg-gray-700 text-gray-300 text-xs">HTML/CSS</Badge>
-                <Badge className="bg-gray-700 text-gray-300 text-xs">JavaScript</Badge>
-                <Badge className="bg-gray-700 text-gray-300 text-xs">Education</Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  HTML/CSS
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  JavaScript
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  Education
+                </Badge>
               </div>
               <GlowButton
                 variant="secondary"
                 size="sm"
-                onClick={() => window.open("https://github.com/eulogep", "_blank")}
+                onClick={() =>
+                  window.open("https://github.com/eulogep", "_blank")
+                }
               >
                 <Github className="w-4 h-4" />
                 Voir le projet
@@ -766,7 +885,11 @@ export default function Index() {
             </ModernCard>
 
             {/* DEX Swap App */}
-            <ModernCard glowColor="purple" icon={<Globe className="w-4 h-4" />} className="p-8">
+            <ModernCard
+              glowColor="purple"
+              icon={<Globe className="w-4 h-4" />}
+              className="p-8"
+            >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-400 rounded-xl flex items-center justify-center">
                   <Globe className="w-6 h-6 text-white" />
@@ -779,19 +902,30 @@ export default function Index() {
                 DEX Swap App
               </h3>
               <p className="text-gray-400 font-light mb-6">
-                Application décentralisée d'échange de cryptomonnaies via Uniswap v3. 
-                Interface glassmorphism avec React 18 et intégration MetaMask.
+                Application décentralisée d'échange de cryptomonnaies via
+                Uniswap v3. Interface glassmorphism avec React 18 et intégration
+                MetaMask.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
-                <Badge className="bg-gray-700 text-gray-300 text-xs">React 18</Badge>
-                <Badge className="bg-gray-700 text-gray-300 text-xs">Ethers.js</Badge>
-                <Badge className="bg-gray-700 text-gray-300 text-xs">Uniswap</Badge>
-                <Badge className="bg-gray-700 text-gray-300 text-xs">Web3</Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  React 18
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  Ethers.js
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  Uniswap
+                </Badge>
+                <Badge className="bg-gray-700 text-gray-300 text-xs">
+                  Web3
+                </Badge>
               </div>
               <GlowButton
                 variant="primary"
                 size="sm"
-                onClick={() => window.open("https://github.com/eulogep", "_blank")}
+                onClick={() =>
+                  window.open("https://github.com/eulogep", "_blank")
+                }
               >
                 <Github className="w-4 h-4" />
                 Voir le projet
@@ -803,7 +937,10 @@ export default function Index() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-32 px-6 bg-gradient-to-b from-gray-900/20 to-transparent">
+      <section
+        id="skills"
+        className="py-32 px-6 bg-gradient-to-b from-gray-900/20 to-transparent"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl font-extralight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
@@ -829,9 +966,9 @@ export default function Index() {
                   { skill: "Bash", level: 65 },
                 ].map(({ skill, level }) => (
                   <div key={skill}>
-                    <AnimatedProgress 
-                      progress={level} 
-                      label={skill} 
+                    <AnimatedProgress
+                      progress={level}
+                      label={skill}
                       color="green"
                       showPercentage={false}
                     />
@@ -856,9 +993,9 @@ export default function Index() {
                   { skill: "Forensics", level: 60 },
                 ].map(({ skill, level }) => (
                   <div key={skill}>
-                    <AnimatedProgress 
-                      progress={level} 
-                      label={skill} 
+                    <AnimatedProgress
+                      progress={level}
+                      label={skill}
                       color="red"
                       showPercentage={false}
                     />
@@ -875,18 +1012,39 @@ export default function Index() {
               </h3>
               <div className="space-y-6">
                 {[
-                  { lang: "Français", level: "Courant", color: "blue", progress: 100 },
-                  { lang: "Anglais", level: "B2", color: "purple", progress: 75 },
-                  { lang: "Espagnol", level: "Débutant", color: "pink", progress: 30 },
+                  {
+                    lang: "Français",
+                    level: "Courant",
+                    color: "blue",
+                    progress: 100,
+                  },
+                  {
+                    lang: "Anglais",
+                    level: "B2",
+                    color: "purple",
+                    progress: 75,
+                  },
+                  {
+                    lang: "Espagnol",
+                    level: "Débutant",
+                    color: "pink",
+                    progress: 30,
+                  },
                 ].map(({ lang, level, color, progress }) => (
                   <ModernCard key={lang} className="p-4" glowColor={color}>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-gray-300 font-light">{lang}</span>
-                      <Badge className={`bg-${color}-500/20 text-${color}-300 border-${color}-500/30 text-xs`}>
+                      <Badge
+                        className={`bg-${color}-500/20 text-${color}-300 border-${color}-500/30 text-xs`}
+                      >
                         {level}
                       </Badge>
                     </div>
-                    <AnimatedProgress progress={progress} color={color} showPercentage={false} />
+                    <AnimatedProgress
+                      progress={progress}
+                      color={color}
+                      showPercentage={false}
+                    />
                   </ModernCard>
                 ))}
               </div>
@@ -904,138 +1062,156 @@ export default function Index() {
                     name: "Danse Hip-hop",
                     icon: Music,
                     color: "pink",
-                    description: "Popping, Afro, Valse"
+                    description: "Popping, Afro, Valse",
                   },
                   {
                     name: "Sports",
                     icon: Dumbbell,
                     color: "orange",
-                    description: "Basket, Football, Judo"
+                    description: "Basket, Football, Judo",
                   },
                   {
                     name: "Théâtre",
                     icon: Theater,
                     color: "purple",
-                    description: "Théâtre amateur, Expression"
+                    description: "Théâtre amateur, Expression",
                   },
                   {
                     name: "Culture Otaku",
                     icon: Star,
                     color: "red",
-                    description: "Manga, Anime, Culture japonaise"
+                    description: "Manga, Anime, Culture japonaise",
                   },
                   {
                     name: "Cinéma",
                     icon: Film,
                     color: "blue",
-                    description: "Figuration, Découvertes"
+                    description: "Figuration, Découvertes",
                   },
                   {
                     name: "Lecture",
                     icon: BookOpen,
                     color: "green",
-                    description: "Littérature, Technique"
+                    description: "Littérature, Technique",
                   },
-                ].map(({ name, icon: IconComponent, color, description }, index) => (
-                  <ModernCard
-                    key={name}
-                    className="p-4 hover:scale-105 transition-all duration-300 group"
-                    glowColor={color}
-                  >
-                    <div className="flex items-center gap-4">
-                      {/* Icon with enhanced animations */}
-                      <div className={`
+                ].map(
+                  (
+                    { name, icon: IconComponent, color, description },
+                    index,
+                  ) => (
+                    <ModernCard
+                      key={name}
+                      className="p-4 hover:scale-105 transition-all duration-300 group"
+                      glowColor={color}
+                    >
+                      <div className="flex items-center gap-4">
+                        {/* Icon with enhanced animations */}
+                        <div
+                          className={`
                         relative w-12 h-12 rounded-xl flex items-center justify-center
                         bg-gradient-to-br from-${color}-500/20 to-${color}-600/10
                         border border-${color}-500/30
                         group-hover:scale-110 transition-all duration-300
                         group-hover:shadow-lg group-hover:shadow-${color}-500/50
-                      `}>
-                        <IconComponent
-                          className={`w-6 h-6 text-${color}-400 group-hover:text-${color}-300 transition-colors duration-300`}
-                          style={{
-                            animationDelay: `${index * 0.2}s`,
-                            filter: 'drop-shadow(0 0 8px currentColor)'
-                          }}
-                        />
+                      `}
+                        >
+                          <IconComponent
+                            className={`w-6 h-6 text-${color}-400 group-hover:text-${color}-300 transition-colors duration-300`}
+                            style={{
+                              animationDelay: `${index * 0.2}s`,
+                              filter: "drop-shadow(0 0 8px currentColor)",
+                            }}
+                          />
 
-                        {/* Animated border */}
-                        <div className={`
+                          {/* Animated border */}
+                          <div
+                            className={`
                           absolute inset-0 rounded-xl border-2 border-${color}-400/0
                           group-hover:border-${color}-400/50 transition-all duration-300
                           animate-pulse
-                        `} />
+                        `}
+                          />
 
-                        {/* Floating particles */}
-                        <div className="absolute inset-0 pointer-events-none">
-                          {[...Array(3)].map((_, i) => (
-                            <div
-                              key={i}
-                              className={`
+                          {/* Floating particles */}
+                          <div className="absolute inset-0 pointer-events-none">
+                            {[...Array(3)].map((_, i) => (
+                              <div
+                                key={i}
+                                className={`
                                 absolute w-1 h-1 bg-${color}-400 rounded-full
                                 opacity-0 group-hover:opacity-100
                                 animate-ping transition-opacity duration-300
                               `}
-                              style={{
-                                left: `${20 + i * 20}%`,
-                                top: `${20 + i * 20}%`,
-                                animationDelay: `${i * 0.3}s`
-                              }}
-                            />
-                          ))}
+                                style={{
+                                  left: `${20 + i * 20}%`,
+                                  top: `${20 + i * 20}%`,
+                                  animationDelay: `${i * 0.3}s`,
+                                }}
+                              />
+                            ))}
+                          </div>
                         </div>
-                      </div>
 
-                      {/* Content */}
-                      <div className="flex-1">
-                        <h4 className={`
+                        {/* Content */}
+                        <div className="flex-1">
+                          <h4
+                            className={`
                           text-lg font-medium text-${color}-200 mb-1
                           group-hover:text-${color}-100 transition-colors duration-300
-                        `}>
-                          {name}
-                        </h4>
-                        <p className="text-gray-400 text-xs font-light leading-relaxed">
-                          {description}
-                        </p>
+                        `}
+                          >
+                            {name}
+                          </h4>
+                          <p className="text-gray-400 text-xs font-light leading-relaxed">
+                            {description}
+                          </p>
 
-                        {/* Skill level indicator */}
-                        <div className="mt-2 flex items-center gap-1">
-                          {[...Array(5)].map((_, i) => (
-                            <div
-                              key={i}
-                              className={`
+                          {/* Skill level indicator */}
+                          <div className="mt-2 flex items-center gap-1">
+                            {[...Array(5)].map((_, i) => (
+                              <div
+                                key={i}
+                                className={`
                                 w-1.5 h-1.5 rounded-full transition-all duration-300
-                                ${i < 4
-                                  ? `bg-${color}-400 opacity-100`
-                                  : 'bg-gray-600 opacity-50'
+                                ${
+                                  i < 4
+                                    ? `bg-${color}-400 opacity-100`
+                                    : "bg-gray-600 opacity-50"
                                 }
                                 group-hover:animate-pulse
                               `}
-                              style={{ animationDelay: `${i * 0.1}s` }}
-                            />
-                          ))}
-                          <span className="text-xs text-gray-500 ml-2">Passionné</span>
+                                style={{ animationDelay: `${i * 0.1}s` }}
+                              />
+                            ))}
+                            <span className="text-xs text-gray-500 ml-2">
+                              Passionné
+                            </span>
+                          </div>
                         </div>
-                      </div>
 
-                      {/* Hover indicator */}
-                      <div className={`
+                        {/* Hover indicator */}
+                        <div
+                          className={`
                         w-2 h-2 rounded-full bg-${color}-400
                         opacity-0 group-hover:opacity-100
                         transition-all duration-300 animate-pulse
-                      `} />
-                    </div>
+                      `}
+                        />
+                      </div>
 
-                    {/* Background pattern */}
-                    <div className="absolute inset-0 opacity-5 pointer-events-none">
-                      <div className={`
+                      {/* Background pattern */}
+                      <div className="absolute inset-0 opacity-5 pointer-events-none">
+                        <div
+                          className={`
                         w-full h-full bg-gradient-to-br from-${color}-500/10 to-transparent
                         transform rotate-45 scale-150
                         group-hover:rotate-90 transition-transform duration-700
-                      `} />
-                    </div>
-                  </ModernCard>
-                ))}
+                      `}
+                        />
+                      </div>
+                    </ModernCard>
+                  ),
+                )}
               </div>
 
               {/* Fun stats */}
@@ -1070,40 +1246,67 @@ export default function Index() {
           <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-600 rounded-full mx-auto mb-8" />
 
           <p className="text-xl text-gray-400 font-light mb-16 max-w-2xl mx-auto">
-            Intéressé par la cybersécurité ? Discutons d'opportunités de collaboration, 
-            de stages ou de projets innovants dans le domaine de la sécurité informatique.
+            Intéressé par la cybersécurité ? Discutons d'opportunités de
+            collaboration, de stages ou de projets innovants dans le domaine de
+            la sécurité informatique.
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             <ModernCard glowColor="green" className="p-6 text-center">
               <a href="tel:+33760830931" className="block">
                 <Phone className="w-8 h-8 text-green-400 mx-auto mb-3" />
-                <h3 className="text-lg font-medium text-green-200 mb-1">Téléphone</h3>
-                <p className="text-gray-300 font-light text-sm">07 60 83 09 31</p>
+                <h3 className="text-lg font-medium text-green-200 mb-1">
+                  Téléphone
+                </h3>
+                <p className="text-gray-300 font-light text-sm">
+                  07 60 83 09 31
+                </p>
               </a>
             </ModernCard>
 
             <ModernCard glowColor="blue" className="p-6 text-center">
               <a href="mailto:mabialaeulogejunior@gmail.com" className="block">
                 <Mail className="w-8 h-8 text-blue-400 mx-auto mb-3" />
-                <h3 className="text-lg font-medium text-blue-200 mb-1">Email</h3>
-                <p className="text-gray-300 font-light text-sm break-all">mabialaeulogejunior@gmail.com</p>
+                <h3 className="text-lg font-medium text-blue-200 mb-1">
+                  Email
+                </h3>
+                <p className="text-gray-300 font-light text-sm break-all">
+                  mabialaeulogejunior@gmail.com
+                </p>
               </a>
             </ModernCard>
 
             <ModernCard glowColor="purple" className="p-6 text-center">
-              <a href="https://github.com/eulogep" target="_blank" rel="noopener noreferrer" className="block">
+              <a
+                href="https://github.com/eulogep"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
                 <Github className="w-8 h-8 text-purple-400 mx-auto mb-3" />
-                <h3 className="text-lg font-medium text-purple-200 mb-1">GitHub</h3>
-                <p className="text-gray-300 font-light text-sm">github.com/eulogep</p>
+                <h3 className="text-lg font-medium text-purple-200 mb-1">
+                  GitHub
+                </h3>
+                <p className="text-gray-300 font-light text-sm">
+                  github.com/eulogep
+                </p>
               </a>
             </ModernCard>
 
             <ModernCard glowColor="orange" className="p-6 text-center">
-              <a href="https://linkedin.com/in/euloge-junior-mabiala" target="_blank" rel="noopener noreferrer" className="block">
+              <a
+                href="https://linkedin.com/in/euloge-junior-mabiala"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
                 <Linkedin className="w-8 h-8 text-orange-400 mx-auto mb-3" />
-                <h3 className="text-lg font-medium text-orange-200 mb-1">LinkedIn</h3>
-                <p className="text-gray-300 font-light text-sm">LinkedIn Profile</p>
+                <h3 className="text-lg font-medium text-orange-200 mb-1">
+                  LinkedIn
+                </h3>
+                <p className="text-gray-300 font-light text-sm">
+                  LinkedIn Profile
+                </p>
               </a>
             </ModernCard>
           </div>
@@ -1112,23 +1315,25 @@ export default function Index() {
             <GlowButton
               variant="primary"
               size="lg"
-              onClick={() => window.open("https://github.com/eulogep", "_blank")}
+              onClick={() =>
+                window.open("https://github.com/eulogep", "_blank")
+              }
             >
               <ExternalLink className="w-5 h-5" />
               Voir mes projets GitHub
             </GlowButton>
 
-            <DownloadButton
-              filename="CV_Euloge_Junior_Mabiala.pdf"
-              url="#"
-            />
+            <DownloadButton filename="CV_Euloge_Junior_Mabiala.pdf" url="#" />
           </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="py-16 px-6 border-t border-white/10 bg-gradient-to-t from-black to-transparent">
-        <GlassContainer className="max-w-6xl mx-auto text-center py-8" blur="md">
+        <GlassContainer
+          className="max-w-6xl mx-auto text-center py-8"
+          blur="md"
+        >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-600 rounded-lg flex items-center justify-center">
               <Shield className="w-4 h-4 text-white" />
@@ -1145,7 +1350,9 @@ export default function Index() {
           </p>
           <div className="flex items-center justify-center gap-4">
             <StatusIndicator status="online" animated label />
-            <span className="text-xs text-gray-400">Système sécurisé et opérationnel</span>
+            <span className="text-xs text-gray-400">
+              Système sécurisé et opérationnel
+            </span>
           </div>
         </GlassContainer>
       </footer>

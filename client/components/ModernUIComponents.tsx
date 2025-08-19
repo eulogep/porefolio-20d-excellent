@@ -1,5 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ArrowRight, Download, ExternalLink, Github, Mail, Phone, Shield, Lock, Terminal, Code, Eye, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Download,
+  ExternalLink,
+  Github,
+  Mail,
+  Phone,
+  Shield,
+  Lock,
+  Terminal,
+  Code,
+  Eye,
+  Zap,
+} from "lucide-react";
 
 // Modern Glowing Button inspired by uiverse.io
 export const GlowButton: React.FC<{
@@ -8,20 +21,26 @@ export const GlowButton: React.FC<{
   variant?: "primary" | "secondary" | "success" | "danger";
   size?: "sm" | "md" | "lg";
   className?: string;
-}> = ({ children, onClick, variant = "primary", size = "md", className = "" }) => {
+}> = ({
+  children,
+  onClick,
+  variant = "primary",
+  size = "md",
+  className = "",
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const variantClasses = {
     primary: "from-blue-500 to-purple-600 shadow-blue-500/50",
     secondary: "from-green-500 to-cyan-600 shadow-green-500/50",
     success: "from-emerald-500 to-teal-600 shadow-emerald-500/50",
-    danger: "from-red-500 to-pink-600 shadow-red-500/50"
+    danger: "from-red-500 to-pink-600 shadow-red-500/50",
   };
 
   const sizeClasses = {
     sm: "px-4 py-2 text-sm",
     md: "px-6 py-3 text-base",
-    lg: "px-8 py-4 text-lg"
+    lg: "px-8 py-4 text-lg",
   };
 
   return (
@@ -40,27 +59,31 @@ export const GlowButton: React.FC<{
       `}
     >
       {/* Shine effect */}
-      <div className={`
+      <div
+        className={`
         absolute inset-0 w-full h-full
         bg-gradient-to-r from-transparent via-white to-transparent
         opacity-0 group-hover:opacity-30
         transform -skew-x-12 -translate-x-full group-hover:translate-x-full
         transition-transform duration-1000 ease-out
-      `} />
-      
+      `}
+      />
+
       {/* Pulse effect */}
-      <div className={`
+      <div
+        className={`
         absolute inset-0 rounded-full
         bg-gradient-to-r ${variantClasses[variant]}
         opacity-0 group-hover:opacity-20
         animate-pulse
-      `} />
-      
+      `}
+      />
+
       {/* Content */}
       <span className="relative z-10 flex items-center gap-2 text-white">
         {children}
       </span>
-      
+
       {/* Ripple effect */}
       {isHovered && (
         <div className="absolute inset-0 rounded-full bg-white/20 animate-ping" />
@@ -85,7 +108,7 @@ export const ModernCard: React.FC<{
     const rect = cardRef.current.getBoundingClientRect();
     setMousePos({
       x: e.clientX - rect.left,
-      y: e.clientY - rect.top
+      y: e.clientY - rect.top,
     });
   };
 
@@ -107,9 +130,9 @@ export const ModernCard: React.FC<{
     >
       {/* Animated border gradient */}
       <div className="absolute inset-0 p-[1px] rounded-2xl bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
+
       {/* Mouse follow gradient */}
-      <div 
+      <div
         className={`
           absolute w-32 h-32 rounded-full
           bg-gradient-radial from-${glowColor}-500/20 to-transparent
@@ -119,22 +142,20 @@ export const ModernCard: React.FC<{
         `}
         style={{
           left: mousePos.x,
-          top: mousePos.y
+          top: mousePos.y,
         }}
       />
-      
+
       {/* Floating icon */}
       {icon && (
         <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg group-hover:animate-bounce transition-all duration-300 group-hover:scale-110">
           {icon}
         </div>
       )}
-      
+
       {/* Content */}
-      <div className="relative z-10 p-6">
-        {children}
-      </div>
-      
+      <div className="relative z-10 p-6">{children}</div>
+
       {/* Shimmer effect */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-all duration-1000" />
     </div>
@@ -155,8 +176,8 @@ export const TypingAnimation: React.FC<{
   useEffect(() => {
     if (currentIndex < text.length) {
       const timeout = setTimeout(() => {
-        setDisplayText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
+        setDisplayText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
       }, speed);
       return () => clearTimeout(timeout);
     }
@@ -165,7 +186,7 @@ export const TypingAnimation: React.FC<{
   useEffect(() => {
     if (cursor) {
       const cursorInterval = setInterval(() => {
-        setShowCursor(prev => !prev);
+        setShowCursor((prev) => !prev);
       }, 500);
       return () => clearInterval(cursorInterval);
     }
@@ -175,7 +196,9 @@ export const TypingAnimation: React.FC<{
     <span className={className}>
       {displayText}
       {cursor && (
-        <span className={`${showCursor ? "opacity-100" : "opacity-0"} transition-opacity`}>
+        <span
+          className={`${showCursor ? "opacity-100" : "opacity-0"} transition-opacity`}
+        >
           |
         </span>
       )}
@@ -191,30 +214,38 @@ export const ModernLoader: React.FC<{
   const sizeClasses = {
     sm: "w-6 h-6",
     md: "w-10 h-10",
-    lg: "w-16 h-16"
+    lg: "w-16 h-16",
   };
 
   return (
     <div className={`relative ${sizeClasses[size]}`}>
       {/* Outer ring */}
-      <div className={`
+      <div
+        className={`
         absolute inset-0 rounded-full border-2 border-${color}-500/30
         animate-spin
-      `} style={{ animationDuration: "1s" }} />
-      
+      `}
+        style={{ animationDuration: "1s" }}
+      />
+
       {/* Inner ring */}
-      <div className={`
+      <div
+        className={`
         absolute inset-1 rounded-full border-2 border-${color}-400/50
         animate-spin
-      `} style={{ animationDuration: "0.8s", animationDirection: "reverse" }} />
-      
+      `}
+        style={{ animationDuration: "0.8s", animationDirection: "reverse" }}
+      />
+
       {/* Center dot */}
-      <div className={`
+      <div
+        className={`
         absolute top-1/2 left-1/2 w-2 h-2 
         bg-${color}-500 rounded-full
         transform -translate-x-1/2 -translate-y-1/2
         animate-pulse
-      `} />
+      `}
+      />
     </div>
   );
 };
@@ -241,12 +272,14 @@ export const AnimatedProgress: React.FC<{
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm font-medium text-gray-300">{label}</span>
           {showPercentage && (
-            <span className="text-sm text-gray-400">{Math.round(animatedProgress)}%</span>
+            <span className="text-sm text-gray-400">
+              {Math.round(animatedProgress)}%
+            </span>
           )}
         </div>
       )}
       <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
-        <div 
+        <div
           className={`
             h-full bg-gradient-to-r from-${color}-500 to-${color}-400
             transition-all duration-1000 ease-out
@@ -273,7 +306,7 @@ export const FloatingActionButton: React.FC<{
     "bottom-right": "bottom-6 right-6",
     "bottom-left": "bottom-6 left-6",
     "top-right": "top-6 right-6",
-    "top-left": "top-6 left-6"
+    "top-left": "top-6 left-6",
   };
 
   return (
@@ -294,13 +327,15 @@ export const FloatingActionButton: React.FC<{
       <div className="transition-transform duration-300 group-hover:scale-110">
         {icon}
       </div>
-      
+
       {/* Pulse effect */}
-      <div className={`
+      <div
+        className={`
         absolute inset-0 rounded-full
         bg-${color}-500 opacity-0 group-hover:opacity-30
         animate-ping
-      `} />
+      `}
+      />
     </button>
   );
 };
@@ -319,20 +354,20 @@ export const TerminalText: React.FC<{
   useEffect(() => {
     if (currentLineIndex < lines.length) {
       const currentLine = lines[currentLineIndex];
-      
+
       if (currentCharIndex < currentLine.length) {
         const timeout = setTimeout(() => {
-          setCurrentText(prev => prev + currentLine[currentCharIndex]);
-          setCurrentCharIndex(prev => prev + 1);
+          setCurrentText((prev) => prev + currentLine[currentCharIndex]);
+          setCurrentCharIndex((prev) => prev + 1);
         }, speed);
         return () => clearTimeout(timeout);
       } else {
         // Line completed, move to next
         const timeout = setTimeout(() => {
-          setDisplayedLines(prev => [...prev, currentText]);
+          setDisplayedLines((prev) => [...prev, currentText]);
           setCurrentText("");
           setCurrentCharIndex(0);
-          setCurrentLineIndex(prev => prev + 1);
+          setCurrentLineIndex((prev) => prev + 1);
         }, 500);
         return () => clearTimeout(timeout);
       }
@@ -369,16 +404,19 @@ export const GlassContainer: React.FC<{
     sm: "backdrop-blur-sm",
     md: "backdrop-blur-md",
     lg: "backdrop-blur-lg",
-    xl: "backdrop-blur-xl"
+    xl: "backdrop-blur-xl",
   };
 
   return (
-    <div className={`
+    <div
+      className={`
       ${blurClasses[blur]}
       bg-white/10 border border-white/20
       rounded-2xl shadow-2xl
       ${className}
-    `} style={{ backgroundColor: `rgba(255, 255, 255, ${opacity})` }}>
+    `}
+      style={{ backgroundColor: `rgba(255, 255, 255, ${opacity})` }}
+    >
       {children}
     </div>
   );
@@ -395,27 +433,31 @@ export const StatusIndicator: React.FC<{
     online: "bg-green-500",
     offline: "bg-gray-500",
     busy: "bg-red-500",
-    away: "bg-yellow-500"
+    away: "bg-yellow-500",
   };
 
   const sizeClasses = {
     sm: "w-2 h-2",
     md: "w-3 h-3",
-    lg: "w-4 h-4"
+    lg: "w-4 h-4",
   };
 
   return (
     <div className="flex items-center gap-2">
       <div className="relative">
-        <div className={`
+        <div
+          className={`
           ${sizeClasses[size]} ${statusColors[status]} rounded-full
           ${animated ? "animate-pulse" : ""}
-        `} />
+        `}
+        />
         {animated && status === "online" && (
-          <div className={`
+          <div
+            className={`
             absolute inset-0 ${statusColors[status]} rounded-full
             animate-ping opacity-75
-          `} />
+          `}
+          />
         )}
       </div>
       {label && (
@@ -440,11 +482,11 @@ export const DownloadButton: React.FC<{
 
     // Simulate download progress
     const interval = setInterval(() => {
-      setProgress(prev => {
+      setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           setIsDownloading(false);
-          
+
           // Actual download
           const link = document.createElement("a");
           link.href = url;
@@ -453,7 +495,7 @@ export const DownloadButton: React.FC<{
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
-          
+
           return 0;
         }
         return prev + 10;
@@ -478,9 +520,9 @@ export const DownloadButton: React.FC<{
           <span>Télécharger CV</span>
         </>
       )}
-      
+
       {isDownloading && (
-        <div 
+        <div
           className="absolute bottom-0 left-0 h-1 bg-white/30 transition-all duration-200"
           style={{ width: `${progress}%` }}
         />
