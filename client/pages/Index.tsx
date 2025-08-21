@@ -77,6 +77,18 @@ import {
   ParticleSystem,
   SpotlightCard,
 } from "@/components/ReactBitsComponents";
+import {
+  GradientTextSimple,
+  MagneticButtonSimple,
+  RippleEffectSimple,
+  SpotlightCardSimple,
+  InteractiveCardSimple,
+  TextRevealSimple,
+  FloatingParticlesSimple,
+  GlassContainerReactBits,
+  ButtonReactBits,
+  CyberGridBackground,
+} from "@/components/ReactBitsSimple";
 
 export default function Index() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -357,7 +369,7 @@ export default function Index() {
               <div className="flex items-center gap-2">
                 <Terminal className="w-6 h-6 text-green-400 animate-pulse" />
                 <TypingAnimation
-                  text="Aspirant en Cyber-sécurité"
+                  text="Aspirant en Cyber-sécurit��"
                   speed={100}
                   className="font-light tracking-wide"
                 />
