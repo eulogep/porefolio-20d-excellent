@@ -108,6 +108,13 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <CyberBackground />
+      <FloatingDots density={40} color="#00ff41" maxSize={3} speed={0.8} />
+      <ParticleSystem
+        particleCount={25}
+        colors={["#00ff41", "#0066ff", "#8b5cf6"]}
+        size={{ min: 1, max: 4 }}
+        speed={{ min: 0.5, max: 2 }}
+      />
       <NetworkStructure />
       <HackingTerminal />
       <VulnerabilityScanner />
