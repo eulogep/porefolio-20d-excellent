@@ -679,6 +679,231 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
+/* === ReactBits-inspired Styles === */
+
+/* Gradient text animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text-animated {
+  background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Magnetic button effect */
+@keyframes magnetic-hover {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.05) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.magnetic-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.magnetic-button:hover {
+  animation: magnetic-hover 0.6s ease-in-out;
+}
+
+/* Ripple effect */
+@keyframes ripple-expand {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 255, 65, 0.3);
+  transform: scale(0);
+  animation: ripple-expand 0.6s linear;
+  pointer-events: none;
+}
+
+/* Spotlight card effect */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 255, 65, 0.15), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Interactive 3D cards */
+.interactive-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.interactive-card:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Text reveal animation */
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotateX(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+.text-reveal-animation {
+  overflow: hidden;
+}
+
+.text-reveal-char {
+  display: inline-block;
+  opacity: 0;
+  animation: text-reveal 0.6s ease forwards;
+}
+
+/* Floating particles */
+@keyframes particle-drift {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #00ff41;
+  border-radius: 50%;
+  animation: particle-drift 8s linear infinite;
+}
+
+/* Enhanced glassmorphism */
+.glass-reactbits {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(25px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ReactBits button enhancement */
+.btn-reactbits {
+  position: relative;
+  overflow: hidden;
+  transform: perspective(1px) translateZ(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-reactbits::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-reactbits:hover::before {
+  left: 100%;
+}
+
+.btn-reactbits:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 255, 65, 0.3);
+}
+
+/* Responsive design for ReactBits effects */
+@media (max-width: 768px) {
+  .interactive-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
+  }
+
+  .magnetic-button:hover {
+    animation: none;
+    transform: scale(1.02);
+  }
+
+  .gradient-text-animated {
+    animation-duration: 5s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text-animated,
+  .magnetic-button,
+  .ripple-effect,
+  .particle,
+  .text-reveal-char {
+    animation: none !important;
+  }
+
+  .interactive-card:hover {
+    transform: none !important;
+  }
+}
+
 /* Interest icons enhanced effects */
 .interest-icon {
   position: relative;
