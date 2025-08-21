@@ -732,7 +732,7 @@ export default function Index() {
                     Déc 2021 - Mai 2022
                   </Badge>
                   <h3 className="text-xl font-medium text-green-200">
-                    Assistant de Projet - Événement "Essaimées", Saint-Denis
+                    Assistant de Projet - ��vénement "Essaimées", Saint-Denis
                   </h3>
                 </div>
               </div>
@@ -892,17 +892,29 @@ export default function Index() {
                   PostgreSQL
                 </Badge>
               </div>
-              <GlowButton
-                variant="primary"
-                size="sm"
-                onClick={() =>
-                  window.open("https://github.com/eulogep", "_blank")
-                }
-              >
-                <Github className="w-4 h-4" />
-                Voir le projet
-                <ExternalLink className="w-3 h-3" />
-              </GlowButton>
+              <div className="flex gap-3">
+                <GlowButton
+                  variant="success"
+                  size="sm"
+                  onClick={() =>
+                    window.open("https://classy-raindrop-17eb77.netlify.app", "_blank")
+                  }
+                >
+                  <Eye className="w-4 h-4" />
+                  Tester la Démo
+                  <ExternalLink className="w-3 h-3" />
+                </GlowButton>
+                <GlowButton
+                  variant="secondary"
+                  size="sm"
+                  onClick={() =>
+                    window.open("https://github.com/eulogep", "_blank")
+                  }
+                >
+                  <Github className="w-4 h-4" />
+                  Code Source
+                </GlowButton>
+              </div>
             </ModernCard>
 
             {/* Password Simulator */}
