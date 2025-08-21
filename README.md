@@ -2,8 +2,15 @@
 
 > **Étudiant-Ingénieur en Cybersécurité & Développement Logiciel | Recherche Alternance 2025**
 
+<<<<<<< HEAD
 [![Portfolio Live](https://img.shields.io/badge/Portfolio-Live-brightgreen?style=for-the-badge)](https://b5543aa56d094c15a4526cd5cd9d58e1-b5575e25003644c681811c698.fly.dev/)
 [![GitHub](https://img.shields.io/badge/GitHub-eulogep-black?style=for-the-badge&logo=github)](https://github.com/eulogep)
+=======
+> **Ce portfolio interactif a été entièrement conçu et développé par Euloge Junior Mabiala, étudiant-ingénieur passionné de cybersécurité. Vous y trouverez mon parcours, mes certifications, mes projets et des liens pour essayer les démos en ligne.**
+
+[![Portfolio Live](https://img.shields.io/badge/Portfolio-Live-brightgreen?style=for-the-badge)](https://your-portfolio-url.com)
+[![GitHub](https://img.shields.io/badge/GitHub-eulogep-eulogep?style=for-the-badge&logo=github)](https://github.com/eulogep)
+>>>>>>> refs/remotes/origin/main
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Euloge%20Junior%20Mabiala-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/euloge-junior-mabiala)
 
 ## 👨‍💻 À Propos
