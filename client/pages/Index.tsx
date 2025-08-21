@@ -949,17 +949,29 @@ export default function Index() {
                   Education
                 </Badge>
               </div>
-              <GlowButton
-                variant="secondary"
-                size="sm"
-                onClick={() =>
-                  window.open("https://github.com/eulogep", "_blank")
-                }
-              >
-                <Github className="w-4 h-4" />
-                Voir le projet
-                <ExternalLink className="w-3 h-3" />
-              </GlowButton>
+              <div className="flex gap-3">
+                <GlowButton
+                  variant="primary"
+                  size="sm"
+                  onClick={() =>
+                    window.open("https://dancing-trifle-bd9ab5.netlify.app/", "_blank")
+                  }
+                >
+                  <Key className="w-4 h-4" />
+                  Tester la Démo
+                  <ExternalLink className="w-3 h-3" />
+                </GlowButton>
+                <GlowButton
+                  variant="secondary"
+                  size="sm"
+                  onClick={() =>
+                    window.open("https://github.com/eulogep", "_blank")
+                  }
+                >
+                  <Github className="w-4 h-4" />
+                  Code Source
+                </GlowButton>
+              </div>
             </ModernCard>
 
             {/* DEX Swap App */}
