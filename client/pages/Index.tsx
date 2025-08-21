@@ -67,6 +67,16 @@ import {
   StatusIndicator,
   DownloadButton,
 } from "@/components/ModernUIComponents";
+import {
+  GradientText,
+  FloatingDots,
+  InteractiveCard,
+  TextReveal,
+  MagneticButton,
+  RippleEffect,
+  ParticleSystem,
+  SpotlightCard,
+} from "@/components/ReactBitsComponents";
 
 export default function Index() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
