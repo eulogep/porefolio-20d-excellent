@@ -120,6 +120,8 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <CyberBackground />
+      <CyberGridBackground />
+      <FloatingParticlesSimple count={30} />
       <FloatingDots density={40} color="#00ff41" maxSize={3} speed={0.8} />
       <ParticleSystem
         particleCount={25}
@@ -369,7 +371,7 @@ export default function Index() {
               <div className="flex items-center gap-2">
                 <Terminal className="w-6 h-6 text-green-400 animate-pulse" />
                 <TypingAnimation
-                  text="Aspirant en Cyber-sécurit��"
+                  text="Aspirant en Cyber-sécurité"
                   speed={100}
                   className="font-light tracking-wide"
                 />
@@ -1313,7 +1315,7 @@ export default function Index() {
           <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-600 rounded-full mx-auto mb-8" />
 
           <p className="text-xl text-gray-400 font-light mb-16 max-w-2xl mx-auto">
-            Intéressé par la cybersécurité ? Discutons d'opportunités de
+            Intéressé par la cybersécurité ? Discutons d'opportunit��s de
             collaboration, de stages ou de projets innovants dans le domaine de
             la sécurité informatique.
           </p>
