@@ -348,20 +348,17 @@ export default function Index() {
           <div className="space-y-6 mb-12">
             <h1 className="text-6xl md:text-8xl font-extralight tracking-wider leading-tight">
               <div className="block">
-                <GradientText
-                  colors={["#ffffff", "#00ff41", "#0066ff", "#8b5cf6"]}
-                  speed={2}
-                  animate={true}
+                <GradientTextSimple
+                  animated={true}
                   className="text-6xl md:text-8xl font-extralight tracking-wider"
                 >
                   EULOGE JUNIOR
-                </GradientText>
+                </GradientTextSimple>
               </div>
               <div className="block text-4xl md:text-5xl font-thin tracking-widest mt-4">
-                <TextReveal
+                <TextRevealSimple
                   text="MABIALA"
-                  delay={2}
-                  speed={0.1}
+                  delay={2000}
                   className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-400 to-purple-400"
                 />
               </div>
@@ -1315,7 +1312,7 @@ export default function Index() {
           <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-600 rounded-full mx-auto mb-8" />
 
           <p className="text-xl text-gray-400 font-light mb-16 max-w-2xl mx-auto">
-            Intéressé par la cybersécurité ? Discutons d'opportunit��s de
+            Intéressé par la cybersécurité ? Discutons d'opportunités de
             collaboration, de stages ou de projets innovants dans le domaine de
             la sécurité informatique.
           </p>
