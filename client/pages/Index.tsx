@@ -333,12 +333,24 @@ export default function Index() {
           {/* Name and Title with Enhanced Typography */}
           <div className="space-y-6 mb-12">
             <h1 className="text-6xl md:text-8xl font-extralight tracking-wider leading-tight">
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-white via-green-200 to-blue-200">
-                EULOGE JUNIOR
-              </span>
-              <span className="block text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 font-thin tracking-widest">
-                MABIALA
-              </span>
+              <div className="block">
+                <GradientText
+                  colors={["#ffffff", "#00ff41", "#0066ff", "#8b5cf6"]}
+                  speed={2}
+                  animate={true}
+                  className="text-6xl md:text-8xl font-extralight tracking-wider"
+                >
+                  EULOGE JUNIOR
+                </GradientText>
+              </div>
+              <div className="block text-4xl md:text-5xl font-thin tracking-widest mt-4">
+                <TextReveal
+                  text="MABIALA"
+                  delay={2}
+                  speed={0.1}
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-400 to-purple-400"
+                />
+              </div>
             </h1>
 
             <div className="flex items-center justify-center space-x-6 text-xl text-gray-300">
