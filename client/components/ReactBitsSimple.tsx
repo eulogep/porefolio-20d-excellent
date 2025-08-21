@@ -7,7 +7,9 @@ export const GradientTextSimple: React.FC<{
   animated?: boolean;
 }> = ({ children, className = "", animated = true }) => {
   return (
-    <span className={`${animated ? 'gradient-text-animated' : 'bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent'} ${className}`}>
+    <span
+      className={`${animated ? "gradient-text-animated" : "bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"} ${className}`}
+    >
       {children}
     </span>
   );
@@ -34,28 +36,30 @@ export const RippleEffectSimple: React.FC<{
   children: React.ReactNode;
   className?: string;
 }> = ({ children, className = "" }) => {
-  const [ripples, setRipples] = useState<Array<{ id: number; x: number; y: number }>>([]);
+  const [ripples, setRipples] = useState<
+    Array<{ id: number; x: number; y: number }>
+  >([]);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleClick = (e: React.MouseEvent) => {
     if (!containerRef.current) return;
-    
+
     const rect = containerRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const newRipple = { id: Date.now(), x, y };
-    setRipples(prev => [...prev, newRipple]);
-    
+    setRipples((prev) => [...prev, newRipple]);
+
     setTimeout(() => {
-      setRipples(prev => prev.filter(ripple => ripple.id !== newRipple.id));
+      setRipples((prev) => prev.filter((ripple) => ripple.id !== newRipple.id));
     }, 600);
   };
 
   return (
-    <div 
+    <div
       ref={containerRef}
-      className={`ripple-container ${className}`} 
+      className={`ripple-container ${className}`}
       onClick={handleClick}
     >
       {children}
@@ -85,16 +89,16 @@ export const SpotlightCardSimple: React.FC<{
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!cardRef.current) return;
-    
+
     const rect = cardRef.current.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
-    
+
     setMousePosition({ x, y });
-    
+
     // Update CSS custom properties
-    cardRef.current.style.setProperty('--mouse-x', `${x}%`);
-    cardRef.current.style.setProperty('--mouse-y', `${y}%`);
+    cardRef.current.style.setProperty("--mouse-x", `${x}%`);
+    cardRef.current.style.setProperty("--mouse-y", `${y}%`);
   };
 
   return (
@@ -113,11 +117,7 @@ export const InteractiveCardSimple: React.FC<{
   children: React.ReactNode;
   className?: string;
 }> = ({ children, className = "" }) => {
-  return (
-    <div className={`interactive-card ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={`interactive-card ${className}`}>{children}</div>;
 };
 
 // Text Reveal Component
@@ -136,7 +136,7 @@ export const TextRevealSimple: React.FC<{
           setTimeout(() => setIsVisible(true), delay);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (ref.current) {
@@ -153,8 +153,8 @@ export const TextRevealSimple: React.FC<{
           key={index}
           className="text-reveal-char"
           style={{
-            animationDelay: isVisible ? `${index * 0.05}s` : 'none',
-            animationFillMode: 'forwards'
+            animationDelay: isVisible ? `${index * 0.05}s` : "none",
+            animationFillMode: "forwards",
           }}
         >
           {char === " " ? "\u00A0" : char}
@@ -198,11 +198,7 @@ export const GlassContainerReactBits: React.FC<{
   children: React.ReactNode;
   className?: string;
 }> = ({ children, className = "" }) => {
-  return (
-    <div className={`glass-reactbits ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={`glass-reactbits ${className}`}>{children}</div>;
 };
 
 // Enhanced Button with ReactBits styling
@@ -213,10 +209,14 @@ export const ButtonReactBits: React.FC<{
   className?: string;
 }> = ({ children, onClick, variant = "primary", className = "" }) => {
   const variantClasses = {
-    primary: "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500",
-    secondary: "bg-gradient-to-r from-green-600 to-cyan-600 hover:from-green-500 hover:to-cyan-500",
-    success: "bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500",
-    danger: "bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500"
+    primary:
+      "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500",
+    secondary:
+      "bg-gradient-to-r from-green-600 to-cyan-600 hover:from-green-500 hover:to-cyan-500",
+    success:
+      "bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500",
+    danger:
+      "bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-500 hover:to-orange-500",
   };
 
   return (
@@ -239,19 +239,24 @@ export const CyberGridBackground: React.FC<{
   className?: string;
 }> = ({ className = "" }) => {
   return (
-    <div className={`
+    <div
+      className={`
       fixed inset-0 pointer-events-none opacity-20 z-0
       bg-gradient-to-br from-green-900/10 via-blue-900/5 to-purple-900/10
       ${className}
-    `}>
-      <div className="absolute inset-0" style={{
-        backgroundImage: `
+    `}
+    >
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `
           linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px),
           linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px)
         `,
-        backgroundSize: '50px 50px',
-        animation: 'grid-move 20s linear infinite'
-      }} />
+          backgroundSize: "50px 50px",
+          animation: "grid-move 20s linear infinite",
+        }}
+      />
     </div>
   );
 };
@@ -270,7 +275,7 @@ export const LoadingDotsSimple: React.FC<{
           style={{
             backgroundColor: color,
             animationDelay: `${i * 0.2}s`,
-            animationDuration: '1.5s'
+            animationDuration: "1.5s",
           }}
         />
       ))}

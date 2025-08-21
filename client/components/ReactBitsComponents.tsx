@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import { motion, AnimatePresence, useInView, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useInView,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 
 // Gradient Text Component - inspired by ReactBits
 export const GradientText: React.FC<{
@@ -8,18 +14,18 @@ export const GradientText: React.FC<{
   speed?: number;
   className?: string;
   animate?: boolean;
-}> = ({ 
-  children, 
-  colors = ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#ffeaa7"], 
+}> = ({
+  children,
+  colors = ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#ffeaa7"],
   speed = 3,
   className = "",
-  animate = true 
+  animate = true,
 }) => {
   const [gradientPosition, setGradientPosition] = useState(0);
 
   useEffect(() => {
     if (!animate) return;
-    
+
     const interval = setInterval(() => {
       setGradientPosition((prev) => (prev + 1) % 360);
     }, 100 / speed);
@@ -27,19 +33,21 @@ export const GradientText: React.FC<{
     return () => clearInterval(interval);
   }, [speed, animate]);
 
-  const gradientStyle = animate ? {
-    background: `linear-gradient(${gradientPosition}deg, ${colors.join(", ")})`,
-    backgroundClip: "text",
-    WebkitBackgroundClip: "text",
-    color: "transparent",
-    backgroundSize: "400% 400%",
-    animation: `gradient-shift ${speed}s ease infinite`,
-  } : {
-    background: `linear-gradient(45deg, ${colors.join(", ")})`,
-    backgroundClip: "text",
-    WebkitBackgroundClip: "text",
-    color: "transparent",
-  };
+  const gradientStyle = animate
+    ? {
+        background: `linear-gradient(${gradientPosition}deg, ${colors.join(", ")})`,
+        backgroundClip: "text",
+        WebkitBackgroundClip: "text",
+        color: "transparent",
+        backgroundSize: "400% 400%",
+        animation: `gradient-shift ${speed}s ease infinite`,
+      }
+    : {
+        background: `linear-gradient(45deg, ${colors.join(", ")})`,
+        backgroundClip: "text",
+        WebkitBackgroundClip: "text",
+        color: "transparent",
+      };
 
   return (
     <span className={className} style={gradientStyle}>
@@ -56,7 +64,9 @@ export const FloatingDots: React.FC<{
   speed?: number;
 }> = ({ density = 50, color = "#00ff41", maxSize = 4, speed = 0.5 }) => {
   const dotsRef = useRef<HTMLDivElement>(null);
-  const [dots, setDots] = useState<Array<{ id: number; x: number; y: number; size: number; speed: number }>>([]);
+  const [dots, setDots] = useState<
+    Array<{ id: number; x: number; y: number; size: number; speed: number }>
+  >([]);
 
   useEffect(() => {
     const newDots = Array.from({ length: density }, (_, i) => ({
@@ -70,7 +80,10 @@ export const FloatingDots: React.FC<{
   }, [density, maxSize, speed]);
 
   return (
-    <div ref={dotsRef} className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div
+      ref={dotsRef}
+      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
+    >
       {dots.map((dot) => (
         <motion.div
           key={dot.id}
@@ -110,14 +123,14 @@ export const InteractiveCard: React.FC<{
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!cardRef.current) return;
-    
+
     const rect = cardRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
-    const rotateX = (e.clientY - centerY) / (rect.height / 2) * tiltAmount;
-    const rotateY = (e.clientX - centerX) / (rect.width / 2) * tiltAmount;
-    
+
+    const rotateX = ((e.clientY - centerY) / (rect.height / 2)) * tiltAmount;
+    const rotateY = ((e.clientX - centerX) / (rect.width / 2)) * tiltAmount;
+
     setMousePosition({ x: rotateY, y: -rotateX });
   };
 
@@ -143,19 +156,19 @@ export const InteractiveCard: React.FC<{
       {/* Glow effect */}
       <motion.div
         className="absolute -inset-1 rounded-xl opacity-0"
-        style={{ 
-          background: `radial-gradient(circle at ${mousePosition.x > 0 ? 'right' : 'left'}, ${glowColor}40, transparent 70%)`,
-          filter: "blur(20px)"
+        style={{
+          background: `radial-gradient(circle at ${mousePosition.x > 0 ? "right" : "left"}, ${glowColor}40, transparent 70%)`,
+          filter: "blur(20px)",
         }}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       />
-      
+
       {/* Card content */}
       <div className="relative z-10 bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden">
         {children}
       </div>
-      
+
       {/* Reflection effect */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-xl opacity-0"
@@ -176,7 +189,7 @@ export const TextReveal: React.FC<{
 }> = ({ text, delay = 0, speed = 0.05, className = "" }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
-  
+
   return (
     <div ref={ref} className={className}>
       <AnimatePresence>
@@ -185,10 +198,10 @@ export const TextReveal: React.FC<{
             key={index}
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ 
+            transition={{
               delay: delay + index * speed,
               duration: 0.6,
-              ease: "easeOut"
+              ease: "easeOut",
             }}
             className="inline-block"
           >
@@ -212,14 +225,14 @@ export const MagneticButton: React.FC<{
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!buttonRef.current) return;
-    
+
     const rect = buttonRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    
+
     const deltaX = (e.clientX - centerX) * magneticStrength;
     const deltaY = (e.clientY - centerY) * magneticStrength;
-    
+
     setPosition({ x: deltaX, y: deltaY });
   };
 
@@ -249,25 +262,30 @@ export const RippleEffect: React.FC<{
   duration?: number;
   className?: string;
 }> = ({ children, color = "#00ff41", duration = 0.6, className = "" }) => {
-  const [ripples, setRipples] = useState<Array<{ id: number; x: number; y: number }>>([]);
+  const [ripples, setRipples] = useState<
+    Array<{ id: number; x: number; y: number }>
+  >([]);
 
   const handleClick = (e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const newRipple = { id: Date.now(), x, y };
-    setRipples(prev => [...prev, newRipple]);
-    
+    setRipples((prev) => [...prev, newRipple]);
+
     setTimeout(() => {
-      setRipples(prev => prev.filter(ripple => ripple.id !== newRipple.id));
+      setRipples((prev) => prev.filter((ripple) => ripple.id !== newRipple.id));
     }, duration * 1000);
   };
 
   return (
-    <div className={`relative overflow-hidden ${className}`} onClick={handleClick}>
+    <div
+      className={`relative overflow-hidden ${className}`}
+      onClick={handleClick}
+    >
       {children}
-      
+
       {ripples.map((ripple) => (
         <motion.div
           key={ripple.id}
@@ -278,12 +296,12 @@ export const RippleEffect: React.FC<{
             backgroundColor: color,
           }}
           initial={{ width: 0, height: 0, opacity: 0.8 }}
-          animate={{ 
-            width: 200, 
-            height: 200, 
+          animate={{
+            width: 200,
+            height: 200,
             opacity: 0,
             x: -100,
-            y: -100
+            y: -100,
           }}
           transition={{ duration }}
         />
@@ -298,22 +316,25 @@ export const ParticleSystem: React.FC<{
   colors?: string[];
   size?: { min: number; max: number };
   speed?: { min: number; max: number };
-}> = ({ 
-  particleCount = 30, 
+}> = ({
+  particleCount = 30,
   colors = ["#00ff41", "#0066ff", "#ff6b6b"],
   size = { min: 2, max: 6 },
-  speed = { min: 1, max: 3 }
+  speed = { min: 1, max: 3 },
 }) => {
-  const particles = useMemo(() => 
-    Array.from({ length: particleCount }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * (size.max - size.min) + size.min,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      speed: Math.random() * (speed.max - speed.min) + speed.min,
-      direction: Math.random() * 360,
-    })), [particleCount, colors, size, speed]);
+  const particles = useMemo(
+    () =>
+      Array.from({ length: particleCount }, (_, i) => ({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() * (size.max - size.min) + size.min,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        speed: Math.random() * (speed.max - speed.min) + speed.min,
+        direction: Math.random() * 360,
+      })),
+    [particleCount, colors, size, speed],
+  );
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
@@ -329,8 +350,8 @@ export const ParticleSystem: React.FC<{
             top: `${particle.y}%`,
           }}
           animate={{
-            x: [0, Math.cos(particle.direction * Math.PI / 180) * 100],
-            y: [0, Math.sin(particle.direction * Math.PI / 180) * 100],
+            x: [0, Math.cos((particle.direction * Math.PI) / 180) * 100],
+            y: [0, Math.sin((particle.direction * Math.PI) / 180) * 100],
             opacity: [0.8, 0],
           }}
           transition={{
@@ -356,7 +377,7 @@ export const SpotlightCard: React.FC<{
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!cardRef.current) return;
-    
+
     const rect = cardRef.current.getBoundingClientRect();
     setMousePosition({
       x: e.clientX - rect.left,
@@ -379,11 +400,9 @@ export const SpotlightCard: React.FC<{
           background: `radial-gradient(circle 150px at ${mousePosition.x}px ${mousePosition.y}px, ${spotlightColor}15, transparent 80%)`,
         }}
       />
-      
+
       {/* Content */}
-      <div className="relative z-10">
-        {children}
-      </div>
+      <div className="relative z-10">{children}</div>
     </div>
   );
 };

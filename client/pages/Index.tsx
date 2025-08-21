@@ -897,7 +897,10 @@ export default function Index() {
                   variant="success"
                   size="sm"
                   onClick={() =>
-                    window.open("https://classy-raindrop-17eb77.netlify.app", "_blank")
+                    window.open(
+                      "https://classy-raindrop-17eb77.netlify.app",
+                      "_blank",
+                    )
                   }
                 >
                   <Eye className="w-4 h-4" />
@@ -954,7 +957,10 @@ export default function Index() {
                   variant="primary"
                   size="sm"
                   onClick={() =>
-                    window.open("https://dancing-trifle-bd9ab5.netlify.app/", "_blank")
+                    window.open(
+                      "https://dancing-trifle-bd9ab5.netlify.app/",
+                      "_blank",
+                    )
                   }
                 >
                   <Key className="w-4 h-4" />
