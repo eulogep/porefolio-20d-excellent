@@ -1021,7 +1021,10 @@ export default function Index() {
                   variant="primary"
                   size="sm"
                   onClick={() =>
-                    window.open("https://eulogep.github.io/dex-swap-app/", "_blank")
+                    window.open(
+                      "https://eulogep.github.io/dex-swap-app/",
+                      "_blank",
+                    )
                   }
                 >
                   <Globe className="w-4 h-4" />
